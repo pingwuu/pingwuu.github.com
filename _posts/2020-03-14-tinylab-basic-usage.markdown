@@ -38,7 +38,7 @@ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 
 
-Aliyun Mirrors Setting:
+Aliyun Mirrors Setting if your network speed is slow to access https://download.docker.com/ site:
 
 ```
 # step 1: 安装必要的一些系统工具
@@ -76,8 +76,6 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 # curl -fsSL http://mirrors.cloud.aliyuncs.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
 # sudo add-apt-repository "deb [arch=amd64] http://mirrors.cloud.aliyuncs.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable"
 ```
-
-
 
 
 
@@ -176,7 +174,7 @@ $ sudo docker run hello-world
 $ sudo usermod -aG docker $USER
 ```
 
-# 3. Tinylab setup
+# 3. Tinylab setup & run
 
 ```
 $ git clone https://gitee.com/tinylab/cloud-lab.git
@@ -186,6 +184,39 @@ $ tools/docker/pull   # Pull from docker hub
 $ tools/docker/run
 $ tools/docker/vnc
 ```
+
+
+
+# 4. Add a new board to linux-lab
+
+Using arm/mcimx6ul-evk as example to describle.
+
+1) Add a repo for bsp
+
+
+
+
+
+Misc
+
+====================================================
+
+Build qemu4.2.0 under tinyclub issue:
+
+ubuntu@linux-lab:/labs/linux-lab$ make qemu-defconfig
+
+[ internal gcc-4.7 ]:
+
+Remote.:
+Local..: /usr/bin/
+Tool...: arm-linux-gnueabi-gcc
+Version: arm-linux-gnueabi-gcc (Ubuntu/Linaro 4.7.3-12ubuntu1) 4.7.3
+More...: /usr/bin/arm-linux-gnueabi-gcc-4.3 /usr/bin/arm-linux-gnueabi-gcc-4.7
+
+
+ERROR: glib-2.48 gthread-2.0 is required to compile QEMU
+
+make: *** [/labs/linux-lab/output/arm/qemu-v4.2.0-mcimx6ul-evk/.stamp_qemu-defconfig] Error 1
 
 
 

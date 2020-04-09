@@ -339,6 +339,19 @@ git reset --hard upstream/master
 git push origin master --force
 ```
 
+# 9. Submodule
+
+## 9.1 add submodule
+
+```
+$ git submodule add <url> <path>	//add submodule
+$ git diff --cached 				//check added submodule info
+$ git commit ...					//commit
+$ git push ...						//push to repo
+```
+
+
+
 # 99. Reference URL
 
 * 1) [Git mirror available in Beijing](http://cdn.kernel.org/beijing-git-mirror.html)

@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title:  "Qemu Basic Usage"
 date:   2020-03-20 23:55:00 +0800
@@ -9,6 +10,8 @@ comments: true
 # 1. Buildroot for Qemu Env
 
 For simply, we using buildroot to build u-boot, kernel, rootfs and qemu.
+
+## 1.1 qemu for arm vexpress board
 
 ```
 //clone buildroot
@@ -52,11 +55,104 @@ dual-core or even "smp -4" for a quad-core configuration.
 
 
 
+## 1.1 qemu for freescale imx6ulevk board
+
+```
+$ git clone https://gitee.com/pingwuu/buildroot.git
+$ cd buildroot
+
+//make config
+$ make qemu_imx6ulevk_defconfig
+$ make -j8
+
+//run qemu withou graphic UI
+$ output/host/usr/bin/qemu-system-arm \
+-M mcimx6ul-evk \
+-m 512M \
+-dtb output/images/imx6ul-14x14-evk.dtb \
+-kernel output/images/zImage \
+-drive  file=output/images/rootfs.ext4,format=raw,id=mysdcard -device sd-card,drive=mysdcard \
+-append "console=ttymxc0,115200 rootfstype=ext4 root=/dev/mmcblk1 rw rootwait init=/sbin/init  loglevel=8" \
+-nographic -serial mon:stdio \
+-nic user
+```
+
+In order run imx6ul board under qemu, need modify imx6ul-14x14.dts as below
+
+```
+// SPDX-License-Identifier: GPL-2.0
+//
+// Copyright (C) 2015 Freescale Semiconductor, Inc.
+
+/dts-v1/;
+
+#include "imx6ul.dtsi"
+#include "imx6ul-14x14-evk.dtsi"
+
+/ {
+	model = "Freescale i.MX6 UltraLite 14x14 EVK Board";
+	compatible = "fsl,imx6ul-14x14-evk", "fsl,imx6ul";
+};
+
+&can1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_flexcan1>;
+	xceiver-supply = <&reg_can_3v3>;
+	status = "disabled";
+};
+
+&can2 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_flexcan2>;
+	xceiver-supply = <&reg_can_3v3>;
+	status = "disabled";
+};
+
+&pwm1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_pwm1>;
+	status = "disabled";
+};
+
+```
+
+```
+//buildroot qemu + nxp imx6ul kernel + 100askrootfs ok
+output/host/usr/bin/qemu-system-arm \
+ -M mcimx6ul-evk \
+ -m 512M \
+-kernel output/images/zImage \
+-dtb output/images/imx6ul-14x14-evk.dtb \
+ -nographic -serial mon:stdio \
+ -drive  file=output/images/rootfs.img,format=raw,id=mysdcard -device sd-card,drive=mysdcard \
+ -append "console=ttymxc0,115200 rootfstype=ext4 root=/dev/mmcblk1  rw rootwait init=/sbin/init  loglevel=8" \
+ -nic user
+```
+
+```
+//initram fs
+$ output/host/usr/bin/qemu-system-arm \
+-M mcimx6ul-evk \
+-kernel output/images/zImage \
+-no-reboot -initrd output/images/rootfs.ext4 \
+-m 256 -display none -serial null \
+--append 'rdinit=/sbin/init earlycon=ec_imx6q,mmio,0x21e8000,115200n8 console=ttymxc0,115200' \
+-dtb output/images/imx6ul-14x14-evk.dtb \
+-nographic -monitor null -serial stdio
+```
+
+
+
+
+
 # 2. Buildroot useful command
 
 1)  Rebuild specify package
 
 ```
+//config linux kernel
+$ make linux-menuconfig
+
 //rebuild linux kernel
 $ make linux-rebuild
 ```
@@ -71,6 +167,12 @@ $ make linux-rebuild
 
 ```
 
+```
+
+2) Disable binfmt_misc
+
+```
+echo 0 > /proc/sys/fs/binfmt_misc/qemu-arm
 ```
 
 

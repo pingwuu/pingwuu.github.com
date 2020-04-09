@@ -76,6 +76,47 @@ $ sudo service smbd restart
 
 
 
+# 3. Proxy setting
+
+1) Proxy via socks5
+
+```
+sudo apt-get -o Acquire::http::proxy="socks5h://127.0.0.1:1080/" update
+```
+
+2) Proxy setting
+
+```
+# 设置http代理
+export http_proxy=
+
+# 设置https代理
+export HTTPS_PROXY=
+
+# 设置ftp代理
+export FTP_PROXY=
+
+# 同时设置http、https以及ftp代理
+export ALL_PROXY=
+
+=================================================================================
+Proxy setting on terminal
+# 设置代理，只在当前终端有效
+$ export http_proxy=http://<IP>:<PORT>
+或是
+$ export http_proxy=socks5://127.0.0.1:1080
+$ export HTTPS_PROXY=socks5://127.0.0.1:1080
+
+# 取消代理
+$ unset http_proxy
+$ unset https_proxy
+
+```
+
+Reference URL: https://www.cnblogs.com/hupeng1234/p/9783336.html
+
+
+
 # 99. Reference URL
 
 1) [https://wiki.apertis.org/Main_Page](https://wiki.apertis.org/Main_Page)
