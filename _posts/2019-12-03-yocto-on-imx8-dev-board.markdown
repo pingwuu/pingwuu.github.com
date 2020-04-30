@@ -72,6 +72,12 @@ $ repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-li
 //change branch & manifest
 $ repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-sumo -m imx-4.14.98-2.3.1.xml
 
+//imx-4.14.98-2.3.0.xml: Create release manifest for i.MX 8QXP C0 GA && i.MX 8MN Post GA release [YOCIMX-4182]
+//https://source.codeaurora.org/external/imx/imx-manifest/commit/?h=imx-linux-sumo&id=b97a289a76401a0c6849f2f4749a99b1e49f1c28
+
+//To download the 4.14.98-2.3.0 i.MX 8QXP C0 GA && i.MX 8MN Post GA release
+$ repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-sumo -m imx-4.14.98-2.3.0.xml
+
 //Build configurations
 $ DISTRO=fsl-imx-wayland MACHINE=imx8qxpmek source fsl-setup-release.sh -b build-wayland
 

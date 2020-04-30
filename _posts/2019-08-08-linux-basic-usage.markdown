@@ -117,6 +117,18 @@ Reference URL: https://www.cnblogs.com/hupeng1234/p/9783336.html
 
 
 
+# 4. DTC
+
+# 4.1 Decompile dtb to dts
+
+```
+[kris@:~/kernel_imx/scripts/dtc]$
+
+./dtc -I dtb -O dts ../../arch/arm/boot/dts/imx6q-sabresd-ldo.dtb  > ~/f.dts
+```
+
+
+
 # 99. Reference URL
 
 1) [https://wiki.apertis.org/Main_Page](https://wiki.apertis.org/Main_Page)
