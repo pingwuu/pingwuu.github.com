@@ -78,8 +78,23 @@ $ repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-li
 //To download the 4.14.98-2.3.0 i.MX 8QXP C0 GA && i.MX 8MN Post GA release
 $ repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-sumo -m imx-4.14.98-2.3.0.xml
 
+sumo-4.14.98-2.3.0
+
 //Build configurations
 $ DISTRO=fsl-imx-wayland MACHINE=imx8qxpmek source fsl-setup-release.sh -b build-wayland
+
+or
+
+$ DISTRO=fsl-imx-xwayland MACHINE=imx8qxpmek source fsl-setup-release.sh -b build-xwayland
+
+//For QXP C0 MEK board
+$ DISTRO=fsl-imx-wayland MACHINE=imx8qxpc0mek source fsl-setup-release.sh -b build-wayland
+
+or
+
+$ DISTRO=fsl-imx-xwayland MACHINE=imx8qxpc0mek source fsl-setup-release.sh -b build-xwayland
+
+
 
 //Enter build dir with env after firt congifurations
 $ source setup-environment build-wayland/
@@ -98,6 +113,9 @@ INHERIT += "rm_work"
 // Building an imange
 # A small image that only allows a device to boot
 $ bitbake core-image-minimal
+
+//build for mfgtool initramfs
+$ bitbake fsl-image-mfgtool-initramfs
 
 //Builds an i.MX image with a GUI without any Qt content
 $ bitbake fsl-image-validation-imx
@@ -170,6 +188,45 @@ If one package build failed, you can clean and then rebuild it as below instruct
   $ bitbake gstreamer
   ```
 
+*  //rebuild u-boot-imx
+
+  ```
+  bitbake -c clean u-boot-imx
+  
+  bitbake -c compile -f u-boot-imx
+  
+  bitbake -f u-boot-imx
+  ```
+
+* How are you choosing which kernel is built?
+  ```
+  How are you choosing which kernel is built?
+  
+  Also, just because you rebuild some component, e.g. the kernel, bitbake
+  won't rebuild other things you might have previously built that depends
+  on that component.  If, as in your case, you have an image that depends
+  on the component, you'll need to explicitly rebuild that image.
+  
+  Hopefully this sequence will help you understand the process:
+     % bitbake core-image-minimal
+  builds all of the component pieces for the resulting image (root file
+  system), including the kernel, etc.
+     % ... make some change, e.g. choose a different kernel
+     % bitbake core-image-minimal
+  will [re]build any components which need to be updated.  One key thing
+  to understand is that the version of components are expected to increase
+  so if you first force the 2.6.35 kernel to be built, then build a 3.14.19
+  version, if you rebuild the 2.6.35 version, the core-image-minimal WILL
+  NOT be rebuilt automatically.  The only way to get back to the older
+  kernel will be to forceably remove all traces of the new kernel and
+  then force a rebuild of the image.  For example:
+     % bitbake linux-fslc -c cleansstate
+     % bitbake core-image-minimal -c cleansstate
+     ... change preference for linux-imx
+     % bitbake core-image-minimal
+  This sequence will let you rebuild the older kernel and then build
+  the root file system (.sdcard) image.
+  ```
   
 
 # 6. Flashing an SD card image

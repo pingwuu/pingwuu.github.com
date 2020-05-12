@@ -172,7 +172,8 @@ Use emphasis in comments to express **strong** opinions and point out ~~correcti
 
 # Reference URL
 
-[1. Syntax guidance for basic Markdown usage](https://docs.microsoft.com/en-us/azure/devops/project/wiki/markdown-guidance?view=azure-devops)
+1. [Syntax guidance for basic Markdown usage](https://docs.microsoft.com/en-us/azure/devops/project/wiki/markdown-guidance?view=azure-devops)
+2. [https://github.com/zhaoterryy/mkdocs-pdf-export-plugin](https://github.com/zhaoterryy/mkdocs-pdf-export-plugin)
 
 
 
