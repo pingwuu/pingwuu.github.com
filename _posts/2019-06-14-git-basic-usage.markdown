@@ -68,11 +68,9 @@ $ git lfs install
 $ ssh-keygen -t rsa -C "your_email@example.com"
 ```
 
-## 2.2 Add public key to your bitbucket or github account
+## 2.2 Add public key to your bitbucket, github or gitee account
 
 --- Please refer [https://confluence.atlassian.com/bitbucketserver/ssh-user-keys-for-personal-use-776639793.html](https://confluence.atlassian.com/bitbucketserver/ssh-user-keys-for-personal-use-776639793.html)
-
-
 
 ```
 1) Check ssh key for github
@@ -84,7 +82,11 @@ Hi username! You've successfully authenticated, but GitHub does not
 ```
 2) Check ssh key for bitbucket
 > $ ssh -T git@bitbucket.org
+```
 
+```
+3)Check ssh key for Gitee
+$ ssh -T git@gitee.com
 ```
 
 

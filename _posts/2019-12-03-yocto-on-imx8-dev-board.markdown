@@ -110,6 +110,8 @@ PARALLEL_MAKE = "-j 8"
 
 INHERIT += "rm_work"
 
+RM_WORK_EXCLUDE += "linux-imx u-boot-imx"
+
 // Building an imange
 # A small image that only allows a device to boot
 $ bitbake core-image-minimal
