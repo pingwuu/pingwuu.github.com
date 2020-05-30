@@ -15,6 +15,8 @@ Ubuntu 16.04.6 LTS
 
 # 1. Update build Environment
 
+## 1.1 For Ubuntu18.04
+
 ```
 $ sudo apt-get install gawk wget git diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev libncurses5-dev
 
@@ -27,6 +29,18 @@ $ sudo apt-get install make xsltproc docbook-utils fop dblatex xmlto
 $ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev
 $ sudo apt-get install libsdl1.2-dev xterm sed cvs subversion coreutils texi2html python-pysqlite2 help2man make gcc g++ desktop-file-utils libgl1-mesa-dev libglu1-mesa-dev mercurial autoconf automake groff curl lzop asciidoc u-boot-tools
 ```
+
+## 1.2 For Ubuntu 20.04
+
+```
+$ sudo apt-get install gawk wget git diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev libncurses5-dev
+
+//Essentials: Packages needed to build an image on a headless system:
+$ sudo apt-get install gawk wget git diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint xterm
+
+```
+
+
 
 # 2. Install repo
 
@@ -94,8 +108,6 @@ or
 
 $ DISTRO=fsl-imx-xwayland MACHINE=imx8qxpc0mek source fsl-setup-release.sh -b build-xwayland
 
-
-
 //Enter build dir with env after firt congifurations
 $ source setup-environment build-wayland/
 
@@ -105,12 +117,18 @@ A Yocto Project build can take considerable build resources both in time and dis
 DL_DIR="/opt/yocto/downloads"
 SSTATE_DIR="/opt/yocto/sstate-cache"
 
-BB_NUMBER_THREADS = "8"
-PARALLEL_MAKE = "-j 8"
+BB_NUMBER_THREADS = "16"
+PARALLEL_MAKE = "-j 16"
 
 INHERIT += "rm_work"
 
 RM_WORK_EXCLUDE += "linux-imx u-boot-imx"
+
+#check connectivity using google
+CONNECTIVITY_CHECK_URIS = "https://www.google.com/"
+
+#skip connectivity checks
+CONNECTIVITY_CHECK_URIS = ""
 
 // Building an imange
 # A small image that only allows a device to boot
@@ -142,6 +160,24 @@ build-wayland/tmp/deploy/sdk$ ./fsl-imx-wayland-glibc-x86_64-fsl-image-qt5-valid
 
 //Using sdk
 $ source /opt/fsl-imx-wayland/4.14-sumo/environment-setup-aarch64-poky-linux
+
+=========================================================================================
+//imx-4.14.98-2.3.0.xml + fsl-imx-wayland distro for imx8qxpc0mek board SDK
+$ repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-sumo -m imx-4.14.98-2.3.1.xml
+$ DISTRO=fsl-imx-wayland MACHINE=imx8qxpc0mek source fsl-setup-release.sh -b build-wayland
+//Build SDK
+$ bitbake fsl-image-validation-imx -c populate_sdk
+
+
+=========================================================================================
+//imx-5.4.3-2.0.0.xml + fsl-imx-wayland distro for imx8qxpmek board SDK
+$ repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-zeus -m imx-5.4.3-2.0.0.xml
+
+$ DISTRO=fsl-imx-wayland MACHINE=imx8qxpmek source imx-setup-release.sh -b build-wayland
+
+//Build SDK
+$ bitbake fsl-image-validation-imx -c populate_sdk
+
 ```
 
 ## 4.2 Change branch & manifest
