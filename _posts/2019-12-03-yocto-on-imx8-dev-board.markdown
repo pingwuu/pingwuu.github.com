@@ -162,12 +162,11 @@ build-wayland/tmp/deploy/sdk$ ./fsl-imx-wayland-glibc-x86_64-fsl-image-qt5-valid
 $ source /opt/fsl-imx-wayland/4.14-sumo/environment-setup-aarch64-poky-linux
 
 =========================================================================================
-//imx-4.14.98-2.3.0.xml + fsl-imx-wayland distro for imx8qxpc0mek board SDK
+//imx-4.14.98-2.3.1.xml + fsl-imx-wayland distro for imx8qxpc0mek board SDK
 $ repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-sumo -m imx-4.14.98-2.3.1.xml
 $ DISTRO=fsl-imx-wayland MACHINE=imx8qxpc0mek source fsl-setup-release.sh -b build-wayland
 //Build SDK
 $ bitbake fsl-image-validation-imx -c populate_sdk
-
 
 =========================================================================================
 //imx-5.4.3-2.0.0.xml + fsl-imx-wayland distro for imx8qxpmek board SDK
