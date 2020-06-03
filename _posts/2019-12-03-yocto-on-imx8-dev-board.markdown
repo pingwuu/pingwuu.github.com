@@ -266,7 +266,39 @@ If one package build failed, you can clean and then rebuild it as below instruct
   ```
   
 
-# 6. Flashing an SD card image
+# 6. Build out of yocto
+
+## 6.1 Build u-boot
+
+```
+
+```
+
+
+
+## 6.2 Build kernel
+
+```
+$ source /opt/fsl-imx-wayland/5.4-zeus/environment-setup-aarch64-poky-linux
+$ make defconfig						//for 4.x or older version
+$ make imx_v8_defconfig					//for 5.x or newer version
+$ LDFLAGS="" CC="$CC" make dtbs -j8		//make dtbs
+$ LDFLAGS="" CC="$CC" make Image -j8	//make Image
+```
+
+## 6.3 Build HMI Framework
+
+```
+
+```
+
+## 6.4 Build Application
+
+```
+
+```
+
+# 7. Flashing an SD card image
 
 ```
 $ bunzip2 -dk -f <image_name>.sdcard.bz2 
