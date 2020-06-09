@@ -380,6 +380,64 @@ $ git push ...						//push to repo
 
 
 
+# 10. Export and Import Patches with git
+
+REF: https://davidwalsh.name/git-export-patch
+
+## 10.1 Exporting a Patch
+
+Let's say you've created a feature branch for your impending changeset, made changes, and committed those changes.  Now it's time to export your commits to a patch file -- you would execute the following:
+
+```shell
+git format-patch master --stdout > my-patch-file.patch
+```
+
+The command above outputs your commits to a `.patch` file.  This patch file can be imported into other repositories for testing, application, etc.  Some repositories require the most detailed patch output.  You can provide that with:
+
+```shell
+git format-patch master --full-index --stdout > my-patch-file.patch
+```
+
+From the git documentation, `--full-index` signifies: *Instead of the first handful of characters, show the full pre- and post-image blob object names on the "index" line when generating patch format output.*
+
+## 10.2 Importing a Patch
+
+If you receive a patch file, you'll want to do a few checks before trying to merge it!
+
+### Ensure Patch Relevance
+
+You can ensure the patch applies to the current set of work:
+
+```shell
+# See if patch is applicable
+git apply --check my-patch-file.patch
+
+# Ensure patch applies to current index
+git apply --index my-patch-file.patch
+```
+
+### View Patch Diff Information
+
+If you want to know which files have been changed, added, or removed, you can use the following command:
+
+```shell
+# See which files have been changed
+git apply --stat my-patch-file.patch
+```
+
+### Merge the Code
+
+Once you're satisfied with the patch code and want to merge and test (testing should be done on a feature branch), you can execute:
+
+```shell
+# Signs the patch by merger for history
+git am --signoff my-patch-file.patch
+```
+
+Welcome to some of the operations that GitHub (and likewise services) do for us in the background.  I love doing stuff from [command line](https://davidwalsh.name/tutorials/shell) but I'd much rather use  an elegant front-end for this type of stuff.  In the case you're stuck without a UI, however, keep these commands handy!
+
+
+
 # 99. Reference URL
 
 * 1) [Git mirror available in Beijing](http://cdn.kernel.org/beijing-git-mirror.html)

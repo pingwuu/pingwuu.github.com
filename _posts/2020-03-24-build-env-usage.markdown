@@ -8,6 +8,18 @@ comments: true
 
 # 1. 
 
+# 90. FAQ
+
+## 90.1 'make menuconfig' requires the ncurses libraries
+
+**Answer:**		
+
+```
+
+```
+
+
+
 # 99. Reference URL
 
 * 1) [Using GitHub Actions with C++ and CMake](https://cristianadam.eu/20191222/using-github-actions-with-c-plus-plus-and-cmake/)
