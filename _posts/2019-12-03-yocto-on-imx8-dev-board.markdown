@@ -21,12 +21,14 @@ Ubuntu 16.04.6 LTS
 $ sudo apt-get install gawk wget git diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev libncurses5-dev
 
 //Essentials: Packages needed to build an image on a headless system:
-$ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm
+$ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm git-lfs
 
+$ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev
+
+//Below if for build yocto documents
 //Documentation: Packages needed if you are going to build out the Yocto Project documentation manuals:
 $ sudo apt-get install make xsltproc docbook-utils fop dblatex xmlto
 
-$ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev
 $ sudo apt-get install libsdl1.2-dev xterm sed cvs subversion coreutils texi2html python-pysqlite2 help2man make gcc g++ desktop-file-utils libgl1-mesa-dev libglu1-mesa-dev mercurial autoconf automake groff curl lzop asciidoc u-boot-tools
 ```
 
@@ -122,13 +124,21 @@ PARALLEL_MAKE = "-j 16"
 
 INHERIT += "rm_work"
 
-RM_WORK_EXCLUDE += "linux-imx u-boot-imx"
+RM_WORK_EXCLUDE += "u-boot-imx"
+RM_WORK_EXCLUDE += "linux-imx"
 
 #check connectivity using google
 CONNECTIVITY_CHECK_URIS = "https://www.google.com/"
 
 #skip connectivity checks
 CONNECTIVITY_CHECK_URIS = ""
+
+#remove a package
+PACKAGECONFIG_remove = "opencv"
+PACKAGECONFIG_remove = "gdb"
+PACKAGECONFIG_remove = "qemu"
+PACKAGECONFIG_remove = "qemu-native"
+DISTRO_FEATURES_remove = "webengine"
 
 // Building an imange
 # A small image that only allows a device to boot
@@ -169,10 +179,33 @@ $ DISTRO=fsl-imx-wayland MACHINE=imx8qxpc0mek source fsl-setup-release.sh -b bui
 $ bitbake fsl-image-validation-imx -c populate_sdk
 
 =========================================================================================
+//imx-4.14.98-2.3.2.xml + fsl-imx-xwayland distro for imx8qxpc0mek board SDK
+$ repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-sumo -m imx-4.14.98-2.3.2.xml
+$ DISTRO=fsl-imx-xwayland MACHINE=imx8qxpc0mek source fsl-setup-release.sh -b build-xwayland
+//Build SDK
+$ bitbake fsl-image-validation-imx -c populate_sdk
+$ bitbake fsl-gui -c populate_sdk
+
+=========================================================================================
 //imx-5.4.3-2.0.0.xml + fsl-imx-wayland distro for imx8qxpmek board SDK
 $ repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-zeus -m imx-5.4.3-2.0.0.xml
 
 $ DISTRO=fsl-imx-wayland MACHINE=imx8qxpmek source imx-setup-release.sh -b build-wayland
+
+//Build SDK
+$ bitbake fsl-image-validation-imx -c populate_sdk
+
+=========================================================================================
+//imx-5.4.24-2.1.0.xml + fsl-imx-wayland distro for imx8qxpc0mek board SDK
+$ repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-zeus -m imx-5.4.24-2.1.0.xml
+
+$ DISTRO=fsl-imx-wayland MACHINE=imx8qxpc0mek source imx-setup-release.sh -b build-wayland-5.4
+
+//Enter build dir with env after firt congifurations
+$ source setup-environment build-wayland-5.4
+
+// build a small image that only allows a device to boot
+$ bitbake core-image-minimal
 
 //Build SDK
 $ bitbake fsl-image-validation-imx -c populate_sdk

@@ -117,6 +117,41 @@ Reference URL: https://www.cnblogs.com/hupeng1234/p/9783336.html
 
 
 
+3) Yocto Proxy Setting
+
+Ref: https://www.wangzhi.vip/?p=186
+
+```
+设置主要参考以下官网Wiki的指南：
+https://wiki.yoctoproject.org/wiki/Working_Behind_a_Network_Proxy
+
+wget http://git.yoctoproject.org/cgit/cgit.cgi/poky/plain/scripts/oe-git-proxy
+mkdir ~/bin
+cp oe-git-proxy ~/bin
+chmod +x ~/bin/oe-git-proxy
+
+vim ~/.bashrc
+-------------------------------------------------------------------------------
+export http_proxy='http://192.168.2.9:8118/'
+export https_proxy='https://192.168.2.9:8118/'
+export ALL_PROXY='socks5://192.168.2.9:1080/'
+export all_proxy='socks5://192.168.2.9:1080/'
+export no_proxy='192.168.1.7'
+export GIT_PROXY_COMMAND="oe-git-proxy"
+export NO_PROXY=$no_proxy
+-------------------------------------------------------------------------------
+
+vim ~/.wgetrc
+-------------------------------------------------------------------------------
+http_proxy=http://192.168.2.9:8118
+https_proxy=https://192.168.2.9:8118
+no_proxy=192.168.1.7
+use_proxy=on
+-------------------------------------------------------------------------------
+```
+
+
+
 # 4. DTC
 
 # 4.1 Decompile dtb to dts
@@ -136,7 +171,31 @@ Reference URL: https://www.cnblogs.com/hupeng1234/p/9783336.html
 
 ```
 
+
+
+# 6. Install package
+
+## 6.1 Install Mono on Ubuntu
+
+Ref: https://gist.github.com/carolynvs/4520736f6017ca252a44
+
+```
+wget http://download.mono-project.com/repo/xamarin.gpg
+sudo apt-key add xamarin.gpg
+echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee --append /etc/apt/sources.list.d/mono-xamarin.list
+sudo apt-get update
+sudo apt-get install mono-complete
+
+sudo certmgr -ssl -m https://go.microsoft.com
+sudo certmgr -ssl -m https://nugetgallery.blob.core.windows.net
+sudo certmgr -ssl -m https://nuget.org
+mozroots --import --sync
+```
+
+
+
 # 90. FAQ
+
 ## 90.1 The following packages have unmet dependencies:
 Q:
 
