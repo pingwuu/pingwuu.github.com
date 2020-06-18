@@ -228,6 +228,17 @@ $ bitbake core-image-minimal
 $ bitbake fsl-image-multimedia
 $ bitbake fsl-image-multimedia -c populate_sdk
 
+=========================================================================================
+//imx-5.4.3-2.0.0_genivi.xml + fsl-imx-wayland distro for imx8qxpc0mek board SDK
+$ repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-zeus -m imx-5.4.3-2.0.0_genivi.xml
+
+$ DISTRO=fsl-imx-wayland MACHINE=imx8qxpc0mek source imx-setup-release.sh -b build-wayland-5.4
+
+//Enter build dir with env after firt congifurations
+$ source setup-environment build-wayland-5.4
+
+// build meta-ivi-image
+$ bitbake meta-ivi-image
 ```
 
 ## 4.2 Change branch & manifest
