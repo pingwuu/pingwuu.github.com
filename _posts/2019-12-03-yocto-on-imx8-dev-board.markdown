@@ -126,6 +126,7 @@ INHERIT += "rm_work"
 
 RM_WORK_EXCLUDE += "u-boot-imx"
 RM_WORK_EXCLUDE += "linux-imx"
+RM_WORK_EXCLUDE += "wayland-ivi-extension"
 
 #check connectivity using google
 CONNECTIVITY_CHECK_URIS = "https://www.google.com/"
@@ -187,6 +188,18 @@ $ bitbake fsl-image-validation-imx -c populate_sdk
 $ bitbake fsl-gui -c populate_sdk
 
 =========================================================================================
+//imx-4.14.98-2.3.2.xml + fsl-imx-wayland distro for imx8qxpc0mek board SDK
+$ repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-sumo -m imx-4.14.98-2.3.2.xml
+$ DISTRO=fsl-imx-wayland MACHINE=imx8qxpc0mek source fsl-setup-release.sh -b build-wayland-4.14
+//Build SDK
+$ bitbake fsl-image-validation-imx -c populate_sdk
+$ bitbake fsl-gui -c populate_sdk
+
+//
+$ bitbake fsl-image-multimedia
+$ bitbake fsl-image-multimedia -c populate_sdk
+
+=========================================================================================
 //imx-5.4.3-2.0.0.xml + fsl-imx-wayland distro for imx8qxpmek board SDK
 $ repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-zeus -m imx-5.4.3-2.0.0.xml
 
@@ -209,6 +222,11 @@ $ bitbake core-image-minimal
 
 //Build SDK
 $ bitbake fsl-image-validation-imx -c populate_sdk
+
+//Build multimedia SDK
+$ bitbake core-image-minimal
+$ bitbake fsl-image-multimedia
+$ bitbake fsl-image-multimedia -c populate_sdk
 
 ```
 
@@ -312,11 +330,15 @@ If one package build failed, you can clean and then rebuild it as below instruct
 ## 6.2 Build kernel
 
 ```
-$ source /opt/fsl-imx-wayland/5.4-zeus/environment-setup-aarch64-poky-linux
+$ source /opt/fsl-imx-wayland/4.14-sumo/environment-setup-aarch64-poky-linux
 $ make defconfig						//for 4.x or older version
+
+$ source /opt/fsl-imx-wayland/5.4-zeus/environment-setup-aarch64-poky-linux
 $ make imx_v8_defconfig					//for 5.x or newer version
-$ LDFLAGS="" CC="$CC" make dtbs -j8		//make dtbs
-$ LDFLAGS="" CC="$CC" make Image -j8	//make Image
+
+$ LDFLAGS="" CC="$CC" make dtbs -j8			//make dtbs
+$ LDFLAGS="" CC="$CC" make Image -j8		//make Image
+$ LDFLAGS="" CC="$CC" make dtbs Image -j8	//make dtbs & Image
 ```
 
 ## 6.3 Build HMI Framework
