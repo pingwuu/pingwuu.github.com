@@ -18,7 +18,7 @@ Ubuntu 16.04.6 LTS
 ## 1.1 For Ubuntu18.04
 
 ```
-$ sudo apt-get install gawk wget git diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev libncurses5-dev
+$ sudo apt-get install gawk wget git diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev libncurses5-dev flex bison libssl-dev
 
 //Essentials: Packages needed to build an image on a headless system:
 $ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm git-lfs
