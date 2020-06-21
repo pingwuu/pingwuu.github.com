@@ -194,6 +194,32 @@ mozroots --import --sync
 
 
 
+# 7. Shrink virtual disk (VDI) of a VirtualBox VM (Linux)
+
+Ref URL: https://askubuntu.com/questions/1092812/zerofree-on-ubuntu-18-04
+
+```
+Here's how I did it on Ubuntu 18.04 Server guest
+
+Put Ubuntu 18.04 Desktop Live CD in VM's optical drive (make sure boot sequence loads this first)
+Boot VM, when CD asks: click Try Ubuntu
+Once GUI is up, run terminal
+sudo apt install zerofree and let it install
+sudo fdisk -l and note system HD e.g. /dev/sda2
+sudo zerofree -v /dev/sda2 and let it finish
+halt
+ACPI shutdown VM
+Remove Ubuntu 18.04 Desktop Live CD from VM's optical drive before restarting
+```
+
+Then on windows
+
+```
+> >D:\ProgramFiles\Oracle\VirtualBox\VBoxManage  modifymedium disk  C:\_00_VM\ubuntu_18_04_4\ubuntu_18_04_4.vdi  -compact
+```
+
+
+
 # 90. FAQ
 
 ## 90.1 The following packages have unmet dependencies:

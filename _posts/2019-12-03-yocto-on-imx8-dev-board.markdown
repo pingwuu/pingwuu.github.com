@@ -203,7 +203,7 @@ $ bitbake fsl-image-multimedia -c populate_sdk
 //imx-5.4.3-2.0.0.xml + fsl-imx-wayland distro for imx8qxpmek board SDK
 $ repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-zeus -m imx-5.4.3-2.0.0.xml
 
-$ DISTRO=fsl-imx-wayland MACHINE=imx8qxpmek source imx-setup-release.sh -b build-wayland
+$ DISTRO=fsl-imx-wayland MACHINE=imx8qxpc0mek source imx-setup-release.sh -b build-wayland-5.4
 
 //Build SDK
 $ bitbake fsl-image-validation-imx -c populate_sdk
