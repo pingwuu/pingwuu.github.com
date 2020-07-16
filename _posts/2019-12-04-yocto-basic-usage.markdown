@@ -8,9 +8,7 @@ comments: true
 
 # 1. Yocto usage
 
-
-
-## x.x Rebuild package
+## 1.1 Rebuild package
 
 * Remove temp:
 
@@ -36,7 +34,23 @@ comments: true
   $ bitbake gstreamer
   ```
 
-  
+
+
+
+## 1.2 Custom Yocto
+
+### 1.2.1 Add custom layer
+
+* Prerequisites
+
+  Compile a reference image for the Yocto Project
+
+```
+# cd <BSP_DIR>/sources  
+# bitbake-layer create <NEW_LAYER_NAME> 
+```
+
+
 
 # 2. UUU usage
 

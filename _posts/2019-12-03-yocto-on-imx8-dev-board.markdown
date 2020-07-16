@@ -259,6 +259,15 @@ $ repo sync -j4
 ......
 ```
 
+## 4.3 Generate manifest
+
+```
+//To generate a manifest from what is currently checked out:
+$ repo manifest -r -o manifest.xml
+```
+
+
+
 # 5. Rebuild one package
 
 If one package build failed, you can clean and then rebuild it as below instruction:
@@ -333,6 +342,8 @@ If one package build failed, you can clean and then rebuild it as below instruct
 ## 6.1 Build u-boot
 
 ```
+$ source /opt/fsl-imx-wayland/4.14-sumo/environment-setup-aarch64-poky-linux
+
 
 ```
 
