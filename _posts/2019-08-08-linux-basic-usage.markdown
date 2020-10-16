@@ -78,13 +78,13 @@ $ sudo service smbd restart
 
 # 3. Proxy setting
 
-1) Proxy via socks5
+## 3.1 apt proxy via socks5
 
 ```
 sudo apt-get -o Acquire::http::proxy="socks5h://127.0.0.1:1080/" update
 ```
 
-2) Proxy setting
+## 3.2 http(s) proxy setting
 
 ```
 # 设置http代理
@@ -117,7 +117,7 @@ Reference URL: https://www.cnblogs.com/hupeng1234/p/9783336.html
 
 
 
-3) Yocto Proxy Setting
+## 3.3 Yocto Proxy Setting
 
 Ref: https://www.wangzhi.vip/?p=186
 
@@ -148,6 +148,15 @@ https_proxy=https://192.168.2.9:8118
 no_proxy=192.168.1.7
 use_proxy=on
 -------------------------------------------------------------------------------
+```
+
+
+
+## 3.4 [How to use pip with socks proxy?](https://stackoverflow.com/questions/22915705/how-to-use-pip-with-socks-proxy)
+
+```
+$ pip install pysocks
+$ pip install <yourpacakge> --proxy socks5:127.0.0.1:8123
 ```
 
 
@@ -216,6 +225,29 @@ Then on windows
 
 ```
 > >D:\ProgramFiles\Oracle\VirtualBox\VBoxManage  modifymedium disk  C:\_00_VM\ubuntu_18_04_4\ubuntu_18_04_4.vdi  -compact
+```
+
+
+
+# 8. Ubuntu Source Backup
+
+## 8.1 Ubuntu 16 sources
+
+//tsinghua for ubuntu 16
+
+```
+# deb cdrom:[Ubuntu 16.04 LTS _Xenial Xerus_ - Release amd64 (20160420.1)]/ xenial main restricted
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial universe
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates universe
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security universe
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security multiverse
+
 ```
 
 

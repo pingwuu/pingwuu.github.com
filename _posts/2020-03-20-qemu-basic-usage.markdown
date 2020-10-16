@@ -394,6 +394,40 @@ NOTE: The object files are built at the place where configure is launched
 
 ```
 
+# 4. Qemu build
+
+## 4.1 Build for arm
+
+```
+$ sudo apt-get install pkg-config libglib2.0-dev autoconf libtool libpixman-1-dev
+
+$ git clone git://git.qemu.org/qemu.git
+$ cd qmeum
+$ ./configure --prefix=$PWD/ --target-list="arm-softmmu arm-linux-user" --enable-debug --enable-sdl --enable-kvm --enable-tools --disable-curl	//enable sdl
+
+$ ./configure --prefix=$PWD/ --target-list="arm-softmmu arm-linux-user" --enable-debug --enable-kvm --enable-tools --disable-curl	//without sdl
+
+$ make
+
+```
+
+
+
+# 90. FAQ
+
+1) How to quit the QEMU monitor when not using a GUI?
+
+```
+For -nographic just enter:
+
+Ctrl-A X
+which means
+
+first press Ctrl + A (A is just key a, not the alt key),
+then release the keys,
+afterwards type X
+```
+
 
 
 # 99. Reference URL

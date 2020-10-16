@@ -57,6 +57,32 @@ $ make
 
 ```
 
+# 4. Custom Build
+
+## 4.1 Custom kernel
+
+```
+//configure linux kernel
+$ cd buildroot
+$ make linux-menuconfig
+$ make
+
+```
+
+
+
+//todo for imx7 qemu build & run
+
+```
+1. CONFIG_IMX_SDMA=y => n
+2.
+CONFIG_CFG80211=y		n
+CONFIG_CFG80211_WEXT=y	n
+
+```
+
+
+
 # 4. Flash bin
 
 # 4.1 Flash image to SD card
