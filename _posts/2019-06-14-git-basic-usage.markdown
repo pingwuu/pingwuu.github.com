@@ -89,6 +89,14 @@ Hi username! You've successfully authenticated, but GitHub does not
 $ ssh -T git@gitee.com
 ```
 
+```
+4) Check ssh key for gitlab
+$ ssh -T git@gitlab.com
+
+If the welcome message doesn’t appear, you can troubleshoot the problem by running ssh in verbose mode with the following command:
+$ ssh -Tvvv git@gitlab.com
+```
+
 
 
 ## 2.3 Manage multiple usernames for git/ssh config
@@ -108,9 +116,16 @@ Host bitbucket.org
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa_bitbucket
     User user_bitbucket
+
+# gitlab
+Host gitlab.com
+  Preferredauthentications publickey
+  IdentityFile ~/.ssh/id_rsa_gitlab
+  user user_gitlab
+  ProxyCommand nc -x localhost:1080 %h %p  # using proxy localhost:1080 for git command
 ```
 
- 
+Ref URL: [Use Proxy for Git/GitHub](https://gist.github.com/coin8086/7228b177221f6db913933021ac33bb92)
 
 ## 2.4 Git SSH Proxy setup
 
@@ -119,12 +134,10 @@ Create or edit ~/.ssh/config file
 ```
 ## ssh access bitbucket.or via HTTP proxy
 Host bitbucket.org
-
     ProxyCommand connect -H 127.0.0.1:1081 %h %p
 
 ## other sites, do NOT use proxy
 Host *
-
     ProxyCommand connect %h %p
 
 ```
