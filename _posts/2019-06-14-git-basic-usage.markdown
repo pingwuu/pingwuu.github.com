@@ -146,34 +146,82 @@ Host *
 
 # 3. How to clone all branches and tags between remote git repositories
 
-Need to move from a local git remote (ie Atlassian Stash) to somewhere 
-else? Like BitBucket or GitHub? Here's a way to get all those feature 
-branches and tags, not just the ones you already have locally moved 
-across.
+## 3.1 Branches
+
+* 1) See local branches
 
 ```
-# Clone a temporary copy of your repo
-cd /tmp
-git clone ssh://git@yourrepohost/yourrepo.git
-cd yourrepo
+$ git branch 
+* master
+```
 
-# Start tracking all the remote branches locally
-for remote in `git branch -r | grep -v '\->'`; do git branch --track $remote; done
+* 2) See remote branches
 
-# Remove your old origin
-git remote rm origin
+```
+$ git branch -r
+  origin-gitlab/master
+  origin/HEAD -> origin/master
+  origin/master
+```
 
-# Add your new remote
-git remote add origin ssh://git@newrepohost/yourrepo.git
+* 3) See all local and remote branches
 
-# Now push it up to the new host
-git push -u --all origin
+```
+$ git branch -a
+* master
+  remotes/origin-gitlab/master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+```
 
+* 4) Track remote all branch
+
+```
+//Track remote origin all branches
+$ remote=origin ; for brname in `git branch -r | grep $remote | grep -v master | grep -v HEAD | awk '{gsub(/^[^\/]+\//,"",$1); print $1}'`; do git branch --track $brname $remote/$brname || true; done 2>/dev/null
+```
+
+* 5) Push all branches to remote
+
+```
+$ git push -u --all origin
 ```
 
 
 
-Push tags to a remote Repo:
+## 3.2 Tags
+
+* 1) List Local Git Tags
+
+```
+$ git tag
+
+v1.0
+v2.0
+```
+
+* 2) List Remote Git Tags
+
+```
+$ git ls-remote --tags origin
+
+53a7dcf1ca57e05d456321b406730b39dc8ed75e        refs/tags/v1.0
+7a9ad7fd794bf52a11de43aacc6010978e6100d3        refs/tags/v2.0
+```
+
+* 3) Fetching Remote Tags Easily
+
+```
+$ git fetch --all --tags
+
+Fetching origin
+From git-repository
+   53a7dc..7a9ad7    master     -> origin/master
+ * [new tag]         v1.0       -> v1.0
+ * [new tag]         v1.0       -> v2.0
+```
+
+* 4) Push tags to a remote Repo:
 
  In order to push them to a remote repo, you have a few options: 
 
@@ -188,8 +236,6 @@ This command will push a single tag to the remote repo, and it is commonly the p
 ```
 $ git push --tags <repo-name>
 ```
-
-
 
 # 4. Breakpoint Resume
 
@@ -226,7 +272,7 @@ git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/linux-stable.
 
 将默认上游设置为 TUNA 镜像
 
-##  
+
 
 # 6. Configuring a remote for a fork
 
