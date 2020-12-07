@@ -497,6 +497,20 @@ Welcome to some of the operations that GitHub (and likewise services) do for us 
 
 
 
+# 90 FAQ
+
+## 90.1 How to fix “Filename too long error” during git clone
+
+```
+$ git config --system core.longpaths true
+
+or
+
+$ git clone -c core.longpaths=true <repo-url>
+```
+
+
+
 # 99. Reference URL
 
 * 1) [Git mirror available in Beijing](http://cdn.kernel.org/beijing-git-mirror.html)

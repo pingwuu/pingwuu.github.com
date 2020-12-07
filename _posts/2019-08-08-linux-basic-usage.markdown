@@ -219,6 +219,11 @@ sudo zerofree -v /dev/sda2 and let it finish
 halt
 ACPI shutdown VM
 Remove Ubuntu 18.04 Desktop Live CD from VM's optical drive before restarting
+
+or download zerofree_1.0.4-1_amd64.deb to install
+
+$ wget http://archive.ubuntu.com/ubuntu/pool/main/z/zerofree/zerofree_1.0.4-1_amd64.deb
+$ sudo dpkg -i zerofree_1.0.4-1_amd64.deb
 ```
 
 Then on windows
