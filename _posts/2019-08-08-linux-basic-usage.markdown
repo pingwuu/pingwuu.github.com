@@ -117,6 +117,34 @@ Reference URL: https://www.cnblogs.com/hupeng1234/p/9783336.html
 
 
 
+## 3.3 Git Proxy
+
+```
+# 以下使用http代理
+git config --global http.proxy http://127.0.0.1:1080
+git config --global https.proxy https://127.0.0.1:1080
+
+# 以下使用socks5代理
+git config --global http.proxy 'socks5://127.0.0.1:1080'
+git config --global https.proxy 'socks5://127.0.0.1:1080'
+
+# 取消代理
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+//Handle subsequent SSL protocol errors
+git -c http.sslVerify=false clone https://domain.com/path/to/git
+git config http.sslVerify false
+git config --global http.https://domain.com.sslVerify false
+
+
+//Unset SSL verification
+git config --global --unset http.sslVerify
+git config --global --unset http.https://domain.com.sslVerify
+```
+
+
+
 ## 3.3 Yocto Proxy Setting
 
 Ref: https://www.wangzhi.vip/?p=186

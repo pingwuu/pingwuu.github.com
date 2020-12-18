@@ -140,6 +140,14 @@ OR
 
 [ 18 Tar Command Examples in Linux ]( https://www.tecmint.com/18-tar-command-examples-in-linux/ )
 
+
+
+## 2.4 Create a 1GB.bin random content file:
+
+```
+ dd if=/dev/urandom of=1GB.bin bs=64M count=16 iflag=fullblock
+```
+
 # 3.  update-alternatives 
 
  The following will set your `/usr/bin/python` to default to 2.7 but have 3.6 available when you want: 
