@@ -52,5 +52,6 @@ Ref: https://www.jeffgeerling.com/blog/2018/fixing-jenkins-cli-error-anonymous-m
 
 # 99. Reference URL
 
+* 1) [Gerrit: OpenSource and Multi-Site](https://gitenterprise.me/2019/03/02/gerrit-opensource-and-multi-site/)
 * 
 

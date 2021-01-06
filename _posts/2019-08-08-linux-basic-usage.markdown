@@ -189,6 +189,20 @@ $ pip install <yourpacakge> --proxy socks5:127.0.0.1:8123
 
 
 
+## 3.5 Docker Proxy
+
+```
+$ cat /etc/systemd/system/docker.service.d/proxy.conf 
+[Service]
+Environment="HTTP_PROXY=socks5://127.0.0.1:1080"
+Environment="HTTPS_PROXY=socks5://127.0.0.1:1080"
+Environment="NO_PROXY="localhost,127.0.0.1,::1"
+```
+
+
+
+
+
 # 4. DTC
 
 # 4.1 Decompile dtb to dts
