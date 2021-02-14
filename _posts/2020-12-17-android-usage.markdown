@@ -14,7 +14,7 @@ comments: true
 
 ## 2.1 The adb devices command
 
-![adb List](..\static\img\2020-12-17-android-usage\adb-devices.webp)
+![adb List](../static/img/2020-12-17-android-usage/adb-devices.webp)
 
 The **adb devices** command is the most important one of the bunch, since it's used to make sure your computer and Android device are communicating. That's why we're covering it first.
 
@@ -26,7 +26,7 @@ Now that we have everything set up, let's look at a few more commands.
 
 ## 2.2 The adb push command
 
-![adb push](..\static\img\2020-12-17-android-usage\adb-push.webp)
+![adb push](../static/img/2020-12-17-android-usage/adb-push.webp)
 
 If you want to move a file onto your Android device programmatically, you want to use the **adb push** command. You'll need to know a few parameters, namely the full path of the file you're pushing, and the full path to where you want to put it. In the picture above I'm pushing a song from my Music folder on my desktop to the music folder on my phone.
 
@@ -34,7 +34,7 @@ Notice the slashes in the file path and the quotes around the path on my compute
 
 ## 2.3 The adb pull command
 
-![adb pull](..\static\img\2020-12-17-android-usage\adb-pull.webp)
+![adb pull](../static/img/2020-12-17-android-usage/adb-pull.webp)
 
 If adb push sends files to your Android device, it stands to reason the **adb pull** command would pull them out.
 
@@ -44,7 +44,7 @@ In this example, I did it the hard way and entered the full path(s) so you can s
 
 ## 2.4 The adb reboot command
 
-![adb pull](..\static\img\2020-12-17-android-usage\adb-reboot.webp)
+![adb pull](../static/img/2020-12-17-android-usage/adb-reboot.webp)
 
 This is exactly what you think it is — a way to reboot your device from the command line. Running it is simple: just type *adb reboot* and enter.
 
@@ -52,7 +52,7 @@ Before you say "I can just push the button!" you have to understand that these c
 
 ## 2.5 The adb reboot-bootloader and adb reboot recovery commands
 
-![adb pull](..\static\img\2020-12-17-android-usage\android-bootloader.webp)
+![adb pull](../static/img/2020-12-17-android-usage/android-bootloader.webp)
 
 Not only can you reboot your device, but you can also specify that it reboots to the bootloader. This is awfully handy, as sometimes those button combos are touchy, and if you have a lot of devices it's tough to remember them all. Some devices don't even have a way to boot to the bootloader without this command. And once again, being able to use this command in a script is priceless.
 
@@ -62,7 +62,7 @@ Most devices can also boot into the recovery directly with the *adb reboot recov
 
 ## 2.6 The fastboot devices command
 
-![adb pull](..\static\img\2020-12-17-android-usage\adb-fastboot.webp)
+![adb pull](../static/img/2020-12-17-android-usage/adb-fastboot.webp)
 
 When you're working inside the bootloader, adb no longer works. You're not yet booted into Android, and the debugging tools aren't active to communicate with. You'll need to use the **fastboot** command in its place.
 
@@ -72,7 +72,7 @@ If things aren't working and you're using Windows, you likely have a driver issu
 
 ## 2.7 The fastboot unlock command
 
-![adb pull](..\static\img\2020-12-17-android-usage\fastboot-oem-unlock-warning.webp)
+![adb pull](../static/img/2020-12-17-android-usage/fastboot-oem-unlock-warning.webp)
 
 **The fastboot unlock process will erase \*everything\* on your phone and reset it.**
 
@@ -82,7 +82,7 @@ Using it is easy enough. Once you've used fastboot devices to make sure everythi
 
 ## 2.8 The adb install command
 
-![adb pull](..\static\img\2020-12-17-android-usage\adb-install.png)
+![adb pull](../static/img/2020-12-17-android-usage/adb-install.png)
 
 While adb push can copy files to our Android devices, **adb install** can actually install apps. You'll need to supply the path where you have the .apk file saved, then run it like this: *adb install TheAppName.apk*.
 
@@ -92,7 +92,7 @@ And finally, you can uninstall apps by their package name with *adb uninstall pa
 
 ## 2.9 The adb sideload command
 
-![adb pull](..\static\img\2020-12-17-android-usage\adb-sideload.png)
+![adb pull](../static/img/2020-12-17-android-usage/adb-sideload.png)
 
 An OTA (over-the-air) update is downloaded by your phone as a .zip file. You can also download that zip file manually and install it without having to wait for your phone to have the update pushed to it. The end result is the same as if you had waited, but we hate waiting.
 
@@ -100,7 +100,7 @@ All you have to do is download the update to your computer. Plug your phone into
 
 ## 2.10 The adb shell command
 
-![adb shell](..\static\img\2020-12-17-android-usage\adb-shell.png)
+![adb shell](../static/img/2020-12-17-android-usage/adb-shell.png)
 
 The **adb shell** command confuses a lot of folks. There are two ways to use it, one where you send a command to the device to run in its own command-line shell, and one where you actually enter the device's command shell from your terminal.
 
