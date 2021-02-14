@@ -14,7 +14,7 @@ comments: true
 
 ## 2.1 The adb devices command
 
-![adb List](../static/img/2020-12-17-android-usage/adb-devices.webp)
+![adb List](/static/img/2020-12-17-android-usage/adb-devices.webp)
 
 The **adb devices** command is the most important one of the bunch, since it's used to make sure your computer and Android device are communicating. That's why we're covering it first.
 
