@@ -28,21 +28,26 @@ This blog will write mcu basic usage
 
 6) [https://chromium.googlesource.com/chromiumos/platform/ec/+/test-4824.B/chip/stm32/uart.c](https://chromium.googlesource.com/chromiumos/platform/ec/+/test-4824.B/chip/stm32/uart.c)
 
-7 [https://embedds.com/programming-stm32-usart-using-gcc-tools-part-1/](https://embedds.com/programming-stm32-usart-using-gcc-tools-part-1/)
+7) [https://embedds.com/programming-stm32-usart-using-gcc-tools-part-1/](https://embedds.com/programming-stm32-usart-using-gcc-tools-part-1/)
 
-8 [MUC on Eclipse](https://mcuoneclipse.com/)
+8) [MUC on Eclipse](https://mcuoneclipse.com/)
 
-9 [Embedded Components](http://www.steinerberg.com/EmbeddedComponents/home.htm)
+9) [Embedded Components](http://www.steinerberg.com/EmbeddedComponents/home.htm)
 
-10 [https://www.coreboot.org/index.html](https://www.coreboot.org/index.html)
+10) [https://www.coreboot.org/index.html](https://www.coreboot.org/index.html)
 
-11 [https://www.cnblogs.com/89yanyu/p/7537902.html](https://www.cnblogs.com/89yanyu/p/7537902.html)
+11) [https://www.cnblogs.com/89yanyu/p/7537902.html](https://www.cnblogs.com/89yanyu/p/7537902.html)
 
-12 [http://wiki.csie.ncku.edu.tw/](http://wiki.csie.ncku.edu.tw/)
+12) [http://wiki.csie.ncku.edu.tw/](http://wiki.csie.ncku.edu.tw/)
 
-13 [http://wiki.csie.ncku.edu.tw/embedded/Lab32](http://wiki.csie.ncku.edu.tw/embedded/Lab32)
+13. [http://wiki.csie.ncku.edu.tw/embedded/Lab32](http://wiki.csie.ncku.edu.tw/embedded/Lab32)
 
-14 [Computer Science 152/252](https://inst.eecs.berkeley.edu/~cs152/sp19/)
+14. [Computer Science 152/252](https://inst.eecs.berkeley.edu/~cs152/sp19/)
 
 15. [ARM Assembly for Embedded Applications](http://www.cse.scu.edu/~dlewis/book3/)
-16. 
+
+16. [JTAG Debugging the ESP32 with FT2232 and OpenOCD](https://mcuoneclipse.com/2019/10/20/jtag-debugging-the-esp32-with-ft2232-and-openocd/)
+
+17. 
+
+    

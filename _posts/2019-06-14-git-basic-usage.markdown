@@ -511,6 +511,26 @@ $ git clone -c core.longpaths=true <repo-url>
 
 
 
+## 90.2 git : How to remove a big file wrongly committed
+
+I added a large file to a git repository (102Mb), commited and push and got an error due to size limit limitations on github
+
+```
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com. remote: error: Trace: 7d51855d4f834a90c5a5a526e93d2668 remote: error: See http://git.io/iEPt8g for more information. remote: error: File coverage/sensitivity/simulated.bed is 102.00 MB; this exceeds GitHub's file size limit of 100.00 MB
+```
+
+Here, you see the path of the file (coverage/sensitivity/simualted.bed).
+
+So, the solution is actually quite simple (when you know it): you can use the filter-branch command as follows:
+
+```
+git filter-branch --tree-filter 'rm -rf path/to/your/file' HEAD git push
+```
+
+Ref:https://thomas-cokelaer.info/blog/2018/02/git-how-to-remove-a-big-file-wrongly-committed/
+
+
+
 # 99. Reference URL
 
 * 1) [Git mirror available in Beijing](http://cdn.kernel.org/beijing-git-mirror.html)
