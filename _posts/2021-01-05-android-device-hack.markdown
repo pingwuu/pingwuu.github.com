@@ -6,7 +6,7 @@ categories: linux android hack pixel3 adb fastboot
 comments: true
 ---
 
-# 1. Basic android tool install and usage
+# 1. Android tool install and usage
 
 # 1.1 Download and install SDK Platform Tools
 
@@ -16,9 +16,413 @@ Ref: https://developer.android.com/studio/releases/platform-tools
 
 
 
-# 2. Google Pixel 3 Hack
+# 2. Flash and Build Android for Pixel 3
 
-## 2.1 How to Enable USB Debugging on the Google Pixel 3
+## 2.1 Flash Factory Image
+
+1) Download factory image for pixel 3 of android 11
+
+https://dl.google.com/dl/android/aosp/blueline-rq1a.210205.004-factory-3ab98ba8.zip
+
+2) Flash all image
+
+```
+unzip blueline-rq1a.210205.004-factory-3ab98ba8.zip
+
+C:\Android\pixel3\blueline-rq1a.210205.004>flash-all.bat
+Sending 'bootloader' (8517 KB)                     OKAY [  0.219s]
+Writing 'bootloader'                               FAILED (remote: 'No such file or directory')
+fastboot: error: Command failed
+Rebooting into bootloader                          OKAY [  0.007s]
+Finished. Total time: 0.010s
+< waiting for any device >
+Sending 'radio_a' (71452 KB)                       OKAY [  2.148s]
+Writing 'radio_a'                                  (bootloader) Flashing Pack version SSD:g845-00146-201008-B-6891496
+(bootloader) Flashing partition modem_a
+OKAY [  0.418s]
+Finished. Total time: 3.196s
+Rebooting into bootloader                          OKAY [  0.048s]
+Finished. Total time: 0.051s
+< waiting for any device >
+--------------------------------------------
+Bootloader Version...: b1c1-0.3-6863019
+Baseband Version.....: g845-00146-201008-B-6891496
+Serial Number........: 8ABX0Q0Q4
+--------------------------------------------
+extracting android-info.txt (0 MB) to RAM...
+Checking 'product'                                 OKAY [  0.164s]
+Checking 'version-bootloader'                      OKAY [  0.168s]
+Checking 'version-baseband'                        OKAY [  0.168s]
+Setting current slot to 'a'                        OKAY [  0.186s]
+extracting boot.img (64 MB) to disk... took 0.232s
+archive does not contain 'boot.sig'
+Sending 'boot_a' (65536 KB)                        OKAY [  1.612s]
+Writing 'boot_a'                                   OKAY [  0.315s]
+extracting dtbo.img (8 MB) to disk... took 0.029s
+archive does not contain 'dtbo.sig'
+Sending 'dtbo_a' (8192 KB)                         OKAY [  0.285s]
+Writing 'dtbo_a'                                   OKAY [  0.089s]
+archive does not contain 'dt.img'
+archive does not contain 'recovery.img'
+extracting vbmeta.img (0 MB) to disk... took 0.001s
+archive does not contain 'vbmeta.sig'
+Sending 'vbmeta_a' (8 KB)                          OKAY [  0.118s]
+Writing 'vbmeta_a'                                 OKAY [  0.064s]
+archive does not contain 'vbmeta_system.img'
+archive does not contain 'vendor_boot.img'
+extracting super_empty.img (0 MB) to disk... took 0.002s
+Rebooting into fastboot                            OKAY [  0.052s]
+< waiting for any device >
+Sending 'system_a' (4 KB)                          OKAY [  0.007s]
+Updating super partition                           OKAY [  0.043s]
+Resizing 'product_a'                               OKAY [  0.036s]
+Resizing 'system_a'                                OKAY [  0.035s]
+Resizing 'system_ext_a'                            OKAY [  0.035s]
+Resizing 'vendor_a'                                OKAY [  0.035s]
+archive does not contain 'boot_other.img'
+archive does not contain 'odm.img'
+archive does not contain 'odm_dlkm.img'
+extracting product.img (1883 MB) to disk... took 8.325s
+archive does not contain 'product.sig'
+Resizing 'product_a'                               OKAY [  0.046s]
+Sending sparse 'product_a' 1/8 (262140 KB)         OKAY [  6.384s]
+Writing 'product_a'                                OKAY [  2.467s]
+Sending sparse 'product_a' 2/8 (262140 KB)         OKAY [  6.330s]
+Writing 'product_a'                                OKAY [  1.422s]
+Sending sparse 'product_a' 3/8 (262140 KB)         OKAY [  6.280s]
+Writing 'product_a'                                OKAY [  1.326s]
+Sending sparse 'product_a' 4/8 (262140 KB)         OKAY [  6.363s]
+Writing 'product_a'                                OKAY [  1.379s]
+Sending sparse 'product_a' 5/8 (262140 KB)         OKAY [  6.296s]
+Writing 'product_a'                                OKAY [  1.372s]
+Sending sparse 'product_a' 6/8 (262140 KB)         OKAY [  6.295s]
+Writing 'product_a'                                OKAY [  1.354s]
+Sending sparse 'product_a' 7/8 (262140 KB)         OKAY [  6.280s]
+Writing 'product_a'                                OKAY [  1.359s]
+Sending sparse 'product_a' 8/8 (94004 KB)          OKAY [  2.280s]
+Writing 'product_a'                                OKAY [  0.578s]
+extracting system.img (786 MB) to disk... took 3.763s
+archive does not contain 'system.sig'
+Resizing 'system_a'                                OKAY [  0.046s]
+Sending sparse 'system_a' 1/4 (262140 KB)          OKAY [  6.272s]
+Writing 'system_a'                                 OKAY [  2.504s]
+Sending sparse 'system_a' 2/4 (262140 KB)          OKAY [  6.354s]
+Writing 'system_a'                                 OKAY [  1.352s]
+Sending sparse 'system_a' 3/4 (262140 KB)          OKAY [  6.327s]
+Writing 'system_a'                                 OKAY [  1.349s]
+Sending sparse 'system_a' 4/4 (18540 KB)           OKAY [  0.451s]
+Writing 'system_a'                                 OKAY [  0.219s]
+extracting system_ext.img (182 MB) to disk... took 0.740s
+archive does not contain 'system_ext.sig'
+Resizing 'system_ext_a'                            OKAY [  0.047s]
+Sending 'system_ext_a' (187292 KB)                 OKAY [  4.504s]
+Writing 'system_ext_a'                             OKAY [  2.117s]
+extracting system_other.img (68 MB) to disk... took 0.302s
+archive does not contain 'system.sig'
+Sending 'system_b' (69888 KB)                      OKAY [  1.677s]
+Writing 'system_b'                                 OKAY [  0.401s]
+extracting vendor.img (408 MB) to disk... took 2.252s
+archive does not contain 'vendor.sig'
+Resizing 'vendor_a'                                OKAY [  0.048s]
+Sending sparse 'vendor_a' 1/2 (262140 KB)          OKAY [  6.378s]
+Writing 'vendor_a'                                 OKAY [  2.476s]
+Sending sparse 'vendor_a' 2/2 (156520 KB)          OKAY [  3.809s]
+Writing 'vendor_a'                                 OKAY [  0.873s]
+archive does not contain 'vendor_dlkm.img'
+archive does not contain 'vendor_other.img'
+Erasing 'userdata'                                 OKAY [  8.207s]
+Erase successful, but not automatically formatting.
+File system type raw not supported.
+Erasing 'metadata'                                 OKAY [  0.014s]
+Erase successful, but not automatically formatting.
+File system type raw not supported.
+Rebooting                                          OKAY [  0.007s]
+Finished. Total time: 159.558s
+Press any key to exit...
+```
+
+
+
+## 2.2 Build from AOSP source for Android 11 of Pixel 3
+
+Version Info:
+
+Factory image version: 11.0.0 (RQ1A.210205.004, Feb 2021) (Ref: https://developers.google.com/android/images)
+
+Build number: RQ1A.210205.004	android-11.0.0_r29	Android11	Pixel 3, Pixel 3a, Pixel 3a XL, Pixel 3 XL, Pixel 4, Pixel 4a, Pixel 4a (5G), Pixel 4 XL, Pixel 5	2021-02-05 (Ref: https://source.android.com/setup/start/build-numbers)
+
+Driver Binaries:
+Pixel 3 binaries for Android 11.0.0 (RQ1A.210205.004)(https://developers.google.com/android/drivers)
+
+| Hardware Component                                          | Company  | Download                                                     | SHA-256 Checksum                                             |
+| :---------------------------------------------------------- | :------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| Vendor image                                                | Google   | [Link](https://dl.google.com/dl/android/aosp/google_devices-blueline-rq1a.210205.004-bdf0db36.tgz) | 63060335ea10a8cf3c8d558e6614ac29cacf57dcb7bfa691cd833331922a1146 |
+| GPS, Audio, Camera, Gestures, Graphics, DRM, Video, Sensors | Qualcomm | [Link](https://dl.google.com/dl/android/aosp/qcom-blueline-rq1a.210205.004-9842d5ac.tgz) |                                                              |
+
+```
+$ mkdir android
+$ cd android
+$ repo init -u https://android.googlesource.com/platform/manifest -b android-11.0.0_r29
+$ repo sync -j16
+$ axel http://dl.google.com/dl/android/aosp/google_devices-blueline-rq1a.210205.004-bdf0db36.tgz
+$ tar -zxvf google_devices-blueline-rq1a.210205.004-bdf0db36.tgz
+$ ./extract-google_devices-blueline.sh
+vendor/
+vendor/google_devices/
+vendor/google_devices/crosshatch/
+vendor/google_devices/crosshatch/proprietary/
+vendor/google_devices/crosshatch/proprietary/device-vendor.mk
+vendor/google_devices/crosshatch/proprietary/BoardConfigVendor.mk
+vendor/google_devices/blueline/
+vendor/google_devices/blueline/android-info.txt
+vendor/google_devices/blueline/LICENSE
+vendor/google_devices/blueline/proprietary/
+vendor/google_devices/blueline/proprietary/vendor.img
+vendor/google_devices/blueline/proprietary/bootloader.img
+vendor/google_devices/blueline/proprietary/Android.mk
+vendor/google_devices/blueline/proprietary/radio.img
+vendor/google_devices/blueline/device-partial.mk
+vendor/google_devices/blueline/BoardConfigPartial.mk
+
+Files extracted successfully.
+
+
+$ axel http://dl.google.com/dl/android/aosp/qcom-blueline-rq1d.210105.003-9fa2b19d.tgz
+$ tar -zxvf qcom-blueline-rq1d.210105.003-9fa2b19d.tgz
+$ ./extract-qcom-blueline.sh
+vendor/
+vendor/qcom/
+vendor/qcom/blueline/
+vendor/qcom/blueline/LICENSE
+vendor/qcom/blueline/proprietary/
+vendor/qcom/blueline/proprietary/lib-imsvtextutils.so
+vendor/qcom/blueline/proprietary/radioconfiginterfacelibrary.jar
+vendor/qcom/blueline/proprietary/libsecureui_svcsock_system.so
+vendor/qcom/blueline/proprietary/qcrilhook.jar
+vendor/qcom/blueline/proprietary/radioconfiglibrary.jar
+vendor/qcom/blueline/proprietary/telephonyservice.xml
+vendor/qcom/blueline/proprietary/QtiTelephonyService.apk
+vendor/qcom/blueline/proprietary/lib64/
+vendor/qcom/blueline/proprietary/lib64/lib-imsvtextutils.so
+vendor/qcom/blueline/proprietary/lib64/libsecureui_svcsock_system.so
+vendor/qcom/blueline/proprietary/lib64/lib-imsvideocodec.so
+vendor/qcom/blueline/proprietary/lib64/lib-imsvt.so
+vendor/qcom/blueline/proprietary/lib64/librcc.so
+vendor/qcom/blueline/proprietary/lib64/libsdm-disp-apis.so
+vendor/qcom/blueline/proprietary/lib64/libimscamera_jni.so
+vendor/qcom/blueline/proprietary/lib64/libimsmedia_jni.so
+vendor/qcom/blueline/proprietary/lib64/lib-imsvtutils.so
+vendor/qcom/blueline/proprietary/UimService.xml
+vendor/qcom/blueline/proprietary/Android.mk
+vendor/qcom/blueline/proprietary/lib-imsvideocodec.so
+vendor/qcom/blueline/proprietary/lib-imsvt.so
+vendor/qcom/blueline/proprietary/librcc.so
+vendor/qcom/blueline/proprietary/uimremoteclient.xml
+vendor/qcom/blueline/proprietary/com.qualcomm.qti.imscmservice.xml
+vendor/qcom/blueline/proprietary/uimremoteserverlibrary.jar
+vendor/qcom/blueline/proprietary/Android.bp
+vendor/qcom/blueline/proprietary/libsdm-disp-apis.so
+vendor/qcom/blueline/proprietary/libimscamera_jni.so
+vendor/qcom/blueline/proprietary/QtiTelephonyServicelibrary.jar
+vendor/qcom/blueline/proprietary/ims.apk
+vendor/qcom/blueline/proprietary/libimsmedia_jni.so
+vendor/qcom/blueline/proprietary/qcrilhook.xml
+vendor/qcom/blueline/proprietary/uimremoteserver.xml
+vendor/qcom/blueline/proprietary/lib-imsvtutils.so
+vendor/qcom/blueline/proprietary/uimremoteclientlibrary.jar
+vendor/qcom/blueline/device-partial.mk
+vendor/qcom/blueline/BoardConfigPartial.mk
+vendor/google_devices/
+vendor/google_devices/crosshatch/
+vendor/google_devices/crosshatch/proprietary/
+vendor/google_devices/crosshatch/proprietary/device-vendor.mk
+vendor/google_devices/crosshatch/proprietary/BoardConfigVendor.mk
+vendor/google_devices/blueline/
+vendor/google_devices/blueline/android-info.txt
+vendor/google_devices/blueline/proprietary/
+
+Files extracted successfully.
+
+
+$ source build/envsetup.sh
+$ lunch
+
+You're building on Linux
+
+Lunch menu... pick a combo:
+     1. aosp_arm-eng
+     2. aosp_arm64-eng
+     3. aosp_blueline-userdebug
+     4. aosp_blueline_car-userdebug
+     5. aosp_bonito-userdebug
+     6. aosp_bonito_car-userdebug
+     7. aosp_bramble-userdebug
+     8. aosp_car_arm-userdebug
+     9. aosp_car_arm64-userdebug
+     10. aosp_car_x86-userdebug
+     11. aosp_car_x86_64-userdebug
+     12. aosp_car_x86_64_app-userdebug
+     13. aosp_cf_arm64_auto-userdebug
+     14. aosp_cf_arm64_phone-userdebug
+     15. aosp_cf_x86_64_phone-userdebug
+     16. aosp_cf_x86_auto-userdebug
+     17. aosp_cf_x86_phone-userdebug
+     18. aosp_cf_x86_tv-userdebug
+     19. aosp_coral-userdebug
+     20. aosp_coral_car-userdebug
+     21. aosp_crosshatch-userdebug
+     22. aosp_crosshatch_car-userdebug
+     23. aosp_flame-userdebug
+     24. aosp_flame_car-userdebug
+     25. aosp_redfin-userdebug
+     26. aosp_sargo-userdebug
+     27. aosp_sunfish-userdebug
+     28. aosp_trout_arm64-userdebug
+     29. aosp_trout_x86-userdebug
+     30. aosp_x86-eng
+     31. aosp_x86_64-eng
+     32. arm_krait-eng
+     33. arm_v7_v8-eng
+     34. armv8-eng
+     35. armv8_kryo385-eng
+     36. beagle_x15-userdebug
+     37. beagle_x15_auto-userdebug
+     38. car_x86_64-userdebug
+     39. db845c-userdebug
+     40. fuchsia_arm64-eng
+     41. fuchsia_x86_64-eng
+     42. hikey-userdebug
+     43. hikey64_only-userdebug
+     44. hikey960-userdebug
+     45. hikey960_tv-userdebug
+     46. hikey_tv-userdebug
+     47. pixel3_mainline-userdebug
+     48. poplar-eng
+     49. poplar-user
+     50. poplar-userdebug
+     51. qemu_trusty_arm64-userdebug
+     52. silvermont-eng
+     53. uml-userdebug
+     54. yukawa-userdebug
+     55. yukawa_sei510-userdebug
+
+$ lunch aosp_blueline-userdebug	//blueline for Google Pixel 3 device
+
+$ make -j24
+
+
+//Flash all -- Not booted
+$ export ANDROID_PRODUCT_OUT=./out/target/product/blueline
+
+$ fastboot flashall -w
+--------------------------------------------
+Bootloader Version...: b1c1-0.3-6863019
+Baseband Version.....: g845-00146-201008-B-6891496
+Serial Number........: 8ABX0Q0Q4
+--------------------------------------------
+Checking 'product'                                 OKAY [  0.060s]
+Setting current slot to 'a'                        OKAY [  0.146s]
+Sending 'boot_a' (65536 KB)                        OKAY [  2.470s]
+Writing 'boot_a'                                   OKAY [  0.389s]
+Sending 'dtbo_a' (8192 KB)                         OKAY [  0.390s]
+Writing 'dtbo_a'                                   OKAY [  0.100s]
+Sending 'vbmeta_a' (8 KB)                          OKAY [  0.120s]
+Writing 'vbmeta_a'                                 OKAY [  0.067s]
+Rebooting into fastboot                            OKAY [  0.060s]
+< waiting for any device >
+Sending 'system_a' (4 KB)                          OKAY [  0.008s]
+Updating super partition                           OKAY [  0.052s]
+Resizing 'product_a'                               OKAY [  0.035s]
+Resizing 'system_a'                                OKAY [  0.035s]
+Resizing 'system_ext_a'                            OKAY [  0.035s]
+Resizing 'product_a'                               OKAY [  0.046s]
+Sending 'product_a' (234160 KB)                    OKAY [  9.172s]
+Writing 'product_a'                                OKAY [  1.546s]
+Resizing 'system_a'                                OKAY [  0.046s]
+Sending sparse 'system_a' 1/4 (262140 KB)          OKAY [ 10.892s]
+Writing 'system_a'                                 OKAY [  1.657s]
+Sending sparse 'system_a' 2/4 (262140 KB)          OKAY [ 10.558s]
+Writing 'system_a'                                 OKAY [  1.382s]
+Sending sparse 'system_a' 3/4 (262140 KB)          OKAY [ 10.632s]
+Writing 'system_a'                                 OKAY [  1.348s]
+Sending sparse 'system_a' 4/4 (17604 KB)           OKAY [  0.858s]
+Writing 'system_a'                                 OKAY [  0.199s]
+Resizing 'system_ext_a'                            OKAY [  0.047s]
+Sending 'system_ext_a' (105516 KB)                 OKAY [  4.076s]
+Writing 'system_ext_a'                             OKAY [  0.932s]
+Sending 'system_b' (68476 KB)                      OKAY [  2.781s]
+Writing 'system_b'                                 OKAY [  0.421s]
+Erasing 'userdata'                                 OKAY [  8.400s]
+Erase successful, but not automatically formatting.
+File system type raw not supported.
+Erasing 'metadata'                                 OKAY [  0.016s]
+Erase successful, but not automatically formatting.
+File system type raw not supported.
+Rebooting                                          OKAY [  0.006s]
+Finished. Total time: 109.975s
+
+
+//Flash all - boot well
+$ fastboot flashall -w
+--------------------------------------------
+Bootloader Version...: b1c1-0.3-6863019
+Baseband Version.....: g845-00146-201008-B-6891496
+Serial Number........: 8ABX0Q0Q4
+--------------------------------------------
+Checking 'product'                                 OKAY [  0.060s]
+Setting current slot to 'a'                        OKAY [  0.077s]
+Sending 'boot_a' (65536 KB)                        OKAY [  2.680s]
+Writing 'boot_a'                                   OKAY [  0.322s]
+Sending 'dtbo_a' (8192 KB)                         OKAY [  0.610s]
+Writing 'dtbo_a'                                   OKAY [  0.098s]
+Sending 'vbmeta_a' (8 KB)                          OKAY [  0.120s]
+Writing 'vbmeta_a'                                 OKAY [  0.067s]
+Rebooting into fastboot                            OKAY [  0.060s]
+< waiting for any device >
+Sending 'system_a' (4 KB)                          OKAY [  0.008s]
+Updating super partition                           OKAY [  0.051s]
+Resizing 'product_a'                               OKAY [  0.035s]
+Resizing 'system_a'                                OKAY [  0.035s]
+Resizing 'system_ext_a'                            OKAY [  0.036s]
+Resizing 'vendor_a'                                OKAY [  0.034s]
+Resizing 'product_a'                               OKAY [  0.045s]
+Sending 'product_a' (234160 KB)                    OKAY [  9.188s]
+Writing 'product_a'                                OKAY [  1.512s]
+Resizing 'system_a'                                OKAY [  0.046s]
+Sending sparse 'system_a' 1/4 (262140 KB)          OKAY [ 10.359s]
+Writing 'system_a'                                 OKAY [  1.657s]
+Sending sparse 'system_a' 2/4 (262140 KB)          OKAY [ 10.710s]
+Writing 'system_a'                                 OKAY [  1.390s]
+Sending sparse 'system_a' 3/4 (262140 KB)          OKAY [ 10.614s]
+Writing 'system_a'                                 OKAY [  1.352s]
+Sending sparse 'system_a' 4/4 (19856 KB)           OKAY [  0.911s]
+Writing 'system_a'                                 OKAY [  0.209s]
+Resizing 'system_ext_a'                            OKAY [  0.047s]
+Sending 'system_ext_a' (105516 KB)                 OKAY [  4.112s]
+Writing 'system_ext_a'                             OKAY [  0.971s]
+Sending 'system_b' (69468 KB)                      OKAY [  2.795s]
+Writing 'system_b'                                 OKAY [  0.413s]
+Resizing 'vendor_a'                                OKAY [  0.046s]
+Sending sparse 'vendor_a' 1/3 (262140 KB)          OKAY [ 10.491s]
+Writing 'vendor_a'                                 OKAY [  1.684s]
+Sending sparse 'vendor_a' 2/3 (262140 KB)          OKAY [ 10.856s]
+Writing 'vendor_a'                                 OKAY [  1.347s]
+Sending sparse 'vendor_a' 3/3 (35976 KB)           OKAY [  1.572s]
+Writing 'vendor_a'                                 OKAY [  0.288s]
+Erasing 'userdata'                                 OKAY [  8.419s]
+Erase successful, but not automatically formatting.
+File system type raw not supported.
+Erasing 'metadata'                                 OKAY [  0.040s]
+Erase successful, but not automatically formatting.
+File system type raw not supported.
+Rebooting                                          OKAY [  0.006s]
+Finished. Total time: 126.742s
+
+```
+
+# 3. Google Pixel 3 Hack
+
+## 3.1 How to Enable USB Debugging on the Google Pixel 3
 
 Enable developer features on the Google Pixel 3 smartphone by enabling USB Debugging using these steps.
 
@@ -32,7 +436,7 @@ Enable developer features on the Google Pixel 3 smartphone by enabling USB Debug
 
 Ref:https://www.technipages.com/google-pixel-usb-debugging
 
-## 2.2 Enable Pixel3 Uart
+## 3.2 Enable Pixel3 Uart
 
 ```
 The last step is to reboot the device into the fastboot mode and enable UART (configured as 115200n8 with no hardware flow control):
@@ -72,4 +476,9 @@ Ref: https://duasynt.com/blog/google-pixel-uart-serial-cable
 * 21) [Dragonboards in AOSP Status](https://docs.google.com/document/d/1df0pDOFCjvmJnylLpnD3GlIBV7BISY68Exc_I_kZMgg/edit#)
 * 22) [How to Discover Hidden Fastboot Commands](https://www.xda-developers.com/how-to-discover-hidden-fastboot-commands/)
 * 23) [How to enable serial console on Android](http://bootloader.wikidot.com/linux:android:serial)
+* 24) [Pixel 3上Android 11源码下载，编译与烧录](https://hqw700.github.io/2021/01/01/aosp-build/)
+* 25) [Soong Build System](https://source.android.com/setup/build)
+* 26) [Driver Binaries for Nexus and Pixel Devices](https://developers.google.com/android/drivers)
+* 27) [macos pixel3的aosp下载、编译及刷机](https://www.jianshu.com/p/0505194069c6)
+* 28) [AOSP on Pixel3 running Mainline kernel](https://wiki.linaro.org/AOSP/blueline)
 
