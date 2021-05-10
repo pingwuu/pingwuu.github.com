@@ -380,6 +380,46 @@ deb http://security.ubuntu.com/ubuntu bionic-security multiverse
 # deb-src http://security.ubuntu.com/ubuntu bionic-security multiverse
 ```
 
+## 90.2 How to use a ramdisk on Linux
+
+Ref: https://www.techrepublic.com/article/how-to-use-a-ramdisk-on-linux/
+
+## Creating the ramdisk directory
+
+The first thing you must do is create a folder that will be used to mount the ramdisk. I'll create the folder */media/ramdisk*. To do that, open up a terminal window and issue the command:
+
+```
+sudo mkdir -p /media/ramdisk
+```
+
+## Mounting the ramdisk
+
+Now we actually mount the newly created directory to a temporary storage area (one that will use RAM as opposed to hard drive space). This is accomplished with the following command:
+
+```
+sudo mount -t tmpfs -o size=2048M tmpfs /media/ramdisk
+```
+
+You can adjust both the size and the mount point to fit your needs. In the above example, I have mounted 2GB of RAM to be used as a temporary file system to */media/ramdisk*. That mounted directory can now be used at your discretion.
+
+When you're done using the ramdisk, you can unmount it with the command:
+
+```
+sudo umount /media/ramdisk
+```
+
+## Automounting the ramdisk
+
+What if you want to have the ramdisk automatically created at boot? This can be done with the help of */etc/fstab*. Open up that file and add the following (edit to suit your needs):
+
+```
+none /media/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size=2048M 0 0
+```
+
+Save and close that file. You can test the newly modified */etc/fstab* file with the command mount -a. If you receive no warnings, you're good to go.
+
+
+
 # 99. Reference URL
 
 1) [https://wiki.apertis.org/Main_Page](https://wiki.apertis.org/Main_Page)

@@ -10,6 +10,23 @@ comments: true
 
 
 
+
+
+## 1.x USE_CCACHE Setting
+
+```
+#!/bin/sh
+source build/envsetup.sh
+export USE_CCACHE=1
+export CCACHE_DIR=<YOUR_CACHE_PATH>/.ccache
+prebuilt/linux-x86/ccache/ccache -M 20G
+lunch $1
+```
+
+Ref: https://subscription.packtpub.com/book/application_development/9781849519762/1/ch01lvl1sec34/using-the-ccache-should-know
+
+
+
 # 2. ADB basic command
 
 ## 2.1 The adb devices command
@@ -115,6 +132,338 @@ Be very careful running direct commands using these methods.
 Ref:https://www.androidcentral.com/10-basic-terminal-commands-you-should-know
 
 
+
+## 2.11 ADB command Examples
+
+- adb device
+- adb kill-server
+- adb start-server
+- adb reboot
+- adb reboot booloader
+- adb reboot recovery
+- adb shell
+- adb logcat
+- adb connect
+- adb push
+- adb pull
+- adb install
+- adb disable-verity
+- adb enable-verity
+- adb sideload
+- adb mount
+- adb remount
+- adb root
+- adb shell am start -n com.android.settings/.Settings
+- adb shell sync
+- adb shell getprop
+- adb shell chmod 0777 /data/local/tmp/
+
+# 3. Fastboot command
+
+## 3.1 fastboot getvar all
+
+```
+>fastboot getvar all
+(bootloader) product:blueline
+(bootloader) serialno:8ABX0Q0Q4
+(bootloader) variant:SDM UFS
+(bootloader) max-download-size:0x10000000
+(bootloader) slot-suffixes:_a,_b
+(bootloader) version-bootloader:b1c1-0.3-6863019
+(bootloader) version-baseband:g845-00146-201008-B-6891496
+(bootloader) secure-boot:PRODUCTION
+(bootloader) secure:yes
+(bootloader) hw-revision:MP1.0
+(bootloader) is-userspace:no
+(bootloader) slot-count:2
+(bootloader) current-slot:b
+(bootloader) unlocked:yes
+(bootloader) nos-production:yes
+(bootloader) off-mode-charge:1
+(bootloader) slot-retry-count:a:0
+(bootloader) slot-unbootable:a:no
+(bootloader) slot-successful:a:no
+(bootloader) slot-retry-count:b:0
+(bootloader) slot-unbootable:b:no
+(bootloader) slot-successful:b:yes
+(bootloader) battery-voltage:3853
+(bootloader) battery-soc-ok:yes
+(bootloader) snapshot-update-status:none
+(bootloader) storage-vendor:MICRON
+(bootloader) storage-model:64GB-UFS-MT
+(bootloader) storage-rev:8QSN
+(bootloader) citadel-fw:0.0.3/brick_v0.0.8232-b1e3ea340 2020-09-25 16:57:
+(bootloader) auto-shutdown:0
+(bootloader) partition-type:ssd:raw
+(bootloader) partition-size:ssd:0x2000
+(bootloader) partition-type:misc:raw
+(bootloader) partition-size:misc:0x100000
+(bootloader) partition-type:keystore:raw
+(bootloader) partition-size:keystore:0x80000
+(bootloader) partition-type:frp:raw
+(bootloader) partition-size:frp:0x80000
+(bootloader) partition-type:system_a:raw
+(bootloader) partition-size:system_a:0xB0000000
+(bootloader) partition-type:system_b:raw
+(bootloader) partition-size:system_b:0xB0000000
+(bootloader) partition-type:product_a:raw
+(bootloader) partition-size:product_a:0x12C00000
+(bootloader) partition-type:product_b:raw
+(bootloader) partition-size:product_b:0x12C00000
+(bootloader) partition-type:vendor_a:raw
+(bootloader) partition-size:vendor_a:0x30000000
+(bootloader) partition-type:vendor_b:raw
+(bootloader) partition-size:vendor_b:0x30000000
+(bootloader) partition-type:boot_a:raw
+(bootloader) partition-size:boot_a:0x4000000
+(bootloader) partition-type:boot_b:raw
+(bootloader) partition-size:boot_b:0x4000000
+(bootloader) partition-type:modem_a:raw
+(bootloader) partition-size:modem_a:0x5000000
+(bootloader) partition-type:modem_b:raw
+(bootloader) partition-size:modem_b:0x5000000
+(bootloader) partition-type:apdp_a:raw
+(bootloader) partition-size:apdp_a:0x40000
+(bootloader) partition-type:apdp_b:raw
+(bootloader) partition-size:apdp_b:0x40000
+(bootloader) partition-type:msadp_a:raw
+(bootloader) partition-size:msadp_a:0x40000
+(bootloader) partition-type:msadp_b:raw
+(bootloader) partition-size:msadp_b:0x40000
+(bootloader) partition-type:klog:raw
+(bootloader) partition-size:klog:0x400000
+(bootloader) partition-type:metadata:raw
+(bootloader) partition-size:metadata:0x1000000
+(bootloader) partition-type:userdata:raw
+(bootloader) partition-size:userdata:0xCE4FFB000
+(bootloader) partition-type:xbl_a:raw
+(bootloader) partition-size:xbl_a:0x380000
+(bootloader) partition-type:xbl_config_a:raw
+(bootloader) partition-size:xbl_config_a:0x20000
+(bootloader) partition-type:xbl_b:raw
+(bootloader) partition-size:xbl_b:0x380000
+(bootloader) partition-type:xbl_config_b:raw
+(bootloader) partition-size:xbl_config_b:0x20000
+(bootloader) partition-type:ALIGN_TO_128K_1:raw
+(bootloader) partition-size:ALIGN_TO_128K_1:0x1A000
+(bootloader) partition-type:cdt:raw
+(bootloader) partition-size:cdt:0x20000
+(bootloader) partition-type:ddr:raw
+(bootloader) partition-size:ddr:0x100000
+(bootloader) partition-type:modemcal:raw
+(bootloader) partition-size:modemcal:0x200000
+(bootloader) partition-type:uefivar:raw
+(bootloader) partition-size:uefivar:0x100000
+(bootloader) partition-type:sec:raw
+(bootloader) partition-size:sec:0x4000
+(bootloader) partition-type:aop_a:raw
+(bootloader) partition-size:aop_a:0x80000
+(bootloader) partition-type:tz_a:raw
+(bootloader) partition-size:tz_a:0x200000
+(bootloader) partition-type:hyp_a:raw
+(bootloader) partition-size:hyp_a:0x80000
+(bootloader) partition-type:abl_a:raw
+(bootloader) partition-size:abl_a:0x200000
+(bootloader) partition-type:keymaster_a:raw
+(bootloader) partition-size:keymaster_a:0x80000
+(bootloader) partition-type:cmnlib_a:raw
+(bootloader) partition-size:cmnlib_a:0x80000
+(bootloader) partition-type:cmnlib64_a:raw
+(bootloader) partition-size:cmnlib64_a:0x80000
+(bootloader) partition-type:devcfg_a:raw
+(bootloader) partition-size:devcfg_a:0x20000
+(bootloader) partition-type:qupfw_a:raw
+(bootloader) partition-size:qupfw_a:0x10000
+(bootloader) partition-type:vbmeta_a:raw
+(bootloader) partition-size:vbmeta_a:0x10000
+(bootloader) partition-type:dtbo_a:raw
+(bootloader) partition-size:dtbo_a:0x800000
+(bootloader) partition-type:storsec_a:raw
+(bootloader) partition-size:storsec_a:0x20000
+(bootloader) partition-type:aop_b:raw
+(bootloader) partition-size:aop_b:0x80000
+(bootloader) partition-type:tz_b:raw
+(bootloader) partition-size:tz_b:0x200000
+(bootloader) partition-type:hyp_b:raw
+(bootloader) partition-size:hyp_b:0x80000
+(bootloader) partition-type:abl_b:raw
+(bootloader) partition-size:abl_b:0x200000
+(bootloader) partition-type:keymaster_b:raw
+(bootloader) partition-size:keymaster_b:0x80000
+(bootloader) partition-type:cmnlib_b:raw
+(bootloader) partition-size:cmnlib_b:0x80000
+(bootloader) partition-type:cmnlib64_b:raw
+(bootloader) partition-size:cmnlib64_b:0x80000
+(bootloader) partition-type:devcfg_b:raw
+(bootloader) partition-size:devcfg_b:0x20000
+(bootloader) partition-type:qupfw_b:raw
+(bootloader) partition-size:qupfw_b:0x10000
+(bootloader) partition-type:vbmeta_b:raw
+(bootloader) partition-size:vbmeta_b:0x10000
+(bootloader) partition-type:dtbo_b:raw
+(bootloader) partition-size:dtbo_b:0x800000
+(bootloader) partition-type:storsec_b:raw
+(bootloader) partition-size:storsec_b:0x20000
+(bootloader) partition-type:ALIGN_TO_128K_2:raw
+(bootloader) partition-size:ALIGN_TO_128K_2:0x1A000
+(bootloader) partition-type:persist:raw
+(bootloader) partition-size:persist:0x2800000
+(bootloader) partition-type:modemst1:raw
+(bootloader) partition-size:modemst1:0x200000
+(bootloader) partition-type:modemst2:raw
+(bootloader) partition-size:modemst2:0x200000
+(bootloader) partition-type:fsg:raw
+(bootloader) partition-size:fsg:0x200000
+(bootloader) partition-type:fsc:raw
+(bootloader) partition-size:fsc:0x20000
+(bootloader) partition-type:devinfo:raw
+(bootloader) partition-size:devinfo:0x1000
+(bootloader) partition-type:dip:raw
+(bootloader) partition-size:dip:0x100000
+(bootloader) partition-type:spunvm:raw
+(bootloader) partition-size:spunvm:0x800000
+(bootloader) partition-type:limits:raw
+(bootloader) partition-size:limits:0x1000
+(bootloader) partition-type:toolsfv:raw
+(bootloader) partition-size:toolsfv:0x100000
+(bootloader) partition-type:logfs:raw
+(bootloader) partition-size:logfs:0x800000
+(bootloader) partition-type:sti:raw
+(bootloader) partition-size:sti:0x200000
+(bootloader) partition-type:ImageFv:raw
+(bootloader) partition-size:ImageFv:0x200000
+(bootloader) partition-type:splash:raw
+(bootloader) partition-size:splash:0x4000
+all:
+Finished. Total time: 0.948s
+```
+
+
+
+## 32. Fastboot command examples
+
+Ref: [List of ADB and Fastboot Commands](https://phonlabtech.com/list-of-adb-and-fastboot-commands/)
+
+Examples** This is just the start there are tons more and these only work on some devices mainly Motorola and Pixel.
+
+fastboot flash recovery TWRP-recovery.img
+fastboot getvar emmc_clr_writeprot
+fastboot getvar emmc_set_writeprot
+fastboot getvar ptable
+fastboot getvar cmd
+fastboot getvar resize
+fastboot getvar ddrid
+fastboot getvar emmcid
+fastboot getvar memory_num
+fastboot getvar serialno
+fastboot getvar product
+fastboot getvar VerifyPartition
+fastboot getvar nve
+fastboot getvar call
+fastboot getvar memory_info_
+fastboot getvar emmc
+fastboot getvar memory
+fastboot getvar version
+fastboot getvar rescue_version
+fastboot getvar rescue_phoneinfo
+fastboot getvar vendorcountry
+fastboot getvar rescue_ugs_port
+fastboot getvar rescue_enter_recovery
+fastboot getvar max-download-size
+fastboot getvar error_print
+fastboot getvar partition-type rescue_recovery
+fastboot reboot
+fastboot reboot-bootloader
+fastboot set_active -a
+fastboot oem reboot-download
+fastboot oem reboot-ftm
+fastboot oem rebootRUU
+fastboot dump
+fastboot oem listpartition
+fastboot oem listram
+fastboot oem dmesg
+fastboot oem last_dmesg
+fastboot oem update_emmc_partition
+fastboot oem read_mmc
+fastboot oem write_mmc
+fastboot oem batt_enable_fast_charge
+fastboot oem batt_test_pwr_supply
+fastboot oem batt_for_pa_testv
+fastboot oem batt_disable_safty_timer
+fastboot oem batt_keep_charge_on
+fastboot oem uart
+fastboot oem htc_radio_debug_func
+fastboot oem htcramdump
+fastboot oem autordump2storage
+fastboot oem test_emmc
+fastboot oem ufs_get_lun
+fastboot oem ufs_set_lun
+fastboot oem erase_phone_storage
+fastboot oem unlock
+fastboot oem lock
+fastboot flashing unlock
+fastboot flashing lock
+fastboot flashing lock_critical
+fastboot flashing unlock_critical
+fastboot flashing get_unlock_ability
+fastboot flashing get_unlock_bootloader_nonce
+fastboot flashing unlock_bootloader
+fastboot flashing lock_bootloader
+fastboot oem device-info
+fastboot oem show-barcodes
+fastboot oem ramdump
+fastboot oem getcolorid
+fastboot oem setcolorid
+fastboot oem getcid
+fastboot oem setcid
+fastboot oem enable-charger-screen
+fastboot oem disable-charger-screen
+fastboot oem off-mode-charge
+fastboot oem select-display-panel
+fastboot oem readconfig
+fastboot oem writeconfig
+fastboot oem easydump
+fastboot oem readunlock
+fastboot oem dsir
+fastboot oem ddrtest
+fastboot oem dump_ram_full
+fastboot oem get_ks_token
+fastboot oem get_anti_theft_status
+fastboot oem sha1sum
+fastboot oem readmeid
+fastboot oem refurbish
+fastboot reboot-bootloader
+fastboot flashing unlock
+fastboot oem unlock-go
+fastboot oem frp-unlock
+fastboot oem frp-erase
+fastboot oem enable reduced-version
+fastboot flashing lock
+fastboot oem device-info.preflash
+fastboot flashing get_unlock_ability
+fastboot oem enable-charger-screen
+fastboot oem disable-charger-screen
+fastboot oem enable-bp-tools
+fastboot oem disable-bp-tools
+fastboot oem enable-hw-factory
+fastboot oem disable-hw-factory
+fastboot oem select-display-panel
+fastboot oem off-mode-charge enable
+fastboot oem off-mode-charge disable
+fastboot oem ramdump enable
+fastboot oem ramdump disable
+fastboot oem uart enable
+fastboot oem uart disable
+fastboot oem hwdog certify begin
+fastboot flash:slock
+fastboot oem hwdog certify close
+fastboot oem get-imei1
+fastboot oem get-meid
+fastboot oem get-sn
+fastboot oem get-bsn
+fastboot oem get_verify_boot_status
+fastboot oem enable_dm_verity
+fastboot reboot emergency = EDL Mode
 
 # 2. Dragonboard 410c board
 

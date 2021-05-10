@@ -436,19 +436,169 @@ Enable developer features on the Google Pixel 3 smartphone by enabling USB Debug
 
 Ref:https://www.technipages.com/google-pixel-usb-debugging
 
-## 3.2 Enable Pixel3 Uart
+
+
+## 3.2 unlock/re-lock bootloader
+
+## Unlocking the bootloader
+
+You can flash a custom system only if the bootloader allows it, and the bootloader is locked by default. You can unlock the bootloader, but doing so deletes user data for privacy reasons. After unlocking, *all* data on the device is erased, that is, both private app data and shared data accessible over USB (including photos and movies). Before attempting to unlock the bootloader, back up any important files on the device.
+
+You need to unlock the bootloader only once, and you can re-lock it if necessary.
+
+### Unlocking recent devices
+
+All Nexus and Pixel devices released since 2014 (starting with Nexus 6 and Nexus 9) have factory-reset protection and require a multistep process to unlock the bootloader.
+
+1. To enable OEM unlocking on the device:
+
+   1. In Settings, tap **About phone**, then tap **Build number** seven times.
+   2. When you see the message *You are a developer*, tap the **back** button.
+   3. Tap **Developer options** and enable **OEM unlocking** and **USB debugging**. (If **OEM unlocking** is disabled, connect to the internet so the device can check in at least once. If it remains disabled, your device might be SIM locked by your carrier and the bootloader can't be unlocked.)
+
+2. Reboot into the bootloader and use
+
+    
+
+   ```
+   fastboot
+   ```
+
+    
+
+   to unlock it.
+
+   - For newer devices (2015 and higher):
+
+     ```
+     fastboot flashing unlock
+     ```
+
+   - For older devices (2014 and lower):
+
+     ```
+     fastboot oem unlock
+     ```
+
+3. Confirm the unlock onscreen.
+
+**Note:** On Nexus 10, after unlocking the bootloader, the internal storage remains unformatted. You can format the device using `fastboot format cache` followed by `fastboot format userdata`.
+
+### Re-locking the bootloader
+
+To re-lock the bootloader:
+
+- For newer devices (2015 and higher):
+
+  ```
+  fastboot flashing lock
+  ```
+
+- For older devices (2014 and lower):
+
+  ```
+  fastboot oem lock
+  ```
+
+**Note:** Re-locking the bootloading on a Motorola Xoom erases all user data (including the shared USB data).
+
+Ref: [unlocking-the-bootloader](https://source.android.com/setup/build/running#unlocking-the-bootloader)
+
+## 3.3 Enable Pixel 3 Uart
 
 ```
 The last step is to reboot the device into the fastboot mode and enable UART (configured as 115200n8 with no hardware flow control):
 
 # adb reboot-bootloader
+//enable uart console
 # fastboot oem uart enable
 In order to enable UART, the bootloader obviously needs to be unlocked in the first place.
+
+//disable uart console
+# fastboot oem uart disable
 ```
 
 Ref: https://duasynt.com/blog/google-pixel-uart-serial-cable
 
 
+
+# 4. Always-Updated List of Google Pixel Codenames
+
+In a tradition dating back to the [Nexus](https://nexus5.gadgethacks.com/) days, Google has always used fish-themed codenames when communicating internally about their phones. Their laptops and tablets are usually named after video game characters. These names often give us the first evidence of an upcoming device when they're used in software commits in [Android's open source code](https://android-review.googlesource.com/).
+
+- **Jump to a model year: [2013](https://android.gadgethacks.com/how-to/list-googles-internal-code-names-for-every-pixel-device-ever-0345367/#jump-2013devices) | [2015](https://android.gadgethacks.com/how-to/list-googles-internal-code-names-for-every-pixel-device-ever-0345367/#jump-2015devices) | [2016](https://android.gadgethacks.com/how-to/list-googles-internal-code-names-for-every-pixel-device-ever-0345367/#jump-2016devices) | [2017](https://android.gadgethacks.com/how-to/list-googles-internal-code-names-for-every-pixel-device-ever-0345367/#jump-2017devices) | [2018](https://android.gadgethacks.com/how-to/list-googles-internal-code-names-for-every-pixel-device-ever-0345367/#jump-2018devices) | [2019](https://android.gadgethacks.com/how-to/list-googles-internal-code-names-for-every-pixel-device-ever-0345367/#jump-2019devices) | [2020](https://android.gadgethacks.com/how-to/list-googles-internal-code-names-for-every-pixel-device-ever-0345367/#jump-2020devices)**
+
+Codenames become very important when you're dealing with [custom ROMs](https://android.gadgethacks.com/how-to/twrp-101-install-custom-rom-0167655/) and root mods. The numerals in friendly names like "Pixel 2" could cause problems if they were used in software code or file names. Something simple with no spaces, no numbers, and no special characters works best, so that's the name you'll need to know in order to download the right files for your device.
+
+You could even cite a trickle-down effect here, as the codenames used in the modding community for a device typically get adopted by frequenters of the gadget's various forums, such as XDA, Reddit, and Google Groups. So knowing your Pixel's code name is effectively a gateway to better support.
+
+### 2013 Devices
+
+- **Chromebook Pixel:** [Link](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices)
+
+### 2015 Devices
+
+- **Chromebook Pixel:** [Samus](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices)
+- **Pixel C:** [Ryu](https://developers.google.com/android/images#ryu)
+
+### 2016 Devices
+
+- **Pixel:** [Sailfish](https://source.android.com/setup/build/running#booting-into-fastboot-mode)
+- **Pixel XL:** [Marlin](https://android.googlesource.com/device/google/marlin/)
+
+### 2017 Devices
+
+- **Pixel 2:** [Walleye](https://source.android.com/setup/build/running#booting-into-fastboot-mode)
+- **Pixel 2 XL:** [Taimen](https://android.googlesource.com/device/google/taimen/)
+- **Pixelbook:** [Eve](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices)
+
+### 2018 Devices
+
+- **Pixel 3:** [Blueline](https://source.android.com/setup/build/running#booting-into-fastboot-mode)
+- **Pixel 3 XL:** [Crosshatch](https://android.googlesource.com/device/google/crosshatch/)
+- **Pixel Slate:** [Nocturne](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices)
+
+### 2019 Devices
+
+- **Pixel 3a:** [Sargo](https://source.android.com/setup/build/running#booting-into-fastboot-mode)
+- **Pixel 3a XL:** [Bonito](https://android.googlesource.com/device/google/bonito/)
+- **Pixel 4:** [Flame](https://developers.google.com/android/images#flame)
+- **Pixel 4 XL:** [Coral](https://android.googlesource.com/device/google/coral/)
+- **Pixelbook Go:** [Atlas](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices)
+
+### 2020 Devices
+
+- **Pixel 4a:** [Sunfish](https://android.googlesource.com/device/google/sunfish/)
+- **Pixel 4a 5G:** [Bramble](https://android.googlesource.com/device/google/bramble/)
+- **Pixel 5:** [Redfin](https://android.googlesource.com/device/google/redfin/)
+
+
+
+# 90. FAQ
+
+## 90.1 Android ADB devices unauthorized
+
+**Question:**
+
+```
+>adb devices
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+List of devices attached
+8ABX0Q0Q4       unauthorized
+```
+
+***Answer:***
+
+Thankgod xda developers exist : http://forum.xda-developers.com/verizon-lg-g3/help/unable-to-access-adb-t2830087
+
+Just had to delete adbkey file in C:Users/$Name/.android adbkey.pub was missing.
+
+Restart after this and both files are there.
+
+If this does not work : - Try Revoke USB DEBUGGING Authorization. - Enable USB debugging again.
+
+Ref: [Android ADB devices unauthorized](https://stackoverflow.com/questions/31638582/android-adb-devices-unauthorized)
 
 # 99. Reference URL
 

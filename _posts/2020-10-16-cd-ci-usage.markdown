@@ -8,6 +8,16 @@ comments: true
 
 # 1. Gerrit Basic
 
+## 1.2 Gerrit usage command
+
+**1) Restart the gerrit service**
+
+You must restart the Gerrit service for your authentication type and listen URL changes to take effect:
+
+```
+$GERRIT_SITE/bin/gerrit.sh restart
+```
+
 
 
 # 2. Jenkins Basic
@@ -53,5 +63,7 @@ Ref: https://www.jeffgeerling.com/blog/2018/fixing-jenkins-cli-error-anonymous-m
 # 99. Reference URL
 
 * 1) [Gerrit: OpenSource and Multi-Site](https://gitenterprise.me/2019/03/02/gerrit-opensource-and-multi-site/)
+* 2) [Building an Android CI Pipeline with GitHub Actions - Chicago Roboto 2020](https://speakerdeck.com/n8ebel/building-an-android-ci-pipeline-with-github-actions-chicago-roboto-2020?slide=68)
+* 3) [Android Build](https://gitlab.pixelexperience.org/infra/android-ci-jobs/build)
 * 
 

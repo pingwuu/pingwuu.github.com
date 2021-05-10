@@ -48,9 +48,7 @@ git config --global --unset http.sslVerify
 git config --global --unset http.https://domain.com.sslVerify
 ```
 
-
-
-# 1.3 git-lfs install
+# 1.4 git-lfs install
 
 ```
 $ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
@@ -58,7 +56,42 @@ $ sudo apt-get install git-lfs
 $ git lfs install
 ```
 
+## 1.5 http(s) proxy setting
 
+```
+# 设置http代理
+export http_proxy=
+
+# 设置https代理
+export HTTPS_PROXY=
+
+# 设置ftp代理
+export FTP_PROXY=
+
+# 同时设置http、https以及ftp代理
+export ALL_PROXY=
+
+=================================================================================
+Proxy setting on terminal
+# 设置代理，只在当前终端有效
+$ export http_proxy=http://<IP>:<PORT>
+或是
+$ export http_proxy=socks5://127.0.0.1:1080
+$ export HTTPS_PROXY=socks5://127.0.0.1:1080
+
+# 取消代理
+$ unset http_proxy
+$ unset https_proxy
+
+```
+
+Reference URL: https://www.cnblogs.com/hupeng1234/p/9783336.html
+
+## 1.6 apt proxy via socks5
+
+```
+sudo apt-get -o Acquire::http::proxy="socks5h://127.0.0.1:1080/" update
+```
 
 # 2. SSH key for git
 
@@ -96,8 +129,6 @@ $ ssh -T git@gitlab.com
 If the welcome message doesn’t appear, you can troubleshoot the problem by running ssh in verbose mode with the following command:
 $ ssh -Tvvv git@gitlab.com
 ```
-
-
 
 ## 2.3 Manage multiple usernames for git/ssh config
 
@@ -142,8 +173,6 @@ Host *
 
 ```
 
-
-
 # 3. How to clone all branches and tags between remote git repositories
 
 ## 3.1 Branches
@@ -186,8 +215,6 @@ $ remote=origin ; for brname in `git branch -r | grep $remote | grep -v master |
 ```
 $ git push -u --all origin
 ```
-
-
 
 ## 3.2 Tags
 
@@ -248,8 +275,6 @@ git fetch git://mirrors.ustc.edu.cn/linux.git
 git checkout FETCH_HEAD
 ```
 
-
-
 # 5. Linux Kernel Git Stable
 
 如需克隆 linux 代码，使用
@@ -271,8 +296,6 @@ git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/linux-stable.
 ```
 
 将默认上游设置为 TUNA 镜像
-
-
 
 # 6. Configuring a remote for a fork
 
@@ -301,8 +324,6 @@ git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/linux-stable.
    > upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
    > upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
    ```
-
-
 
 # 7. Syncing a fork
 
@@ -437,8 +458,6 @@ $ git commit ...					//commit
 $ git push ...						//push to repo
 ```
 
-
-
 # 10. Export and Import Patches with git
 
 REF: https://davidwalsh.name/git-export-patch
@@ -495,8 +514,6 @@ git am --signoff my-patch-file.patch
 
 Welcome to some of the operations that GitHub (and likewise services) do for us in the background.  I love doing stuff from [command line](https://davidwalsh.name/tutorials/shell) but I'd much rather use  an elegant front-end for this type of stuff.  In the case you're stuck without a UI, however, keep these commands handy!
 
-
-
 # 90 FAQ
 
 ## 90.1 How to fix “Filename too long error” during git clone
@@ -508,8 +525,6 @@ or
 
 $ git clone -c core.longpaths=true <repo-url>
 ```
-
-
 
 ## 90.2 git : How to remove a big file wrongly committed
 
@@ -529,10 +544,71 @@ git filter-branch --tree-filter 'rm -rf path/to/your/file' HEAD git push
 
 Ref:https://thomas-cokelaer.info/blog/2018/02/git-how-to-remove-a-big-file-wrongly-committed/
 
+## 9.3 Ubuntu18.04：gnutls_handshake() failed: Error in the pull function.
 
+Ubuntu18.04：gnutls_handshake() failed: Error in the pull function.
+克隆GitHub仓库
+
+git clone https://github.com/trekhleb/javascript-algorithms.git --depth=1
+出现错误
+
+fatal: unable to access 'https://github.com/trekhleb/javascript-algorithms.git/': gnutls_handshake() failed: Error in the pull function.
+错误原因分析：
+
+git使用了libcurl4-gnutls-dev，而在ubuntu18中该库作出了修改，导致git无法使用SSL进行连接。
+
+
+解决方案1：安装依赖包
+
+sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
+使用此方法暂时解决了问题，但不知道什么原因，重新与服务器建立连接后，又抛出了上面的错误。
+
+
+解决方案2：重新编译并安装使用libcurl4–openssl–dev的git。
+
+具体的脚本：
+
+#安装需要的工具包
+sudo apt-get update
+sudo apt-get install build-essential fakeroot dpkg-dev
+sudo apt-get build-dep git
+sudo apt-get install libcurl4-openssl-dev    #应当在安装git构建依赖之后否则会报错无法查找到libcurl4-openssl-dev
+
+mkdir ~/git-openssl
+cd ~/git-openssl
+apt-get source git    #git源码
+
+cd git-2.17.1/    #根据你的git源码版本切换
+sed -i 's/libcurl4-gnutls-dev/libcurl4-openssl-dev/g' debian/control    #将debian/control文件中libcurl4-gnutls-dev全部替换为libcurl4-openssl-dev
+sed -i 's/TEST =test//g' debian/rules    #删除debian/rules文件中TEST =test
+
+sudo dpkg-buildpackage -rfakeroot -b    #生成安装包
+cd ..
+sudo dpkg -i git_2.17.1-1ubuntu0.3_amd64.deb     #安装对应版本的git
+注：Git的版本按照情况自行变更。
+
+可能遇到的问题：
+构建安装包失败。
+
+原因：sed -i 's/libcurl4-gnutls-dev/libcurl4-openssl-dev/g' debian/control语句执行失效
+
+解决方案：手动进行修改。编辑debian/control 文件并全部替换 libcurl4-gnutls-dev 为 libcurl4-openssl-dev 删除debian/rules文件中的TEST=test 重新编译并安装。
+
+然而，本人在执行sudo dpkg-buildpackage -rfakeroot -b时抛出了错误，由于是新服务器，可能缺少部分依赖，所以果断选择了第三种解决方案。
+
+
+解决方案3：执行使用编译好的安装包安装。
+
+安装包下载：git_openssl_2.17.1
+
+执行安装：
+
+sudo dpkg -i git_2.17.1-1ubuntu0.3_amd64.deb 
+成功！！！
+————————————————
+版权声明：本文为CSDN博主「南极浮冰」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_39132520/article/details/114924970
 
 # 99. Reference URL
 
 * 1) [Git mirror available in Beijing](http://cdn.kernel.org/beijing-git-mirror.html)
-* 
-

@@ -173,6 +173,53 @@ sudo update-alternatives --config python
 $ find . -name "*.c" -print | xargs grep "main("
 ```
 
+
+
+# 5. Regular Expressions
+
+Ref URL: https://linuxize.com/post/regular-expressions-in-grep/
+
+## 5.1 Literal Matches
+
+The most basic usage of the `grep` command is to search for a literal character or series of characters in a file. For example, to display all the lines containing the string “bash” in the [`/etc/passwd`](https://linuxize.com/post/etc-passwd-file/) file, you would run the following command:
+
+```
+grep bash /etc/passwdCopy
+```
+
+The output should look something like this:
+
+```output
+root:x:0:0:root:/root:/bin/bash
+linuxize:x:1000:1000:linuxize:/home/linuxize:/bin/bash
+```
+
+In this example, the string “bash” is a basic regular expression that consists of a four literal characters. This tells `grep` to search for a string that has a “b” immediately followed by “a”, “s”, and “h”.
+
+By default, the `grep` command is case sensitive. This means that the uppercase and lowercase characters are treated as distinct.
+
+To ignore case when searching, use the `-i` option (or `--ignore-case`).
+
+It is important to note that `grep` looks for the search pattern as a string, not a word. So if you were searching for “gnu”, `grep` will also print the lines where “gnu” is embedded in larger words, such as “cygnus” or “magnum”.
+
+If the search string includes spaces, you need to enclose it in single or double quotation marks:
+
+```
+grep "Gnome Display Manager" /etc/passwdCopy
+```
+
+
+
+
+
+//todo
+
+```
+find | grep car | xargs rm -f
+```
+
+
+
 # 99. Reference URL
 
 
