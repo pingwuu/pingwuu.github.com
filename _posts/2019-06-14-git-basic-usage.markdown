@@ -33,9 +33,15 @@ git config --global https.proxy https://127.0.0.1:1080
 git config --global http.proxy 'socks5://127.0.0.1:1080'
 git config --global https.proxy 'socks5://127.0.0.1:1080'
 
+# proxy for one site
+$ git config --global http.https://android.googlesource.com/.proxy 'socks5://127.0.0.1:1080'
+$ git config --global https.https://android.googlesource.com/.proxy 'socks5://127.0.0.1:1080'
+
 # 取消代理
 git config --global --unset http.proxy
 git config --global --unset https.proxy
+git config --global --unset http.https://android.googlesource.com/.proxy
+git config --global --unset https.https://android.googlesource.com/.proxy
 
 //Handle subsequent SSL protocol errors
 git -c http.sslVerify=false clone https://domain.com/path/to/git
