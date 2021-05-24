@@ -528,6 +528,7 @@ Welcome to some of the operations that GitHub (and likewise services) do for us 
 
 **git format-patch**
 
+```
 $ git format-patch HEAD^ 　　　　　　　　　　　　　  #生成最近的1次commit的patch
 
 $ git format-patch HEAD^^　　　　　　　　　　　　　 #生成最近的2次commit的patch
@@ -543,11 +544,13 @@ $ git format-patch -1 <r1>                          #生成单个commit的patch
 $ git format-patch <r1>                            #生成某commit以来的修改patch（不包含该commit）
 
 $ git format-patch --root <r1>　　　　　　　　　　　　  #生成从根到r1提交的所有patch
+```
 
  
 
 **git am**
 
+```
 $ git apply --stat 0001-limit-log-function.patch  　　　 # 查看patch的情况
 
 $ git apply --check 0001-limit-log-function.patch  　　 # 检查patch是否能够打上，如果没有任何输出，则说明无冲突，可以打上
@@ -563,8 +566,9 @@ $ git am ~/patch-set/*.patch　　　　　　　　　　　　　# 将路径~/
 $ git am --abort                                  # 当git am失败时，用以将已经在am过程中打上的patch废弃掉(比如有三个patch，打到第三个patch时有冲突，那么这条命令会把打上的前两个patch丢弃掉，返回没有打patch的状态)
 
 $ git am --resolved                               #当git am失败，解决完冲突后，这条命令会接着打patch
+```
 
- 
+
 
 **如果打Patch的过程中发生了冲突（conflicts），怎么办？**
 
