@@ -285,4 +285,5 @@ $ bitbake core-image-minimal
 * [i.MX_Yocto_Project_User's_Guide](/static/files/imx-yocto-L4.14.98_2.0.0_ga/i.MX_Yocto_Project_User's_Guide.pdf)
 * [Update or flash the Dev Board](https://coral.ai/docs/dev-board/reflash/#update-your-board-with-apt-get)
 * [Getting Started with Mendel Linux](https://coral.googlesource.com/docs/+/refs/heads/master/GettingStarted.md)
+* [arm: imx: Add support for Google's Coral Dev Board](https://patchwork.ozlabs.org/project/uboot/patch/20200306104633.6643-1-alifer.wsdm@gmail.com/)
 * 

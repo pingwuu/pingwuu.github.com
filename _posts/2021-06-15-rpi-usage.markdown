@@ -1,0 +1,56 @@
+---
+layout: post
+title:  "RPI Usage"
+date:   2021-06-15 10:00:00 +0800
+categories: rpi linux driver
+comments: true
+---
+
+# 1. RPI Image Installation
+
+## 1. Raspberry Pi OS Lite
+
+* Download image from: https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/2021-05-07-raspios-buster-armhf-lite.zip
+
+  https://www.raspberrypi.org/software/operating-systems/
+
+* Copy image to the SD card
+
+  On host PC (sdX is SD card partition on you host)
+
+  ```
+  $ unzip 2021-05-07-raspios-buster-armhf-lite.zip
+  $ sudo dd if=2021-05-07-raspios-buster-armhf-lite.img of=/dev/sdX bs=4M conv=fsync
+  ```
+
+* Boot from SD
+
+# 2. RPI 4 Image Build - Buildroot
+
+```
+$ git clone git://git.busybox.net/buildroot -b master
+$ cd buildroot
+$ make raspberrypi4_64_defconfig
+$ make -j8
+
+//copy image to SD card
+$ sudo dd if=output/images/sdcard.img of=/dev/sdX bs=4M conv=fsync 
+
+//Boot from SD
+
+//Done
+```
+
+# 3. Device Driver Development for RPI 4 - Buildroot
+
+
+
+# 3. RPI Image Build - Yocto
+
+# 4. RPI Driver Development
+
+# 99. Reference URL
+
+* 1) [How to add a Linux kernel driver module as a Buildroot package?](https://www.titanwolf.org/Network/q/f9c626a4-3897-491e-83b2-708d3e38f2c4/y)
+* 2) [How to add/compile a kernel module as a new buildroot package](https://techfortalk.co.uk/2017/06/15/how-to-addcompile-a-kernel-module-as-a-new-buildroot-package/)
+* 

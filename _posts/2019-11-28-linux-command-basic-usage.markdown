@@ -79,7 +79,7 @@ See "unzip -hh" or unzip.txt for more help.  Examples:
 
 ```
 
-# 2.3 tar command
+## 2.3 tar command
 
 1) Create tar Archive File
 
@@ -141,7 +141,10 @@ OR
 [ 18 Tar Command Examples in Linux ]( https://www.tecmint.com/18-tar-command-examples-in-linux/ )
 
 
-
+## 2.4 extract *.bz2
+```
+$ bunzip2 -dk -f <image_name>.sdcard.bz2 
+```
 ## 2.4 Create a 1GB.bin random content file:
 
 ```
