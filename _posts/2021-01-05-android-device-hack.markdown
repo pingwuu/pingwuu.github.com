@@ -6,9 +6,13 @@ categories: linux android hack pixel3 adb fastboot
 comments: true
 ---
 
+[TOC]
+
+
+
 # 1. Android tool install and usage
 
-# 1.1 Download and install SDK Platform Tools
+## 1.1 Download and install SDK Platform Tools
 
 https://dl.google.com/android/repository/platform-tools-latest-windows.zip
 
@@ -440,7 +444,7 @@ Ref:https://www.technipages.com/google-pixel-usb-debugging
 
 ## 3.2 unlock/re-lock bootloader
 
-## Unlocking the bootloader
+### Unlocking the bootloader
 
 You can flash a custom system only if the bootloader allows it, and the bootloader is locked by default. You can unlock the bootloader, but doing so deletes user data for privacy reasons. After unlocking, *all* data on the device is erased, that is, both private app data and shared data accessible over USB (including photos and movies). Before attempting to unlock the bootloader, back up any important files on the device.
 
@@ -503,6 +507,8 @@ To re-lock the bootloader:
 **Note:** Re-locking the bootloading on a Motorola Xoom erases all user data (including the shared USB data).
 
 Ref: [unlocking-the-bootloader](https://source.android.com/setup/build/running#unlocking-the-bootloader)
+
+
 
 ## 3.3 Enable Pixel 3 Uart
 
@@ -574,6 +580,10 @@ You could even cite a trickle-down effect here, as the codenames used in the mod
 
 
 
+# 10. Flash and Build Android for Pixel 4XL
+
+
+
 # 90. FAQ
 
 ## 90.1 Android ADB devices unauthorized
@@ -599,6 +609,8 @@ Restart after this and both files are there.
 If this does not work : - Try Revoke USB DEBUGGING Authorization. - Enable USB debugging again.
 
 Ref: [Android ADB devices unauthorized](https://stackoverflow.com/questions/31638582/android-adb-devices-unauthorized)
+
+
 
 # 99. Reference URL
 

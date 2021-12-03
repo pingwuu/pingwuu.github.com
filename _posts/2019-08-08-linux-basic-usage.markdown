@@ -494,15 +494,14 @@ Save and close that file. You can test the newly modified */etc/fstab* file with
 # 99. Reference URL
 
 * 1) [https://wiki.apertis.org/Main_Page](https://wiki.apertis.org/Main_Page)
-
 * 2) [QNX Doc](http://www.qnx.com/developers/docs/)
-
 * 3) [How To Easily Upgrade Linux Kernel In Ubuntu And Linux Mint -ukuu](https://itsfoss.com/upgrade-linux-kernel-ubuntu/)
-
 * 4) [http://mirrors.aliyun.com/ubuntu-releases/](http://mirrors.aliyun.com/ubuntu-releases/)
-
 * 5) [https://systemd.io/](https://systemd.io/)
 * 6) [Rethinking PID 1](http://0pointer.net/blog/projects/systemd.html)
+* 7) [https://github.com/kralf/libipc](https://github.com/kralf/libipc)
+* 8) [https://github.com/louxj424/IPC](https://github.com/louxj424/IPC)
+* 
 
 
 
