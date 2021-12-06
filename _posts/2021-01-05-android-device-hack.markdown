@@ -8,8 +8,6 @@ comments: true
 
 [TOC]
 
-
-
 # 1. Android tool install and usage
 
 ## 1.1 Download and install SDK Platform Tools
@@ -171,80 +169,14 @@ $ repo sync -j16
 $ axel http://dl.google.com/dl/android/aosp/google_devices-blueline-rq1a.210205.004-bdf0db36.tgz
 $ tar -zxvf google_devices-blueline-rq1a.210205.004-bdf0db36.tgz
 $ ./extract-google_devices-blueline.sh
-vendor/
-vendor/google_devices/
-vendor/google_devices/crosshatch/
-vendor/google_devices/crosshatch/proprietary/
-vendor/google_devices/crosshatch/proprietary/device-vendor.mk
-vendor/google_devices/crosshatch/proprietary/BoardConfigVendor.mk
-vendor/google_devices/blueline/
-vendor/google_devices/blueline/android-info.txt
-vendor/google_devices/blueline/LICENSE
-vendor/google_devices/blueline/proprietary/
-vendor/google_devices/blueline/proprietary/vendor.img
-vendor/google_devices/blueline/proprietary/bootloader.img
-vendor/google_devices/blueline/proprietary/Android.mk
-vendor/google_devices/blueline/proprietary/radio.img
-vendor/google_devices/blueline/device-partial.mk
-vendor/google_devices/blueline/BoardConfigPartial.mk
-
+...
 Files extracted successfully.
 
 
 $ axel http://dl.google.com/dl/android/aosp/qcom-blueline-rq1d.210105.003-9fa2b19d.tgz
 $ tar -zxvf qcom-blueline-rq1d.210105.003-9fa2b19d.tgz
 $ ./extract-qcom-blueline.sh
-vendor/
-vendor/qcom/
-vendor/qcom/blueline/
-vendor/qcom/blueline/LICENSE
-vendor/qcom/blueline/proprietary/
-vendor/qcom/blueline/proprietary/lib-imsvtextutils.so
-vendor/qcom/blueline/proprietary/radioconfiginterfacelibrary.jar
-vendor/qcom/blueline/proprietary/libsecureui_svcsock_system.so
-vendor/qcom/blueline/proprietary/qcrilhook.jar
-vendor/qcom/blueline/proprietary/radioconfiglibrary.jar
-vendor/qcom/blueline/proprietary/telephonyservice.xml
-vendor/qcom/blueline/proprietary/QtiTelephonyService.apk
-vendor/qcom/blueline/proprietary/lib64/
-vendor/qcom/blueline/proprietary/lib64/lib-imsvtextutils.so
-vendor/qcom/blueline/proprietary/lib64/libsecureui_svcsock_system.so
-vendor/qcom/blueline/proprietary/lib64/lib-imsvideocodec.so
-vendor/qcom/blueline/proprietary/lib64/lib-imsvt.so
-vendor/qcom/blueline/proprietary/lib64/librcc.so
-vendor/qcom/blueline/proprietary/lib64/libsdm-disp-apis.so
-vendor/qcom/blueline/proprietary/lib64/libimscamera_jni.so
-vendor/qcom/blueline/proprietary/lib64/libimsmedia_jni.so
-vendor/qcom/blueline/proprietary/lib64/lib-imsvtutils.so
-vendor/qcom/blueline/proprietary/UimService.xml
-vendor/qcom/blueline/proprietary/Android.mk
-vendor/qcom/blueline/proprietary/lib-imsvideocodec.so
-vendor/qcom/blueline/proprietary/lib-imsvt.so
-vendor/qcom/blueline/proprietary/librcc.so
-vendor/qcom/blueline/proprietary/uimremoteclient.xml
-vendor/qcom/blueline/proprietary/com.qualcomm.qti.imscmservice.xml
-vendor/qcom/blueline/proprietary/uimremoteserverlibrary.jar
-vendor/qcom/blueline/proprietary/Android.bp
-vendor/qcom/blueline/proprietary/libsdm-disp-apis.so
-vendor/qcom/blueline/proprietary/libimscamera_jni.so
-vendor/qcom/blueline/proprietary/QtiTelephonyServicelibrary.jar
-vendor/qcom/blueline/proprietary/ims.apk
-vendor/qcom/blueline/proprietary/libimsmedia_jni.so
-vendor/qcom/blueline/proprietary/qcrilhook.xml
-vendor/qcom/blueline/proprietary/uimremoteserver.xml
-vendor/qcom/blueline/proprietary/lib-imsvtutils.so
-vendor/qcom/blueline/proprietary/uimremoteclientlibrary.jar
-vendor/qcom/blueline/device-partial.mk
-vendor/qcom/blueline/BoardConfigPartial.mk
-vendor/google_devices/
-vendor/google_devices/crosshatch/
-vendor/google_devices/crosshatch/proprietary/
-vendor/google_devices/crosshatch/proprietary/device-vendor.mk
-vendor/google_devices/crosshatch/proprietary/BoardConfigVendor.mk
-vendor/google_devices/blueline/
-vendor/google_devices/blueline/android-info.txt
-vendor/google_devices/blueline/proprietary/
-
+...
 Files extracted successfully.
 
 
@@ -581,6 +513,237 @@ You could even cite a trickle-down effect here, as the codenames used in the mod
 
 
 # 10. Flash and Build Android for Pixel 4XL
+
+## 10.1 Flash Factory Image
+
+### Download factory image for pixel 4XL of android 11
+
+Go to page https://developers.google.com/android/images and select RQ3A.211001.001 to download
+
+| 11.0.0 (RQ3A.211001.001, Oct 2021) | [Flash](https://flash.android.com/build/7641976?target=coral-user&signed) | [Link](https://dl.google.com/dl/android/aosp/coral-rq3a.211001.001-factory-c086a4c3.zip) |
+| ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+Search Build Tag -> android-11.0.0_r46
+
+https://source.android.google.cn/setup/start/build-numbers
+
+| RQ3A.211001.001 | android-11.0.0_r46 | Android11 | Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5 | 2021-10-01 |
+| --------------- | ------------------ | --------- | ------------------------------------------------------------ | ---------- |
+
+Driver Binaries:
+
+### Pixel 4 XL binaries for Android 11.0.0 (RQ3A.211001.001)
+
+| Hardware Component                                          | Company  | Download                                                     | SHA-256 Checksum                                             |
+| :---------------------------------------------------------- | :------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| Vendor image                                                | Google   | [Link](https://dl.google.com/dl/android/aosp/google_devices-coral-rq3a.211001.001-a802c980.tgz) | 12c7396bdd4b3e3af839d6f18de1e835613956983a6d39fcca939c63aa5c4264 |
+| GPS, Audio, Camera, Gestures, Graphics, DRM, Video, Sensors | Qualcomm | [Link](https://dl.google.com/dl/android/aosp/qcom-coral-rq3a.211001.001-2955f6f2.tgz) | b684d04899ad654c4bd64932fb5db10f8442337088b5e2c20af7f7eb5dc87818 |
+
+
+
+### Flash all image
+
+To flash a system image:
+
+1) Download the appropriate system image for your device below, then unzip it to a safe directory.
+
+2) Connect your device to your computer over USB.
+
+3) Start the device in fastboot mode with one of the following methods:
+
+   * Using the [adb tool](http://developer.android.com/tools/help/adb.html): With the device powered on, execute:
+
+   ```
+   adb reboot bootloader
+   ```
+
+   - Using a key combo: Turn the device off, then turn it on and immediately hold down the relevant [key combination](https://source.android.com/source/running#booting-into-fastboot-mode) for your device.
+
+4) If necessary, unlock the device's bootloader using one of the following methods:
+
+   - If you are updating a Nexus or Pixel device that is manufactured in 2015 or later (for example, a Nexus 5X, Nexus 6P, Pixel, Pixel XL, Pixel 2 or Pixel 2 XL device), run this command:
+
+     ```
+     fastboot flashing unlock
+     ```
+
+   **Note:** the 'flashing unlock' command is only available with fastboot version 23.0.1 or later. The latest available version of fastboot can be downloaded from [SDK Platform Tools](https://developer.android.com/studio/releases/platform-tools.html).
+
+   - For Pixel 2: To flash the bootloader, Pixel 2's boot loader must be updated to at least Oreo MR1's version first. This may be done by applying an over-the-air (OTA) update, or sideloading a [full OTA](https://developers.google.com/android/ota) with the instructions on that page.
+
+   - For Pixel 2 **XL only** with loader version prior to TMZ20a: the critical partitions may also need to be unlocked before flashing. The unlock can be performed with this command, and should NOT be done on other devices:
+
+     ```
+     fastboot flashing unlock_critical
+     ```
+
+   - If you are updating an older device, run this command:
+
+     ```
+     fastboot oem unlock
+     ```
+
+   The target device will show you a confirmation screen. (This erases all data on the target device.)
+
+   See [Unlocking the bootloader](https://source.android.com/source/running#unlocking-the-bootloader) for more detailed instructions.
+
+5) Open a terminal and navigate to the unzipped system image directory.
+
+6) Execute the `flash-all` script. This script installs the necessary bootloader, baseband firmware(s), and operating system.
+
+
+
+## 10.2 Flash OTA
+
+
+
+## 10.3 Build AOSP 11 for PIXEL 4XL
+
+### 10.3.1 Source Code Download
+
+1)  Create work folder
+
+   ```
+   $ mkdir android
+   $ cd android
+   ```
+
+2) Init repo and sync
+
+   ```
+   //download from google site
+   $ repo init -u https://android.googlesource.com/platform/manifest
+   $ repo sync -j4
+   
+   //download from ustc mirror if you can't access google repos
+   $ export REPO_URL = 'https://gerrit-googlesource.proxy.ustclug.org/git-repo'
+   $ repo init -u git://mirrors.ustc.edu.cn/aosp/platform/manifest -b android-11.0.0_r46
+   $ repo sync -j4
+   
+   or using a shell to loop sync - repo.sh as below:
+   #####
+   #!/bin/bash
+   repo sync -j4
+   while [ $? -ne 0 ]
+   do
+   echo "======sync failed ,re-sync again======"
+   sleep 3
+   repo sync -j4
+   done
+   
+   ```
+
+3) Device and vendor code download
+
+   https://developers.google.com/android/drivers
+
+   Device driver:
+
+   https://dl.google.com/dl/android/aosp/google_devices-coral-rq3a.211001.001-a802c980.tgz
+
+   Vendor driver:
+
+   https://dl.google.com/dl/android/aosp/qcom-coral-rq3a.211001.001-2955f6f2.tgz
+
+   ```
+   $ cd android
+   $ wget https://dl.google.com/dl/android/aosp/qcom-coral-rq3a.211001.001-2955f6f2.tgz
+   $ zxvf qcom-coral-rq3a.211001.001-2955f6f2.tgz
+   $ extract-qcom-coral.sh
+   vendor/
+   vendor/qcom/
+   vendor/qcom/coral/
+   vendor/qcom/coral/LICENSE
+   vendor/qcom/coral/BoardConfigPartial.mk
+   vendor/qcom/coral/proprietary/
+   vendor/qcom/coral/proprietary/libimsmedia_jni.so
+   vendor/qcom/coral/proprietary/ims.apk
+   vendor/qcom/coral/proprietary/lib64/
+   vendor/qcom/coral/proprietary/lib64/libimsmedia_jni.so
+   vendor/qcom/coral/proprietary/lib64/libmmosal.so
+   vendor/qcom/coral/proprietary/lib64/libmdsprpc_system.so
+   vendor/qcom/coral/proprietary/lib64/libsdsprpc_system.so
+   vendor/qcom/coral/proprietary/lib64/libadsprpc_system.so
+   vendor/qcom/coral/proprietary/lib64/libdiag_system.so
+   vendor/qcom/coral/proprietary/lib64/libcdsprpc_system.so
+   vendor/qcom/coral/proprietary/Android.bp
+   vendor/qcom/coral/proprietary/com.qualcomm.qti.uceservice-V2.0-java.jar
+   vendor/qcom/coral/proprietary/vendor.qti.hardware.alarm-V1.0-java.jar
+   vendor/qcom/coral/proprietary/libmmosal.so
+   vendor/qcom/coral/proprietary/qti-telephony-hidl-wrapper.jar
+   vendor/qcom/coral/proprietary/libmdsprpc_system.so
+   vendor/qcom/coral/proprietary/libsdsprpc_system.so
+   vendor/qcom/coral/proprietary/QtiTelephonyService.apk
+   vendor/qcom/coral/proprietary/com.qualcomm.qcrilmsgtunnel.xml
+   vendor/qcom/coral/proprietary/vendor.qti.ims.callinfo-V1.0-java.jar
+   vendor/qcom/coral/proprietary/qti_telephony_utils.xml
+   vendor/qcom/coral/proprietary/qti-telephony-utils.jar
+   vendor/qcom/coral/proprietary/qti_telephony_hidl_wrapper.xml
+   vendor/qcom/coral/proprietary/libadsprpc_system.so
+   vendor/qcom/coral/proprietary/vendor.qti.hardware.data.latency-V1.0-java.jar
+   vendor/qcom/coral/proprietary/libdiag_system.so
+   vendor/qcom/coral/proprietary/qcrilhook.xml
+   vendor/qcom/coral/proprietary/qcrilhook.jar
+   vendor/qcom/coral/proprietary/org_codeaurora_ims.xml
+   vendor/qcom/coral/proprietary/libcdsprpc_system.so
+   vendor/qcom/coral/proprietary/vendor.qti.voiceprint-V1.0-java.jar
+   vendor/qcom/coral/proprietary/qcrilmsgtunnel.apk
+   vendor/qcom/coral/proprietary/Android.mk
+   vendor/qcom/coral/device-partial.mk
+   vendor/google_devices/
+   vendor/google_devices/coral/
+   vendor/google_devices/coral/android-info.txt
+   vendor/google_devices/coral/proprietary/
+   vendor/google_devices/coral/proprietary/BoardConfigVendor.mk
+   vendor/google_devices/coral/proprietary/device-vendor.mk
+   
+   Files extracted successfully.
+   
+   $ wget https://dl.google.com/dl/android/aosp/google_devices-coral-rq3a.211001.001-a802c980.tgz
+   $ zxvf google_devices-coral-rq3a.211001.001-a802c980.tgz
+   $ extract-google_devices-coral.sh
+   vendor/
+   vendor/google_devices/
+   vendor/google_devices/coral/
+   vendor/google_devices/coral/android-info.txt
+   vendor/google_devices/coral/LICENSE
+   vendor/google_devices/coral/BoardConfigPartial.mk
+   vendor/google_devices/coral/proprietary/
+   vendor/google_devices/coral/proprietary/bootloader.img
+   vendor/google_devices/coral/proprietary/BoardConfigVendor.mk
+   vendor/google_devices/coral/proprietary/radio.img
+   vendor/google_devices/coral/proprietary/vendor.img
+   vendor/google_devices/coral/proprietary/device-vendor.mk
+   vendor/google_devices/coral/proprietary/Android.mk
+   vendor/google_devices/coral/device-partial.mk
+   
+   Files extracted successfully.
+   ```
+
+4) a
+
+### 10.3.2 Build
+
+```
+$ source build/envsetup.sh
+$ lunch aosp_coral-userdebug
+$ make -j32
+```
+
+### 10.3.3 Flash image
+
+Flash on Windows
+
+```
+> adb reboot bootloader
+> cd C:\Android\pixel4xl\out\target\product\coral
+> set ANDROID_PRODUCT_OUT=.\
+> fastboot flashall -w
+```
+
+
+
+## 10.4 Build Kernel
 
 
 
