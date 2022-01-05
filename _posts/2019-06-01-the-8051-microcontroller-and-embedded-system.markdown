@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The 8051 Microcontroller and Embedded System"
-date:   2021-08-11 10:30:00 +0800
+date:   2019-06-01 10:30:00 +0800
 categories: mcu 8051
 comments: true
 ---

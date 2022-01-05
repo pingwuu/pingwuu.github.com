@@ -178,6 +178,28 @@ $ find . -name "*.c" -print | xargs grep "main("
 
 
 
+2. Find files bigger or smaller than X size
+
+For instance, to find files that are bigger than **4GB** in a directory, just enter:
+
+```
+$ find . -type f -size +4G
+```
+
+Similarly, to find the files which are smaller than X size, for example 4GiB, use the following command:
+
+```
+$ find . -type f -size -4G
+```
+
+You can use size switch for other formats, such as
+
+- `'c'` for bytes
+- `'w'` for two-byte words
+- `'k'` for Kilobytes
+- `'M'` for Megabytes
+- `'G'` for Gigabytes
+
 # 5. Regular Expressions
 
 Ref URL: https://linuxize.com/post/regular-expressions-in-grep/
@@ -211,19 +233,13 @@ If the search string includes spaces, you need to enclose it in single or double
 grep "Gnome Display Manager" /etc/passwdCopy
 ```
 
-
-
-
-
 //todo
 
 ```
 find | grep car | xargs rm -f
 ```
 
-
-
 # 99. Reference URL
 
-
+* 1> [How To Find Files Bigger Or Smaller Than X Size In Linux](https://ostechnix.com/find-files-bigger-smaller-x-size-linux/)
 
