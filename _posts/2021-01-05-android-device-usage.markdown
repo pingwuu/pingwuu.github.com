@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Android Device Hack"
+title:  "Android Device Usage"
 date:   2021-01-05 14:30:00 +0800
 categories: linux android hack pixel3 adb fastboot
 comments: true
@@ -30,7 +30,6 @@ https://dl.google.com/dl/android/aosp/blueline-rq1a.210205.004-factory-3ab98ba8.
 
 ```
 unzip blueline-rq1a.210205.004-factory-3ab98ba8.zip
-
 C:\Android\pixel3\blueline-rq1a.210205.004>flash-all.bat
 Sending 'bootloader' (8517 KB)                     OKAY [  0.219s]
 Writing 'bootloader'                               FAILED (remote: 'No such file or directory')
@@ -539,8 +538,6 @@ Driver Binaries:
 | Vendor image                                                | Google   | [Link](https://dl.google.com/dl/android/aosp/google_devices-coral-rq3a.211001.001-a802c980.tgz) | 12c7396bdd4b3e3af839d6f18de1e835613956983a6d39fcca939c63aa5c4264 |
 | GPS, Audio, Camera, Gestures, Graphics, DRM, Video, Sensors | Qualcomm | [Link](https://dl.google.com/dl/android/aosp/qcom-coral-rq3a.211001.001-2955f6f2.tgz) | b684d04899ad654c4bd64932fb5db10f8442337088b5e2c20af7f7eb5dc87818 |
 
-
-
 ### Flash all image
 
 To flash a system image:
@@ -633,7 +630,7 @@ To flash a system image:
    
    ```
 
-3) Device and vendor code download
+3. Device and vendor code download
 
    https://developers.google.com/android/drivers
 
@@ -720,14 +717,15 @@ To flash a system image:
    Files extracted successfully.
    ```
 
-4) a
-
 ### 10.3.2 Build
 
 ```
 $ source build/envsetup.sh
 $ lunch aosp_coral-userdebug
 $ make -j32
+
+#make boot image
+make bootimage
 ```
 
 ### 10.3.3 Flash image
@@ -743,7 +741,63 @@ Flash on Windows
 
 
 
+### 10.3.4 boot using boot.img
+
+```
+> adb reboot bootloader
+> fastboot boot boot.img
+
+# flash boot.img
+> fastboot flash boot boot.img
+```
+
+
+
 ## 10.4 Build Kernel
+
+### 10.4.1 Download sources and build tools
+
+```
+$ mkdir android-kernel && cd android-kernel
+
+branch list: https://android.googlesource.com/kernel/manifest/+refs
+ustc mirror: https://mirrors.ustc.edu.cn/aosp/
+
+$ repo init -u https://android.googlesource.com/kernel/manifest -b android-msm-coral-4.14-android11-qpr3
+
+$ repo init -u https://android.googlesource.com/kernel/manifest -b android-msm-coral-4.14-android11
+
+$ repo init -u https://android.googlesource.com/kernel/manifest -b android-msm-coral-4.14-android12
+
+or
+
+$ repo init -u https://mirrors.ustc.edu.cn/aosp/kernel/manifest -b android-msm-coral-4.14-android11-qpr3
+
+$ repo init -u https://mirrors.ustc.edu.cn/aosp/kernel/manifest -b android-msm-coral-4.14-android12
+
+
+#build the kernel
+$ build/build.sh
+
+
+##
+copy Image.lz4 to device/google/coral-kernel/ and than build boot image
+
+```
+
+Problem 1.
+
+```
+make: Entering directory ‘/home/oyll/aosp/android-kernel/private/msm-google-modules/touch/fts’
+
+make: *** No targets specified and no makefile found. Stop.
+
+===>
+vim private/msm-google/build.config.common
+private/msm-google-modules/touch/fts => private/msm-google-modules/touch/fts/floral
+
+ref: https://www.akr-developers.com/d/539-linux-kernel
+```
 
 
 
@@ -806,4 +860,6 @@ Ref: [Android ADB devices unauthorized](https://stackoverflow.com/questions/3163
 * 26) [Driver Binaries for Nexus and Pixel Devices](https://developers.google.com/android/drivers)
 * 27) [macos pixel3的aosp下载、编译及刷机](https://www.jianshu.com/p/0505194069c6)
 * 28) [AOSP on Pixel3 running Mainline kernel](https://wiki.linaro.org/AOSP/blueline)
+  29) [Touchscreen not working after building and flashing clean msm kernel for the Google Pixel blueline](https://groups.google.com/g/android-building/c/ou630PviyDc)
+  30) 
 
