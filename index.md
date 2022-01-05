@@ -2,6 +2,6 @@
 layout: frontpage
 ---
 
-## Welcome to my blog site
+## Welcome to Ping Wu's Blog Site
 
-This is a simple site where I share my study notes about software engineering.
+This is Ping Wu's Blog Site
