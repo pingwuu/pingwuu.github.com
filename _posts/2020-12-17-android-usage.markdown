@@ -650,4 +650,5 @@ and
 * 8) [Snapdragon Development Platforms](https://wiki.codeaurora.org/xwiki/bin/Snapdragon+Developer+Platforms/)
 * 9) [https://www.codeaurora.org/project-category/active-projects](https://www.codeaurora.org/project-category/active-projects)
 * 10) [db820c|db410c: Update prebuilt qcomlt-4.14 kernel](https://android-review.linaro.org/c/device/linaro/dragonboard410c-kernel/+/18461/1)
-* 
+* 11. [Android & Kotlin Learning Paths](https://www.raywenderlich.com/android/paths)
+  12. 
