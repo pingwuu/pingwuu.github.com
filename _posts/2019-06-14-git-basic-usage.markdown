@@ -99,6 +99,24 @@ Reference URL: https://www.cnblogs.com/hupeng1234/p/9783336.html
 sudo apt-get -o Acquire::http::proxy="socks5h://127.0.0.1:1080/" update
 ```
 
+
+
+## 1.7 git log options
+
+* How to git log in reverse order?
+
+```
+$ git log --reverse
+```
+
+* Git log before some commit date
+
+```
+$ git log --before="2011-12-01" --pretty=format:"%cd"
+```
+
+
+
 # 2. SSH key for git
 
 ## 2.1 Generate a new SSH key
