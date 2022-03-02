@@ -290,6 +290,7 @@ When you build your site (using the `mkdocs build` command), all of the files ar
 When MkDocs builds the documentation it will include a 404.html file in the [build directory](https://www.mkdocs.org/user-guide/configuration/#site_dir). This file will be automatically used when deploying to [GitHub](https://www.mkdocs.org/user-guide/deploying-your-docs/#github-pages) but only on a custom domain. Other web servers may be configured to use it but the feature won't always be available. See the documentation for your server of choice for more information.
 
 # 99. Reference URL
-  1) [MkDocs](https://markdown-docs-zh.readthedocs.io/zh_CN/latest/)
-  2) [Getting Started with MkDocs](https://www.mkdocs.org/getting-started/)
-  3) [Deploying your docs](https://www.mkdocs.org/user-guide/deploying-your-docs/)
+* 1) [MkDocs](https://markdown-docs-zh.readthedocs.io/zh_CN/latest)
+* 2) [Getting Started with MkDocs](https://www.mkdocs.org/getting-started)
+* 3) [Deploying your docs](https://www.mkdocs.org/user-guide/deploying-your-docs)
+

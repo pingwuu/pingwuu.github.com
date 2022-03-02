@@ -33,4 +33,6 @@ comments: true
   11. [uboot 增加不同型号的 nor-flash 调试笔记](https://blog.csdn.net/u010632165/article/details/117752714)
   12. [【linux项目】lichee nano linux烧写](https://www.cnblogs.com/lizhuming/p/15487208.html)
   13. [尝试从零构建F1C100s开发环境](https://whycan.com/t_3138.html)
+  13. [分享一份自己的F1c100s的Buildroot编译配置](https://whycan.com/t_4214.html)
+  13. [jim-kirisame](https://github.com/jim-kirisame)/**[buildroot_configs](https://github.com/jim-kirisame/buildroot_configs)**
 
