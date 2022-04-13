@@ -168,6 +168,39 @@ sudo update-alternatives --config python
 
 
 
+**Install multi cmake version**
+
+```
+$ wget https://cmake.org/files/v3.15/cmake-3.15.3.tar.gz
+$ tar -zxvf cmake-3.15.3.tar.gz
+$ cd cmake-3.15.3
+$ ./configure --prefix=/usr/local/cmake-3.15.3
+$ make
+$ sudo make isntall
+```
+
+```
+$ wget https://cmake.org/files/v3.20/cmake-3.20.0.tar.gz
+$ tar -zxvf cmake-3.20.0.tar.gz
+$ cd cmake-3.20.0
+$ ./configure --prefix=/usr/local/cmake-3.20.0
+$ make
+$ sudo make isntall
+```
+
+```
+$ sudo update-alternatives --install /usr/local/bin/cmake cmake /usr/local/cmake-3.15.3/bin/cmake 10
+
+$ sudo update-alternatives --install /usr/local/bin/cmake cmake /usr/local/cmake-3.20.0/bin/cmake 20
+
+# switch cmake version
+$ sudo update-alternatives --config cmake
+```
+
+
+
+
+
 # 4. Find Command
 
 1) find "main(" string in *.c file of current path 
