@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "C & C++ Usage" 
-date:   2021-09-26 09:00:00 +0800
+date:   2010-06-01 09:00:00 +0800
 categories: c c++ cpp std
 comments: true
 ---
