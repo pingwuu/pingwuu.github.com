@@ -860,6 +860,4 @@ Ref: [Android ADB devices unauthorized](https://stackoverflow.com/questions/3163
 * 26) [Driver Binaries for Nexus and Pixel Devices](https://developers.google.com/android/drivers)
 * 27) [macos pixel3的aosp下载、编译及刷机](https://www.jianshu.com/p/0505194069c6)
 * 28) [AOSP on Pixel3 running Mainline kernel](https://wiki.linaro.org/AOSP/blueline)
-  29) [Touchscreen not working after building and flashing clean msm kernel for the Google Pixel blueline](https://groups.google.com/g/android-building/c/ou630PviyDc)
-  30) 
-
+* 29) [Touchscreen not working after building and flashing clean msm kernel for the Google Pixel blueline](https://groups.google.com/g/android-building/c/ou630PviyDc) 
