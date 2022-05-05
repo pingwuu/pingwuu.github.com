@@ -620,18 +620,39 @@ $ git am --resolved                               #当git am失败，解决完�
 
 **分析**：方案一和方案二主要区别是解决冲突的方法不一样。方案一是通过编辑patch文件的方式解决冲突，方案二十通过编辑冲突code文件的方式解决冲突。这两种方案区别比较大：经过实验，核心区别在于，方案二无法验证冲突有没有切实的解决。即使你在方案二的第二步乱改一通，也能“打完”发生冲突的patch（并没有检测修改后的code文件跟patch期望的是否相同）。因此，如果采用方案二，那么再解决code文件冲突后，需要人工去确认修改的正确性。
 
-# 11 repo
+# 11 repo Usage
 
 ## 11.1 repo basic cmd
 
 ```
 //list branch
 $ repo branches
-
-
 ```
 
+## 11.2 Use repo on Windows to download android source
 
+[https://lynxbee.com/use-repo-on-windows-to-download-android-source/#.YnM-LOjP1PZ](https://lynxbee.com/use-repo-on-windows-to-download-android-source/#.YnM-LOjP1PZ)
+
+**Start git-bash with “Right Click” and “Run as administrator”**
+
+As mentioned in the beginning, Windows doesn’t support hyperlink creation for non-admin users hence if you dont have admin permissions to start git bash, there are options as mentioned in https://github.com/git-for-windows/git/wiki/Symbolic-Links using which you can still be able to enable hyperlink creation with git-bash for non-admin user, but this also will need atleast once help from someone who has admin permissions to enable developer mode or other options as mentioned in link.
+
+**On the started terminal, create a directory and type below commands,**
+
+```
+$ export MSYS="winsymlinks:nativestrict"
+$ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
+$ chmod 777 ~/repo
+```
+
+In this example, we will demo how you can download Android opensource code aosp, with branch “android-8.1.0_r7” , you can change it to your server url and branch as necessary.
+
+```
+$ mkdir aosp_src
+$ cd aosp_src
+$ ~/repo init -u https://android.googlesource.com/platform/manifest -b android-8.1.0_r75
+$ repo sync
+```
 
 
 
