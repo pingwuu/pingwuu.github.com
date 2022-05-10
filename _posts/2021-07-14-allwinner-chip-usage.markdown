@@ -5,6 +5,12 @@ date:   2020-12-11 09:30:00 +0800
 categories: allwinner linux driver
 comments: true
 ---
+- [1. F1C100s - LicheePI Nano](#1-f1c100s---licheepi-nano)
+- [2. F1C200S - MangoPi-R3](#2-f1c200s---mangopi-r3)
+- [90 FAQ](#90-faq)
+- [99. Reference URL](#99-reference-url)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 # 1. F1C100s - LicheePI Nano
 

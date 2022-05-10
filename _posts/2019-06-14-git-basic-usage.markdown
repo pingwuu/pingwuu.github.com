@@ -681,12 +681,13 @@ Here, you see the path of the file (coverage/sensitivity/simualted.bed).
 So, the solution is actually quite simple (when you know it): you can use the filter-branch command as follows:
 
 ```
-git filter-branch --tree-filter 'rm -rf path/to/your/file' HEAD git push
+$ git filter-branch --tree-filter 'rm -rf path/to/your/file' HEAD 
+$ git push
 ```
 
 Ref:https://thomas-cokelaer.info/blog/2018/02/git-how-to-remove-a-big-file-wrongly-committed/
 
-## 9.3 Ubuntu18.04：gnutls_handshake() failed: Error in the pull function.
+## 90.3 Ubuntu18.04：gnutls_handshake() failed: Error in the pull function.
 
 Ubuntu18.04：gnutls_handshake() failed: Error in the pull function.
 克隆GitHub仓库
