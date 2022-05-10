@@ -1,5 +1,3 @@
-* TOC
-{:toc}
 
 # Ping Wu's Blog Site
 
