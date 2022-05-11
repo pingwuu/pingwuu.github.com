@@ -6,6 +6,48 @@ categories: git repo
 comments: true
 ---
 
+**Table of Contents**
+
+- [1. git  basic command](#1-git--basic-command)
+  * [1.1 Git Config for Global repo](#11-git-config-for-global-repo)
+  * [1.2 Git Config for Local repo](#12-git-config-for-local-repo)
+  * [1.3 Git Proxy](#13-git-proxy)
+  * [1.4 git-lfs install](#14-git-lfs-install)
+  * [1.5 http(s) proxy setting](#15-http-s--proxy-setting)
+  * [1.6 apt proxy via socks5](#16-apt-proxy-via-socks5)
+  * [1.7 git log options](#17-git-log-options)
+- [2. SSH key for git](#2-ssh-key-for-git)
+  * [2.1 Generate a new SSH key](#21-generate-a-new-ssh-key)
+  * [2.2 Add public key to your bitbucket, github or gitee account](#22-add-public-key-to-your-bitbucket--github-or-gitee-account)
+  * [2.3 Manage multiple usernames for git/ssh config](#23-manage-multiple-usernames-for-git-ssh-config)
+  * [2.4 Git SSH Proxy setup](#24-git-ssh-proxy-setup)
+- [3. How to clone all branches and tags between remote git repositories](#3-how-to-clone-all-branches-and-tags-between-remote-git-repositories)
+  * [3.1 Branches](#31-branches)
+  * [3.2 Tags](#32-tags)
+- [4. Breakpoint Resume](#4-breakpoint-resume)
+- [5. Linux Kernel Git Stable](#5-linux-kernel-git-stable)
+- [6. Configuring a remote for a fork](#6-configuring-a-remote-for-a-fork)
+- [7. Syncing a fork](#7-syncing-a-fork)
+- [8. Syncing a Fork of a GitHub Repository with Upstream](#8-syncing-a-fork-of-a-github-repository-with-upstream)
+  * [Reset to Upstream](#reset-to-upstream)
+- [9. Submodule](#9-submodule)
+  * [9.1 add submodule](#91-add-submodule)
+- [10. Export and Import Patches with git](#10-export-and-import-patches-with-git)
+  * [10.1 Exporting a Patch](#101-exporting-a-patch)
+  * [10.2 Importing a Patch](#102-importing-a-patch)
+    + [Ensure Patch Relevance](#ensure-patch-relevance)
+    + [View Patch Diff Information](#view-patch-diff-information)
+    + [Merge the Code](#merge-the-code)
+  * [10.3 How to using git to generate and apply patch](#103-how-to-using-git-to-generate-and-apply-patch)
+- [11 repo Usage](#11-repo-usage)
+  * [11.1 repo basic cmd](#111-repo-basic-cmd)
+  * [11.2 Use repo on Windows to download android source](#112-use-repo-on-windows-to-download-android-source)
+- [90 FAQ](#90-faq)
+  * [90.1 How to fix “Filename too long error” during git clone](#901-how-to-fix--filename-too-long-error--during-git-clone)
+  * [90.2 git : How to remove a big file wrongly committed](#902-git---how-to-remove-a-big-file-wrongly-committed)
+  * [90.3 Ubuntu18.04：gnutls_handshake() failed: Error in the pull function.](#903-ubuntu1804-gnutls-handshake---failed--error-in-the-pull-function)
+- [99. Reference URL](#99-reference-url)
+
 # 1. git  basic command
 
 ## 1.1 Git Config for Global repo
@@ -681,7 +723,7 @@ Here, you see the path of the file (coverage/sensitivity/simualted.bed).
 So, the solution is actually quite simple (when you know it): you can use the filter-branch command as follows:
 
 ```
-$ git filter-branch --tree-filter 'rm -rf path/to/your/file' HEAD 
+$ git filter-branch -f --tree-filter 'rm -rf path/to/your/file' HEAD 
 $ git push
 ```
 
