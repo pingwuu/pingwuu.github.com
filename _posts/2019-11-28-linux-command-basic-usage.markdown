@@ -6,11 +6,27 @@ categories: linux command
 comments: true
 ---
 
+**Table of Content**
+
+- [1. Purpose](#1-purpose)
+- [2. Basic Command](#2-basic-command)
+  * [2.1 zip command](#21-zip-command)
+  * [2.2 unzip command](#22-unzip-command)
+  * [2.3 tar command](#23-tar-command)
+    + [Reference Article](#reference-article)
+  * [2.4 extract *.bz2](#24-extract--bz2)
+  * [2.4 Create a 1GB.bin random content file:](#24-create-a-1gbbin-random-content-file-)
+- [3.  update-alternatives](#3--update-alternatives)
+- [4. Find Command](#4-find-command)
+- [5. Regular Expressions](#5-regular-expressions)
+  * [5.1 Literal Matches](#51-literal-matches)
+- [99. Reference URL](#99-reference-url)
+
+
+
 # 1. Purpose
 
-This blog will introduce linux command basic usage
-
-
+This blog will introduce linux commands basic usage and examples
 
 # 2. Basic Command
 
@@ -197,10 +213,6 @@ $ sudo update-alternatives --install /usr/local/bin/cmake cmake /usr/local/cmake
 $ sudo update-alternatives --config cmake
 ```
 
-
-
-
-
 # 4. Find Command
 
 1) find "main(" string in *.c file of current path 
@@ -208,8 +220,6 @@ $ sudo update-alternatives --config cmake
 ```
 $ find . -name "*.c" -print | xargs grep "main("
 ```
-
-
 
 2. Find files bigger or smaller than X size
 

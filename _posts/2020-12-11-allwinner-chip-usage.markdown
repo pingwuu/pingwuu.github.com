@@ -11,8 +11,6 @@ comments: true
 - [90 FAQ](#90-faq)
 - [99. Reference URL](#99-reference-url)
 
-===========================================================
-
 # 1. F1C100s - LicheePI Nano
 
 

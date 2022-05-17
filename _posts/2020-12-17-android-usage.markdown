@@ -6,11 +6,35 @@ categories: linux android
 comments: true
 ---
 
+**Table of Content**
+
+- [1. Android build environment setup](#1-android-build-environment-setup)
+  * [1.x USE_CCACHE Setting](#1x-use-ccache-setting)
+- [2. ADB basic command](#2-adb-basic-command)
+  * [2.1 The adb devices command](#21-the-adb-devices-command)
+  * [2.2 The adb push command](#22-the-adb-push-command)
+  * [2.3 The adb pull command](#23-the-adb-pull-command)
+  * [2.4 The adb reboot command](#24-the-adb-reboot-command)
+  * [2.5 The adb reboot-bootloader and adb reboot recovery commands](#25-the-adb-reboot-bootloader-and-adb-reboot-recovery-commands)
+  * [2.6 The fastboot devices command](#26-the-fastboot-devices-command)
+  * [2.7 The fastboot unlock command](#27-the-fastboot-unlock-command)
+  * [2.8 The adb install command](#28-the-adb-install-command)
+  * [2.9 The adb sideload command](#29-the-adb-sideload-command)
+  * [2.10 The adb shell command](#210-the-adb-shell-command)
+  * [2.11 ADB command Examples](#211-adb-command-examples)
+- [3. Fastboot command](#3-fastboot-command)
+  * [3.1 fastboot getvar all](#31-fastboot-getvar-all)
+  * [32. Fastboot command examples](#32-fastboot-command-examples)
+- [2. Dragonboard 410c board](#2-dragonboard-410c-board)
+  * [2.1 DragonBoard 410c Board Recovery](#21-dragonboard-410c-board-recovery)
+  * [2.1 Flash SD Image](#21-flash-sd-image)
+  * [2.2 Build Android for db410c](#22-build-android-for-db410c)
+  * [2.99. FAQ](#299-faq)
+- [99. Reference URL](#99-reference-url)
+
+
+
 # 1. Android build environment setup
-
-
-
-
 
 ## 1.x USE_CCACHE Setting
 
@@ -532,10 +556,6 @@ $ sync
 
 
 
-
-
-
-
 ## 2.2 Build Android for db410c
 
 ```
@@ -651,4 +671,3 @@ and
 * 9) [https://www.codeaurora.org/project-category/active-projects](https://www.codeaurora.org/project-category/active-projects)
 * 10) [db820c|db410c: Update prebuilt qcomlt-4.14 kernel](https://android-review.linaro.org/c/device/linaro/dragonboard410c-kernel/+/18461/1)
 * 11. [Android & Kotlin Learning Paths](https://www.raywenderlich.com/android/paths)
-  12. 

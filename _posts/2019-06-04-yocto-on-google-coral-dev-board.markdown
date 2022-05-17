@@ -6,11 +6,23 @@ categories: yocto coral tpu edge linux u-boot
 comments: true
 ---
 
+**Table of Content**
+
+- [1. Update build Environment](#1-update-build-environment)
+- [2. Install repo](#2-install-repo)
+- [3. Configure git](#3-configure-git)
+- [4. Init repo manifest & build](#4-init-repo-manifest---build)
+- [5. For zeus branch](#5-for-zeus-branch)
+- [x. Get and Build the ARM Trusted firmware](#x-get-and-build-the-arm-trusted-firmware)
+- [x. Get the ddr and hdmi firmware](#x-get-the-ddr-and-hdmi-firmware)
+- [99. Reference Link](#99-reference-link)
+
+
+
 # 1. Update build Environment
 
 ```
 $ sudo apt-get install git-core build-essential curl chrpath gawk texinfo
-
 ```
 
 # 2. Install repo
@@ -136,10 +148,6 @@ $ cp firmware-imx-7.9/firmware/hdmi/cadence/signed_hdmi_imx8m.bin $(builddir)
 $ cp firmware-imx-7.9/firmware/ddr/synopsys/lpddr4*.bin $(builddir)
 ```
 
-
-
-
-
 Boot Mode
 
 ```
@@ -148,8 +156,6 @@ Off			On			Don't Care	Don't Care	---> Serial Download
 On			Off			Off			Off			---> eMMC
 On			Off			On			On			---> SD Card
 ```
-
-
 
 
 
@@ -243,7 +249,7 @@ u-boot=> booti  ${loadaddr} - ${fdt_addr}
 
 
 
-//emmc boot ok using below command:
+//emmc boot is ok using below command:
 
 ```
 run mmcargs
@@ -261,7 +267,7 @@ booti  ${loadaddr} - ${fdt_addr}
 
 
 
-
+//build minimal image
 
 ```
 $ DISTRO=fsl-imx-wayland MACHINE=imx8mqea-com source ea-setup-release.sh -b build
@@ -274,16 +280,22 @@ $ bitbake core-image-minimal
 
 
 
-
-
-# 99. Reference URL
+# 99. Reference Link
 
 * [https://mkrak.org/2019/05/23/running-a-yocto-generated-distribution-on-google-coral-dev-board/](https://mkrak.org/2019/05/23/running-a-yocto-generated-distribution-on-google-coral-dev-board/)
+
 * [https://antmicro.com/blog/2019/04/google-coral/](https://antmicro.com/blog/2019/04/google-coral/)
+
 * [imx-manifest Readme](https://source.codeaurora.org/external/imx/imx-manifest/tree/README?h=imx-linux-rocko)
+
 * [Linux L4.9.88_2.0.0 Rocko, i.MX7ULP1 Linux/SDK2.4 RFP(GA) Release Announcement](https://community.nxp.com/docs/DOC-340805)
+
 * [i.MX_Yocto_Project_User's_Guide](/static/files/imx-yocto-L4.14.98_2.0.0_ga/i.MX_Yocto_Project_User's_Guide.pdf)
+
 * [Update or flash the Dev Board](https://coral.ai/docs/dev-board/reflash/#update-your-board-with-apt-get)
+
 * [Getting Started with Mendel Linux](https://coral.googlesource.com/docs/+/refs/heads/master/GettingStarted.md)
+
 * [arm: imx: Add support for Google's Coral Dev Board](https://patchwork.ozlabs.org/project/uboot/patch/20200306104633.6643-1-alifer.wsdm@gmail.com/)
-* 
+
+  

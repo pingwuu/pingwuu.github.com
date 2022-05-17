@@ -6,13 +6,16 @@ categories: linux
 comments: true
 ---
 
+**Table of Content**
+
+- [1. Purpose](#1-purpose)
+- [99. Reference URL](#99-reference-url)
+
+
+
 # 1. Purpose
 
-This blog will write database basic usage
-
-
-
-
+This blog will introduce database basic usage.
 
 # 99. Reference URL
 

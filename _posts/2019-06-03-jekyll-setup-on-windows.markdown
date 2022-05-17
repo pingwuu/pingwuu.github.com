@@ -6,6 +6,16 @@ categories: jekyll
 comments: true
 ---
 
+**Table of Content**
+
+- [1. Install rubyinstaller-devkit](#1-install-rubyinstaller-devkit)
+- [2. Update Gem Sources](#2-update-gem-sources)
+- [3. Install bundler & jekyll](#3-install-bundler---jekyll)
+- [4. Create jekyll site](#4-create-jekyll-site)
+- [5. Access your blog site](#5-access-your-blog-site)
+
+
+
 # 1. Install rubyinstaller-devkit
 
 - Package version : rubyinstaller-devkit-2.5.5-1-x64.exe
@@ -121,8 +131,6 @@ Setup network proxy as below if you behind a fireware
   > git commit -s -m "change details xxxx"
   > git push origin master
   ```
-
-
 
 # 5. Access your blog site
 

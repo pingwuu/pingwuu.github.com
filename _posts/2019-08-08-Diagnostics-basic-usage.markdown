@@ -6,19 +6,24 @@ categories: diagnostics can
 comments: true
 ---
 
+**Table of Content**
+
+- [1. Purpose](#1-purpose)
+- [99. Reference URL](#99-reference-url)
+
+
+
 # 1. Purpose
 
 This blog will write diagnostics basic usage
 
 
 
-
-
 # 99. Reference URL
 
-1) [Diagnostics with CANoe ](https://www.youtube.com/watch?v=kmbcb0k-mnI&feature=youtu.be)
+* 1) [Diagnostics with CANoe ](https://www.youtube.com/watch?v=kmbcb0k-mnI&feature=youtu.be)
 
-2）[Vector E-Learning ](https://elearning.vector.com/)
+* 2. [Vector E-Learning ](https://elearning.vector.com/)
 
 
 

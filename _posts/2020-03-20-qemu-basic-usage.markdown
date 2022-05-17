@@ -7,6 +7,20 @@ categories: qemu linux u-boot buildroot
 comments: true
 ---
 
+**Table of Content**
+
+- [1. Buildroot for Qemu Env](#1-buildroot-for-qemu-env)
+  * [1.1 qemu for arm vexpress board](#11-qemu-for-arm-vexpress-board)
+  * [1.1 qemu for freescale imx6ulevk board](#11-qemu-for-freescale-imx6ulevk-board)
+- [2. Buildroot useful command](#2-buildroot-useful-command)
+- [3. QEMU Build option](#3-qemu-build-option)
+- [4. Qemu build](#4-qemu-build)
+  * [4.1 Build for arm](#41-build-for-arm)
+- [90. FAQ](#90-faq)
+- [99. Reference URL](#99-reference-url)
+
+
+
 # 1. Buildroot for Qemu Env
 
 For simply, we using buildroot to build u-boot, kernel, rootfs and qemu.
@@ -52,8 +66,6 @@ graphical window is the framebuffer.
 If you want to emulate more cores change "-smp 1" to "-smp 2" for
 dual-core or even "smp -4" for a quad-core configuration.
 ```
-
-
 
 ## 1.1 qemu for freescale imx6ulevk board
 
@@ -141,10 +153,6 @@ $ output/host/usr/bin/qemu-system-arm \
 -nographic -monitor null -serial stdio
 ```
 
-
-
-
-
 # 2. Buildroot useful command
 
 1)  Rebuild specify package
@@ -156,10 +164,6 @@ $ make linux-menuconfig
 //rebuild linux kernel
 $ make linux-rebuild
 ```
-
-
-
-
 
 # 3. QEMU Build option
 
@@ -175,9 +179,7 @@ $ make linux-rebuild
 echo 0 > /proc/sys/fs/binfmt_misc/qemu-arm
 ```
 
-
-
-1) Qemu configure option
+3. Qemu configure option
 
 ```
 $ ./configure  --help
@@ -411,8 +413,6 @@ $ make
 
 ```
 
-
-
 # 90. FAQ
 
 1) How to quit the QEMU monitor when not using a GUI?
@@ -428,8 +428,6 @@ then release the keys,
 afterwards type X
 ```
 
-
-
 # 99. Reference URL
 
 * 1) [Speed up your kernel development cycle with QEMU](https://kernel-recipes.org/en/2015/talks/speed-up-your-kernel-development-cycle-with-qemu/)
@@ -438,5 +436,4 @@ afterwards type X
 * 4) [Part A. QEMU使用手册](http://wiki.100ask.org/Qemu)
 * 5) [Qemu搭建ARM vexpress开发环境(一)](https://www.cnblogs.com/microxiami/p/9746979.html)
 * 6) [Linux下如何指定某一类型程序用特定程序打开（通过binfmt_misc）](https://blog.csdn.net/roland_sun/article/details/50062295)
-* 
 

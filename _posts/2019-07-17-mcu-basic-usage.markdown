@@ -6,11 +6,16 @@ categories: mcu uart
 comments: true
 ---
 
+**Table of Content**
+
+- [1. Purpose](#1-purpose)
+- [99. Reference URL](#99-reference-url)
+
+
+
 # 1. Purpose
 
-This blog will write mcu basic usage
-
-
+This blog will introduce microcontroller basic usage.
 
 
 
@@ -49,7 +54,5 @@ This blog will write mcu basic usage
 16. [JTAG Debugging the ESP32 with FT2232 and OpenOCD](https://mcuoneclipse.com/2019/10/20/jtag-debugging-the-esp32-with-ft2232-and-openocd/)
 
 17. [Essentials of Microcontroller Use Learning about Peripherals: GPIO](https://www.renesas.com/us/en/support/engineer-school/mcu-programming-peripherals-01-gpio)
-
-17. 
 
     

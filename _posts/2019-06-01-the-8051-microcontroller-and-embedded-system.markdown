@@ -6,9 +6,44 @@ categories: mcu 8051
 comments: true
 ---
 
+****
+
+**Table of Content**
+
+- [0. CHAPTER 0 - INTRODUCTION TO COMPUTING](#0-chapter-0---introduction-to-computing)
+  * [SECTION 0.1: NUMBER AND CODING SYSTEMS](#section-01--number-and-coding-systems)
+    + [Decimal and binary number systems](#decimal-and-binary-number-systems)
+    + [Converting from decimal to binary](#converting-from-decimal-to-binary)
+    + [Converting from binary to decimal](#converting-from-binary-to-decimal)
+    + [Hexadecimal system](#hexadecimal-system)
+- [1. CHAPTER 1 - THE 8051 MICROCONTROLLERS](#1-chapter-1---the-8051-microcontrollers)
+- [2. CHAPTER 2 - 8051 ASSEMBLY LANGUAGE PROGRAMMING](#2-chapter-2---8051-assembly-language-programming)
+- [3. CHAPTER 3 - JUMP, LOOP, AND CALL INSTRUCTIONS](#3-chapter-3---jump--loop--and-call-instructions)
+- [4. CHAPTER 4 - I/O PORT PROGRAMMING](#4-chapter-4---i-o-port-programming)
+- [5. CHAPTER 5 - ADDRESSING MODELS](#5-chapter-5---addressing-models)
+- [6. CHAPTER 6 - ARITHMETIC, LOGIC INSTRUCTIONS, AND PROGRAMS](#6-chapter-6---arithmetic--logic-instructions--and-programs)
+- [7. CHAPTER 7 - 8051 PROGRAMMING IN C](#7-chapter-7---8051-programming-in-c)
+- [8. CHAPTER 8 - 8051 HARDWARE CONNECTION AND INTEL HEX FILE](#8-chapter-8---8051-hardware-connection-and-intel-hex-file)
+- [9. CHAPTER 9 - 8051 TIMER PROGRAMMING IN ASSEMBLY AND C](#9-chapter-9---8051-timer-programming-in-assembly-and-c)
+- [10. CHAPTER 10 - 8051 SERIAL PORT PROGRAMMING IN ASSEMBLY AND C](#10-chapter-10---8051-serial-port-programming-in-assembly-and-c)
+- [11. CHAPTER 11 - INTERRUPTS PROGRAMMING IN ASSEMBLY AND C](#11-chapter-11---interrupts-programming-in-assembly-and-c)
+- [12. CHAPTER 12 - LCD AND KEYBOARD INTERFACING](#12-chapter-12---lcd-and-keyboard-interfacing)
+- [13. CHAPTER 13 - ADC, DAC AND SENSOR INTERFACING](#13-chapter-13---adc--dac-and-sensor-interfacing)
+- [14. CHAPTER 14 - 8051 INTERFACING TO EXTERNAL MEMORY](#14-chapter-14---8051-interfacing-to-external-memory)
+- [15. CHAPTER 15 - 8051 INTERFACING WITH THE 8255](#15-chapter-15---8051-interfacing-with-the-8255)
+- [16. CHAPTER 16 - DS12887 RTC INTERFACING AND PROGRAMMING](#16-chapter-16---ds12887-rtc-interfacing-and-programming)
+- [17. CHAPTER 17 - MOTOR CONTROL: RELAY, PWM, DC AND STEPPER MOTORS](#17-chapter-17---motor-control--relay--pwm--dc-and-stepper-motors)
+- [APPENDIX A - 8051 INSTRUCTIONS, TIMING AND REGISTERS](#appendix-a---8051-instructions--timing-and-registers)
+- [APPENDIX B - BASICS OF WIRE WRAPPING](#appendix-b---basics-of-wire-wrapping)
+- [APPENDIX C - IC TECHNOLOGY AND SYSTEM DESING  ISSUES](#appendix-c---ic-technology-and-system-desing--issues)
+- [APPENDIX D - FLOWCHARTS AND PSEUDOCODE](#appendix-d---flowcharts-and-pseudocode)
+- [APPENDIX E - 8051 PRIMER FOR X86 PROGRAMMERS](#appendix-e---8051-primer-for-x86-programmers)
+- [APPENDIX F - ASSII CODES](#appendix-f---assii-codes)
+- [APPENDIX G - ASSERMBERS, DEVELOPMENT RESOURCES AND SUPPLIERS](#appendix-g---assermbers--development-resources-and-suppliers)
+- [APPENDIX H - DATA SHEETS](#appendix-h---data-sheets)
+- [99. Reference Link](#99-reference-link)
 
 
-[TOC]
 
 # 0. CHAPTER 0 - INTRODUCTION TO COMPUTING
 
@@ -209,10 +244,5 @@ Using the concept of weight to convert 39~10~ to binary.
 
 # APPENDIX H - DATA SHEETS
 
+# 99. Reference Link
 
-
-
-
-# 99. Reference URL
-
-* 

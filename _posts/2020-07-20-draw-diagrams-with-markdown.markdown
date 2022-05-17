@@ -6,11 +6,24 @@ categories: markdown uml js-sequence mermaind
 comments: true
 ---
 
+**Table of Content**
+
+- [1. Sequence Diagrams](#1-sequence-diagrams)
+- [2. Flowcharts](#2-flowcharts)
+- [3. Mermaid](#3-mermaid)
+  * [3.1 Sequence Diagrams](#31-sequence-diagrams)
+- [3.2 Flowcharts](#32-flowcharts)
+- [3.2 Gantt Charts](#32-gantt-charts)
+- [3.3 Class Diagrams](#33-class-diagrams)
+  * [3.3 State diagrams](#33-state-diagrams)
+  * [3.4 Pie Charts](#34-pie-charts)
+- [99. Reference URL](#99-reference-url)
+
+
+
 Typora supports some Markdown extensions for diagrams, once they are enabled from preference panel.
 
 When exporting as HTML, PDF, epub, docx, those rendered diagrams will also be included, but diagrams features are not supported when exporting markdown into other file formats in current version. Besides, you should also notice that diagrams is not supported by standard Markdown, CommonMark or GFM. Therefore, we still recommend you to insert an image of these diagrams instead of write them in Markdown directly.
-
-
 
 # 1. Sequence Diagrams
 
@@ -166,5 +179,5 @@ pie
 # 99. Reference URL
 
 * 1) [Draw Diagrams With Markdown](https://support.typora.io/Draw-Diagrams-With-Markdown/)
-* 
 
+  

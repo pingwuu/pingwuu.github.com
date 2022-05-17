@@ -6,9 +6,44 @@ categories: linux
 comments: true
 ---
 
+**Table of Content**
+
+- [1. Purpose](#1-purpose)
+- [2. Basic Installation](#2-basic-installation)
+  * [2.1 Guest OS Version](#21-guest-os-version)
+  * [2.2 VirtualBox version](#22-virtualbox-version)
+  * [2.3 Install basic linux  system](#23-install-basic-linux--system)
+  * [2.4 Guest OS configure](#24-guest-os-configure)
+- [3. Proxy setting](#3-proxy-setting)
+  * [3.1 apt proxy via socks5](#31-apt-proxy-via-socks5)
+  * [3.2 http(s) proxy setting](#32-http-s--proxy-setting)
+  * [3.3 Git Proxy](#33-git-proxy)
+  * [3.3 Yocto Proxy Setting](#33-yocto-proxy-setting)
+  * [3.4 [How to use pip with socks proxy?](https://stackoverflow.com/questions/22915705/how-to-use-pip-with-socks-proxy)](#34--how-to-use-pip-with-socks-proxy---https---stackoverflowcom-questions-22915705-how-to-use-pip-with-socks-proxy-)
+  * [3.5 Docker Proxy](#35-docker-proxy)
+- [4. DTC](#4-dtc)
+- [4.1 Decompile dtb to dts](#41-decompile-dtb-to-dts)
+- [5. commands](#5-commands)
+  * [5.1 Kernel version](#51-kernel-version)
+- [6. Install package](#6-install-package)
+  * [6.1 Install Mono on Ubuntu](#61-install-mono-on-ubuntu)
+  * [6.2 Install GCC](#62-install-gcc)
+- [7. Shrink virtual disk (VDI) of a VirtualBox VM (Linux)](#7-shrink-virtual-disk--vdi--of-a-virtualbox-vm--linux-)
+- [8. Ubuntu Source Backup](#8-ubuntu-source-backup)
+  * [8.1 Ubuntu 16 sources](#81-ubuntu-16-sources)
+- [90. FAQ](#90-faq)
+  * [90.1 The following packages have unmet dependencies:](#901-the-following-packages-have-unmet-dependencies-)
+  * [90.2 How to use a ramdisk on Linux](#902-how-to-use-a-ramdisk-on-linux)
+  * [Creating the ramdisk directory](#creating-the-ramdisk-directory)
+  * [Mounting the ramdisk](#mounting-the-ramdisk)
+  * [Automounting the ramdisk](#automounting-the-ramdisk)
+- [99. Reference URL](#99-reference-url)
+
+
+
 # 1. Purpose
 
-This blog will write linux basic usage
+This blog will introduce linux basic usage.
 
 # 2. Basic Installation
 
@@ -73,8 +108,6 @@ $ sudo service smbd restart
 //Access on Windows OS with samba user created
 \\192.168.56.101\share
 ```
-
-
 
 # 3. Proxy setting
 
@@ -198,8 +231,6 @@ Environment="HTTP_PROXY=socks5://127.0.0.1:1080"
 Environment="HTTPS_PROXY=socks5://127.0.0.1:1080"
 Environment="NO_PROXY="localhost,127.0.0.1,::1"
 ```
-
-
 
 
 
@@ -489,20 +520,25 @@ none /media/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size=2048M 0 0
 
 Save and close that file. You can test the newly modified */etc/fstab* file with the command mount -a. If you receive no warnings, you're good to go.
 
-
-
 # 99. Reference URL
 
 * 1) [https://wiki.apertis.org/Main_Page](https://wiki.apertis.org/Main_Page)
-* 2) [QNX Doc](http://www.qnx.com/developers/docs/)
-* 3) [How To Easily Upgrade Linux Kernel In Ubuntu And Linux Mint -ukuu](https://itsfoss.com/upgrade-linux-kernel-ubuntu/)
-* 4) [http://mirrors.aliyun.com/ubuntu-releases/](http://mirrors.aliyun.com/ubuntu-releases/)
-* 5) [https://systemd.io/](https://systemd.io/)
-* 6) [Rethinking PID 1](http://0pointer.net/blog/projects/systemd.html)
-* 7) [https://github.com/kralf/libipc](https://github.com/kralf/libipc)
-* 8) [https://github.com/louxj424/IPC](https://github.com/louxj424/IPC)
-* 
 
+* 2) [QNX Doc](http://www.qnx.com/developers/docs/)
+
+* 3) [How To Easily Upgrade Linux Kernel In Ubuntu And Linux Mint -ukuu](https://itsfoss.com/upgrade-linux-kernel-ubuntu/)
+
+* 4) [http://mirrors.aliyun.com/ubuntu-releases/](http://mirrors.aliyun.com/ubuntu-releases/)
+
+* 5) [https://systemd.io/](https://systemd.io/)
+
+* 6) [Rethinking PID 1](http://0pointer.net/blog/projects/systemd.html)
+
+* 7) [https://github.com/kralf/libipc](https://github.com/kralf/libipc)
+
+* 8) [https://github.com/louxj424/IPC](https://github.com/louxj424/IPC)
+
+  
 
 
 

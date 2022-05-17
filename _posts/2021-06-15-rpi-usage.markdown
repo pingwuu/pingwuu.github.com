@@ -6,6 +6,16 @@ categories: rpi linux driver
 comments: true
 ---
 
+**Table of Content**
+
+- [1. RPI Image Installation](#1-rpi-image-installation)
+  * [1. Raspberry Pi OS Lite](#1-raspberry-pi-os-lite)
+- [2. RPI 4 Image Build - Buildroot](#2-rpi-4-image-build---buildroot)
+- [3. Device Driver Development for RPI 4 - Buildroot](#3-device-driver-development-for-rpi-4---buildroot)
+- [3. RPI Image Build - Yocto](#3-rpi-image-build---yocto)
+- [4. RPI Driver Development](#4-rpi-driver-development)
+- [99. Reference URL](#99-reference-url)
+
 # 1. RPI Image Installation
 
 ## 1. Raspberry Pi OS Lite
@@ -52,5 +62,7 @@ $ sudo dd if=output/images/sdcard.img of=/dev/sdX bs=4M conv=fsync
 # 99. Reference URL
 
 * 1) [How to add a Linux kernel driver module as a Buildroot package?](https://www.titanwolf.org/Network/q/f9c626a4-3897-491e-83b2-708d3e38f2c4/y)
+
 * 2) [How to add/compile a kernel module as a new buildroot package](https://techfortalk.co.uk/2017/06/15/how-to-addcompile-a-kernel-module-as-a-new-buildroot-package/)
-* 
+
+  

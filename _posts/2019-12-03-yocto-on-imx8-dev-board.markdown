@@ -7,6 +7,30 @@ categories: yocto imx8 linux u-boot
 comments: true
 ---
 
+**Table of Content**
+
+- [0. Building System OS](#0-building-system-os)
+- [1. Update build Environment](#1-update-build-environment)
+  * [1.1 For Ubuntu18.04](#11-for-ubuntu1804)
+  * [1.2 For Ubuntu 20.04](#12-for-ubuntu-2004)
+- [2. Install repo](#2-install-repo)
+- [3. Configure git](#3-configure-git)
+- [4. Init repo manifest & build](#4-init-repo-manifest---build)
+  * [4.1 Init & Build](#41-init---build)
+  * [4.2 Change branch & manifest](#42-change-branch---manifest)
+  * [4.3 Generate manifest](#43-generate-manifest)
+- [5. Rebuild one package](#5-rebuild-one-package)
+- [6. Build out of yocto](#6-build-out-of-yocto)
+  * [6.1 Build u-boot](#61-build-u-boot)
+  * [6.2 Build kernel](#62-build-kernel)
+  * [6.3 Build HMI Framework](#63-build-hmi-framework)
+  * [6.4 Build Application](#64-build-application)
+- [7. Flashing an SD card image](#7-flashing-an-sd-card-image)
+- [10.  FAQ](#10--faq)
+- [99. Reference URL](#99-reference-url)
+
+
+
 # 0. Building System OS
 
 ```
@@ -343,11 +367,7 @@ If one package build failed, you can clean and then rebuild it as below instruct
 
 ```
 $ source /opt/fsl-imx-wayland/4.14-sumo/environment-setup-aarch64-poky-linux
-
-
 ```
-
-
 
 ## 6.2 Build kernel
 

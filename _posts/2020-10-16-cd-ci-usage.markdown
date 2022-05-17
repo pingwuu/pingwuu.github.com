@@ -6,7 +6,18 @@ categories: gerrit jenkins
 comments: true
 ---
 
-# 1. Gerrit Basic
+**Table of Content**
+
+- [1. Gerrit Basic](#1-gerrit-basic)
+  * [1.2 Gerrit usage command](#12-gerrit-usage-command)
+- [2. Jenkins Basic](#2-jenkins-basic)
+- [90. FAQ](#90-faq)
+  * [90.1 Fixing Jenkins CLI 'ERROR: anonymous is missing the Overall/Read permission'](#901-fixing-jenkins-cli--error--anonymous-is-missing-the-overall-read-permission-)
+- [99. Reference URL](#99-reference-url)
+
+
+
+# 1. Gerrit Basic Usage
 
 ## 1.2 Gerrit usage command
 
@@ -18,11 +29,7 @@ You must restart the Gerrit service for your authentication type and listen URL 
 $GERRIT_SITE/bin/gerrit.sh restart
 ```
 
-
-
-# 2. Jenkins Basic
-
-
+# 2. Jenkins Basic Usage
 
 
 
@@ -54,16 +61,15 @@ java -jar /opt/jenkins-cli.jar -s "http://localhost:8080" -auth username:passwor
 
 The docs do state you should use your Jenkins user token if possible, but it's much harder to automate the user setup and token retrieval, than to use a username and password setup by automated build scripts.
 
-
-
 Ref: https://www.jeffgeerling.com/blog/2018/fixing-jenkins-cli-error-anonymous-missing-overallread-permission
-
-
 
 # 99. Reference URL
 
 * 1) [Gerrit: OpenSource and Multi-Site](https://gitenterprise.me/2019/03/02/gerrit-opensource-and-multi-site/)
+
 * 2) [Building an Android CI Pipeline with GitHub Actions - Chicago Roboto 2020](https://speakerdeck.com/n8ebel/building-an-android-ci-pipeline-with-github-actions-chicago-roboto-2020?slide=68)
+
 * 3) [Android Build](https://gitlab.pixelexperience.org/infra/android-ci-jobs/build)
-* 
+
+  
 

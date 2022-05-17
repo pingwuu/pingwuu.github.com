@@ -6,6 +6,14 @@ categories: android imx8
 comments: true
 ---
 
+**Table of Content**
+
+- [1. Demo Images Download & Flash](#1-demo-images-download---flash)
+  * [1.1 Demo image download link](#11-demo-image-download-link)
+  * [1.2 Flash Instruments](#12-flash-instruments)
+- [2. Build android image for imx8qxp mek board](#2-build-android-image-for-imx8qxp-mek-board)
+- [99. Reference URL](#99-reference-url)
+
 # 1. Demo Images Download & Flash
 
 ## 1.1 Demo image download link
@@ -40,8 +48,6 @@ Table 12. Options for uuu_imx_android_flash tool
 > .\uuu_imx_android_flash.bat -f imx8qxp -a -c 7 -u trusty -e -t emmc
 ```
 
-
-
 //for B0 MEK
 
 ```
@@ -56,15 +62,11 @@ Table 12. Options for uuu_imx_android_flash tool
 
 
 
-
-
-//for cd569
+//for c0 cd569 Board
 
 ```
 > .\uuu_imx_android_flash.bat -f imx8qxp -a -u c0 -e -t emmc
 ```
-
-
 
 # 2. Build android image for imx8qxp mek board
 
@@ -111,9 +113,7 @@ $ make bootimage -j4
 $ ./imx-make.sh dtboimage -j4
 ```
 
-
-
-//for cd569
+//for c0 cd569 Board
 
 ```
 $ export AARCH64_GCC_CROSS_COMPILE=/home/vmuser/projects/android/gcc-arm-8.3-2019.03-x86_64-aarch64-linux-gnu/bin/aarch64-linux-gnu-
@@ -136,8 +136,6 @@ $ make bootimage -j4
 //dtboimage
 $ ./imx-make.sh dtboimage -j32 2>&1 | tee build-dtboimage-log-mek.txt
 ```
-
-
 
 
 
@@ -315,15 +313,9 @@ make[1]: Leaving directory '/home/vmuser/projects/android/nxp-imx-android-10.0.0
 /home/vmuser/projects/android/nxp-imx-android-10.0.0_2.6.0/android_build/device/fsl/common/build/kernel.mk:159: recipe for target '/home/vmus                       er/projects/android/nxp-imx-android-10.0.0_2.6.0/android_build/out/target/product/cd569_8q/obj/KERNEL_OBJ/arch/arm64/boot/Image' failed
 make: *** [/home/vmuser/projects/android/nxp-imx-android-10.0.0_2.6.0/android_build/out/target/product/cd569_8q/obj/KERNEL_OBJ/arch/arm64/boo                       t/Image] Error 2
 make: Leaving directory '/home/vmuser/projects/android/nxp-imx-android-10.0.0_2.6.0/android_build'
-
 ```
-
-
-
-
 
 # 99. Reference URL
 
-* 1) a
-* 
+
 

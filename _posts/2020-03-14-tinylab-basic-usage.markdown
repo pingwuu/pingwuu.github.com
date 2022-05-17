@@ -6,6 +6,17 @@ categories: tinylab qemu linux u-boot
 comments: true
 ---
 
+**Table of Content**
+
+- [1. Ubuntu Install](#1-ubuntu-install)
+- [2. Docker Install](#2-docker-install)
+      - [INSTALL DOCKER ENGINE - COMMUNITY](#install-docker-engine---community)
+- [3. Tinylab setup & run](#3-tinylab-setup---run)
+- [4. Add a new board to linux-lab](#4-add-a-new-board-to-linux-lab)
+- [99. Reference URL](#99-reference-url)
+
+
+
 # 1. Ubuntu Install
 
 * Ubuntu Version:  Ubuntu 18.04.04 Desktop
@@ -35,8 +46,6 @@ $ sudo apt-get install \
 ```
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
-
-
 
 Aliyun Mirrors Setting if your network speed is slow to access https://download.docker.com/ site:
 
@@ -98,8 +107,6 @@ $ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 ```
-
-
 
 #### INSTALL DOCKER ENGINE - COMMUNITY
 
@@ -185,8 +192,6 @@ $ tools/docker/run
 $ tools/docker/vnc
 ```
 
-
-
 # 4. Add a new board to linux-lab
 
 Using arm/mcimx6ul-evk as example to describle.
@@ -223,6 +228,8 @@ make: *** [/labs/linux-lab/output/arm/qemu-v4.2.0-mcimx6ul-evk/.stamp_qemu-defco
 # 99. Reference URL
 
 * 1) [Docker CE 镜像源站](https://yq.aliyun.com/articles/110806?spm=5176.8351553.0.0.5b2f1991iQZMic)
+
 * 2) [Docker 教程](https://www.runoob.com/docker/docker-tutorial.html)
-* 
+
+  
 
