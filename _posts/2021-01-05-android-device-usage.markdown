@@ -6,7 +6,46 @@ categories: linux android hack pixel3 adb fastboot
 comments: true
 ---
 
-[TOC]
+**Table of Content**
+
+- [1. Android tool install and usage](#1-android-tool-install-and-usage)
+  * [1.1 Download and install SDK Platform Tools](#11-download-and-install-sdk-platform-tools)
+- [2. Flash and Build Android for Pixel 3](#2-flash-and-build-android-for-pixel-3)
+  * [2.1 Flash Factory Image](#21-flash-factory-image)
+  * [2.2 Build from AOSP source for Android 11 of Pixel 3](#22-build-from-aosp-source-for-android-11-of-pixel-3)
+- [3. Google Pixel 3 Hack](#3-google-pixel-3-hack)
+  * [3.1 How to Enable USB Debugging on the Google Pixel 3](#31-how-to-enable-usb-debugging-on-the-google-pixel-3)
+  * [3.2 unlock/re-lock bootloader](#32-unlock-re-lock-bootloader)
+    + [Unlocking the bootloader](#unlocking-the-bootloader)
+    + [Unlocking recent devices](#unlocking-recent-devices)
+    + [Re-locking the bootloader](#re-locking-the-bootloader)
+  * [3.3 Enable Pixel 3 Uart](#33-enable-pixel-3-uart)
+- [4. Always-Updated List of Google Pixel Codenames](#4-always-updated-list-of-google-pixel-codenames)
+    + [2013 Devices](#2013-devices)
+    + [2015 Devices](#2015-devices)
+    + [2016 Devices](#2016-devices)
+    + [2017 Devices](#2017-devices)
+    + [2018 Devices](#2018-devices)
+    + [2019 Devices](#2019-devices)
+    + [2020 Devices](#2020-devices)
+- [10. Flash and Build Android for Pixel 4XL](#10-flash-and-build-android-for-pixel-4xl)
+  * [10.1 Flash Factory Image](#101-flash-factory-image)
+    + [Download factory image for pixel 4XL of android 11](#download-factory-image-for-pixel-4xl-of-android-11)
+    + [Pixel 4 XL binaries for Android 11.0.0 (RQ3A.211001.001)](#pixel-4-xl-binaries-for-android-1100--rq3a211001001-)
+    + [Flash all image](#flash-all-image)
+  * [10.2 Flash OTA](#102-flash-ota)
+  * [10.3 Build AOSP 11 for PIXEL 4XL](#103-build-aosp-11-for-pixel-4xl)
+    + [10.3.1 Source Code Download](#1031-source-code-download)
+    + [10.3.2 Build](#1032-build)
+    + [10.3.3 Flash image](#1033-flash-image)
+    + [10.3.4 boot using boot.img](#1034-boot-using-bootimg)
+  * [10.4 Build Kernel](#104-build-kernel)
+    + [10.4.1 Download sources and build tools](#1041-download-sources-and-build-tools)
+- [90. FAQ](#90-faq)
+  * [90.1 Android ADB devices unauthorized](#901-android-adb-devices-unauthorized)
+- [99. Reference Link](#99-reference-link)
+
+
 
 # 1. Android tool install and usage
 
@@ -829,7 +868,7 @@ Ref: [Android ADB devices unauthorized](https://stackoverflow.com/questions/3163
 
 
 
-# 99. Reference URL
+# 99. Reference Link
 
 * 1) [Google Pixel UART kernel debug cable](https://duasynt.com/blog/google-pixel-uart-serial-cable)
 * 2) [android-debug-cable-howto](https://github.com/Peter-Easton/android-debug-cable-howto)
