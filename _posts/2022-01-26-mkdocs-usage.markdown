@@ -1,10 +1,32 @@
 ---
 layout: post
 title:  "MKDocs Usage"
-date:   2022-01-26 13:00:00 +0800
+date:   2021-06-03 13:00:00 +0800
 categories: mkdocs markdown
 comments: true
 ---
+
+**Table of Contents**
+- [1. Install](#1-install)
+  * [Installation](#installation)
+  * [Creating a new project](#creating-a-new-project)
+  * [Adding pages](#adding-pages)
+  * [Theming our documentation](#theming-our-documentation)
+  * [Changing the Favicon Icon](#changing-the-favicon-icon)
+  * [Building the site](#building-the-site)
+  * [Other Commands and Options](#other-commands-and-options)
+  * [Deploying](#deploying)
+  * [Getting help](#getting-help)
+- [2. Deploying your docs](#2-deploying-your-docs)
+  * [GitHub Pages](#github-pages)
+    + [Project Pages](#project-pages)
+    + [Organization and User Pages](#organization-and-user-pages)
+    + [Custom Domains](#custom-domains)
+  * [Read the Docs](#read-the-docs)
+  * [Other Providers](#other-providers)
+  * [Local Files](#local-files)
+  * [404 Pages](#404-pages)
+- [99. Reference URL](#99-reference-url)
 
 # 1. Install
 

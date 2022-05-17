@@ -21,7 +21,7 @@ comments: true
 
 
 
-# 90 FAQ
+# 90. FAQ
 
 
 
@@ -42,4 +42,3 @@ comments: true
 * 13) [尝试从零构建F1C100s开发环境](https://whycan.com/t_3138.html)
 * 13) [分享一份自己的F1c100s的Buildroot编译配置](https://whycan.com/t_4214.html)
 * 14) [jim-kirisame](https://github.com/jim-kirisame)/**[buildroot_configs](https://github.com/jim-kirisame/buildroot_configs)**
-
