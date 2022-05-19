@@ -671,6 +671,19 @@ $ git am --resolved                               #当git am失败，解决完�
 $ repo branches
 ```
 
+```
+//Create tag for each repo
+repo forall -c "git tag v01.01.01"
+
+//push tag to remote repo
+repo forall -c "git push origin v01.01.01"
+
+//delete remote master branch
+repo forall -c "git push origin :master"
+```
+
+
+
 ## 11.2 Use repo on Windows to download android source
 
 [https://lynxbee.com/use-repo-on-windows-to-download-android-source/#.YnM-LOjP1PZ](https://lynxbee.com/use-repo-on-windows-to-download-android-source/#.YnM-LOjP1PZ)
