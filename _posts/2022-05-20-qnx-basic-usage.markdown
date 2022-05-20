@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "QNX Basic Usage"
-date:   2020-12-11 09:30:00 +0800
+date:   2022-05-20 18:00:00 +0800
 categories: network libcap
 comments: true
 ---
@@ -32,21 +32,37 @@ b033f692
 
 Here's what each part means:
 
-- `S/C/F=11/1/11`
+`S/C/F=11/1/11`
 
-  Signal, code, and fault codes; see these files:signal: `/usr/include/signal.h`code: `/usr/include/sys/siginfo.h`fault: `/usr/include/sys/fault.h`To find out what happened, search `signal.h` for the signal code. This tells you the name of the signal. Then, look in `siginfo.h` for the signal name. In this example, code 11 in `signal.h` is a SIGSEGV; in `siginfo.h`, code 1 in the SIGSEGV section is:`SEGV_MAPERR 1  // Address not mapped  `
+​	Signal, code, and fault codes; see these files:
 
-- `C/D`
+* signal: `/usr/include/signal.h`
 
-  Location of the kernel's code and data.
+* code: `/usr/include/sys/siginfo.h`
 
-- `state`
+* fault: `/usr/include/sys/fault.h`
 
-  The state of the kernel:`now` — in the kernel`lock` — nonpreemptible`exit` — leaving kernel`specret` — special return processingany number — the interrupt nesting level.
+To find out what happened, search `signal.h` for the signal code. This tells you the name of the signal. Then, look in `siginfo.h` for the signal name. In this example, code 11 in `signal.h` is a SIGSEGV; in `siginfo.h`, code 1 in the SIGSEGV section is:
 
-- `[`*x*`]PID-TID=`*y*`-`*z*
+​	`SEGV_MAPERR 1  // Address not mapped  ``
 
-  The process ID and thread ID. On CPU *x* (think SMP), process *y* was running thread *z* when the crash occurred.
+`C/D`
+
+​	Location of the kernel's code and data.
+
+`state`
+
+​	The state of the kernel:
+
+* `now` — in the kernel
+* `lock` — nonpreemptible
+* `exit` — leaving kernel
+* `specret` — special return processing
+* any number — the interrupt nesting level.
+
+`[`*x*`]PID-TID=`*y*`-`*z*
+
+​	The process ID and thread ID. On CPU *x* (think SMP), process *y* was running thread *z* when the crash occurred.
 
 - `P/T FL`
 
@@ -56,23 +72,21 @@ Here's what each part means:
 
   On CPU *x*, the address space for process *y* was active. This line appears only when the process is different from the one in the `PID-TID` line.
 
-- `PF`
+`PF`
 
-  The process flags for the `ASPACE PID`. In the sample above, `devb-eide` wasn't running, but its address space was active.
+  	The process flags for the `ASPACE PID`. In the sample above, `devb-eide` wasn't running, but its address space was active.
 
-- `context`
+`context`
 
-  The register set. You can find the list of registers in `/usr/nto/include/`*cpu*`/context.h`, where *cpu* is the appropriate CPU-specific directory.
+​	The register set. You can find the list of registers in `/usr/nto/include/`*cpu*`/context.h`, where *cpu* is the appropriate CPU-specific directory.
 
-- `instruction`
+`instruction`
 
-  The instruction on which the error occurred.
+​	The instruction on which the error occurred.
 
-- `stack`
+`stack`
 
-  The contents of the stack.
-
-
+​	The contents of the stack.
 
 
 
