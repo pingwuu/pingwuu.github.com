@@ -2,11 +2,12 @@
 layout: post
 title:  "QNX Basic Usage"
 date:   2022-05-20 18:00:00 +0800
-categories: network libcap
+categories: qnx
 comments: true
 ---
 
 **Table of Content**
+
 - [1. Reading a Kernel Dump](#1-reading-a-kernel-dump)
 - [99. Reference URL](#99-reference-url)
 
