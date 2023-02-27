@@ -7,23 +7,23 @@ comments: true
 ---
 
 # 1. tools and shrinking on guest
-* Tools needed on guest
+* tools needed on guest
 ```
 $ sudo apt install open-vm-tools
 ```
 
-* Shrinking vmdk on guest
+* shrinking vmdk on guest
 ```
 $ vmware-toolbox-cmd disk shrink /
 ```
 
 # 2. shrinking on host
-*Defrag
+* defrag
 ```
 vmware-vdiskmanager.exe -d /path/to/shrink.vmdk
 ```
 
-* Final Shrink
+* final Shrink
 ```
 vmware-vdiskmanager.exe -k /path/to/shrink.vmdk
 ```
