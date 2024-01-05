@@ -17,7 +17,52 @@ comments: true
 
 # 2. F1C200S - MangoPi-R3
 
+# 3. walnutpi
 
+## 3.1 build image
+
+update host package
+```
+$ sudo apt-get install swig
+
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository ppa:deadsnakes/ppa
+$ sudo apt install python3.8
+$ sudo apt-get install python3.8-dev python3-setuptools
+```
+
+switch python3 to python3.8
+```
+$ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 36
+$ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 38
+$ sudo update-alternatives --config python3
+```
+
+### 3.1.1 build uboot
+```
+$ git clone https://github.com/ARM-software/arm-trusted-firmware.git
+$ git clone https://github.com/walnutpi/uboot.git
+$ export PATH=/usr/local/linaro-aarch64-2020.09-gcc10.2-linux5.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+$ export CROSS_COMPILE=aarch64-linux-gnu-
+
+$ cd arm-trusted-firmware
+$ make PLAT=sun50i_h616  DEBUG=1 bl31
+
+$ cd ../uboot/
+
+$ make walnutpi_1b_defconfig
+
+$ make orangepi_zero2_defconfig
+$ make orangepi_zero3_defconfig
+
+$ make BL31=../arm-trusted-firmware/build/sun50i_h616/debug/bl31.bin
+```
+
+### 3.1.2 flash u-boot-sunxi-with-spl.bin to sdcard offset 8K position
+```
+$ sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdX bs=1k seek=8
+```
 
 # 90. FAQ
 
